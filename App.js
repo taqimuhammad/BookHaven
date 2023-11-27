@@ -5,7 +5,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Book Haven</Text>
-      <StatusBar style="auto" />
+      <StatusBar style={styles.statuscheck} />
     </View>
   );
 }
@@ -17,4 +17,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  statuscheck:{
+    backgroundColor:'black',
+  }
 });
