@@ -1,10 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native';
-import TextInputBar from './components/TextInputBar';
+import * as React from "react";
+import {View,Text,StyleSheet} from "react-native";
+import SignUp from "./screens/SignUp";
+import Login from "./screens/Login";
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <Text>App</Text>
+      <SignUp/>      
     </View>
   );
 }
