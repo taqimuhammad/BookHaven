@@ -7,7 +7,6 @@ const Login = () => {
 
     return (
         <View style={styles.container}>
-            
             <TextInput
                 style={styles.input}
                 value={email}
