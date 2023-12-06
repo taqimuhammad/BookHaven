@@ -1,35 +1,39 @@
 import * as React from "react";
-import {View,KeyboardAvoidingView,Platform,TextInput,StyleSheet} from "react-native";
+import {ScrollView,KeyboardAvoidingView,Platform,TextInput,StyleSheet} from "react-native";
 
 const Login = () => {
     const [email, onChangeEmail] = React.useState('');
     const [password, onChangePassword] = React.useState('');
 
     return (
-        <View style={styles.container}>
-            <TextInput
-                style={styles.input}
-                value={email}
-                onChangeText={onChangeEmail}
-                placeholder="Enter your email"
-                placeholderTextColor={'black'}
-                keyboardType="email-address"
-            />
-            <TextInput
-                style={styles.input}
-                value={password}
-                onChangeText={onChangePassword}
-                placeholder="Enter password"
-                placeholderTextColor={'black'}
-                secureTextEntry={true}
-            />
-        </View>
+        <KeyboardAvoidingView 
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.container}> 
+            <ScrollView keyboardDismissMode="on-drag">
+                <TextInput
+                    style={styles.input}
+                    value={email}
+                    onChangeText={onChangeEmail}
+                    placeholder="Enter your email"
+                    placeholderTextColor={'black'}
+                    keyboardType="email-address"
+                />
+                <TextInput
+                    style={styles.input}
+                    value={password}
+                    onChangeText={onChangePassword}
+                    placeholder="Enter password"
+                    placeholderTextColor={'black'}
+                    secureTextEntry={true}
+                />
+            </ScrollView>
+        </KeyboardAvoidingView>
     );
 }
 
 const styles = StyleSheet.create({
     container:{
-        flex:0.3,
+        flex:0.2,
         alignSelf:'center',
     },
     heading:{

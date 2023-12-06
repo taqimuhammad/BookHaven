@@ -1,12 +1,16 @@
 import * as React from "react";
-import {View,Text,StyleSheet} from "react-native";
+import {ScrollView,View,StyleSheet} from "react-native";
 import SignUp from "./screens/SignUp";
 import Login from "./screens/Login";
+import UserDetail from "./screens/UserDetail";
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <SignUp/>      
+        
+        <UserDetail />
+        
+  
     </View>
   );
 }

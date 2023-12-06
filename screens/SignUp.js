@@ -1,5 +1,5 @@
 import * as React from "react";
-import {View,Text,TextInput,StyleSheet} from "react-native";
+import {ScrollView,Text,TextInput,KeyboardAvoidingView,Platform,StyleSheet} from "react-native";
 
 const SignUp = () => {
     const [fullName, onChangeFullName] = React.useState('');
@@ -9,49 +9,55 @@ const SignUp = () => {
     const [RePassword, onChangeReEnterPassword] = React.useState('');
 
     return (
-        <View style={styles.container}> 
-            <Text style={styles.heading}>Let's Get Started !</Text>
-            <TextInput
-                style={styles.input}
-                value={fullName}
-                onChangeText={onChangeFullName}
-                placeholder="Enter your full name"
-                placeholderTextColor={'black'}
-                keyboardType="default"
-            />
-            <TextInput
-                style={styles.input}
-                value={email}
-                onChangeText={onChangeEmail}
-                placeholder="Enter your email"
-                placeholderTextColor={'black'}
-                keyboardType="email-address"
-            />
-            <TextInput
-                style={styles.input}
-                value={number}
-                onChangeText={onChangeNumber}
-                placeholder="Enter number"
-                placeholderTextColor={'black'}
-                keyboardType="numeric"
-            />
-            <TextInput
-                style={styles.input}
-                value={password}
-                onChangeText={onChangePassword}
-                placeholder="Enter password"
-                placeholderTextColor={'black'}
-                secureTextEntry={true}
-            />
-            <TextInput
-                style={styles.input}
-                value={RePassword}
-                onChangeText={onChangeReEnterPassword}
-                placeholder="Re enter password"
-                placeholderTextColor={'black'}
-                secureTextEntry={true}
-            />
-        </View>
+        <KeyboardAvoidingView 
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.container} > 
+
+            <ScrollView keyboardDismissMode="on-drag"> 
+                <Text style={styles.heading}>Let's Get Started !</Text>        
+                <TextInput
+                    style={styles.input}
+                    value={fullName}
+                    onChangeText={onChangeFullName}
+                    placeholder="Enter your full name"
+                    placeholderTextColor={'black'}
+                    keyboardType="default"
+                />
+                <TextInput
+                    style={styles.input}
+                    value={email}
+                    onChangeText={onChangeEmail}
+                    placeholder="Enter your email"
+                    placeholderTextColor={'black'}
+                    keyboardType="email-address"
+                />
+                <TextInput
+                    style={styles.input}
+                    value={number}
+                    onChangeText={onChangeNumber}
+                    placeholder="Enter number"
+                    placeholderTextColor={'black'}
+                    keyboardType="numeric"
+                />
+                <TextInput
+                    style={styles.input}
+                    value={password}
+                    onChangeText={onChangePassword}
+                    placeholder="Enter password"
+                    placeholderTextColor={'black'}
+                    secureTextEntry={true}
+                />
+                <TextInput
+                    style={styles.input}
+                    value={RePassword}
+                    onChangeText={onChangeReEnterPassword}
+                    placeholder="Re enter password"
+                    placeholderTextColor={'black'}
+                    secureTextEntry={true}
+                />
+            </ScrollView>
+
+        </KeyboardAvoidingView>
     );
 }
 
