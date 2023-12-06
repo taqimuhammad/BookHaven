@@ -57,11 +57,12 @@ const SignUp = () => {
 
 const styles = StyleSheet.create({
     container:{
-        flex:0.85,
+        flex:1,
         alignSelf:'center',
     },
     heading:{
         fontSize:30,
+        paddingTop:50,
         margin:10,
         paddingBottom:5,
         fontWeight:'bold',

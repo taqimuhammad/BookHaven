@@ -1,5 +1,5 @@
 import * as React from "react";
-import {View,Text,TextInput,StyleSheet} from "react-native";
+import {View,KeyboardAvoidingView,Platform,TextInput,StyleSheet} from "react-native";
 
 const Login = () => {
     const [email, onChangeEmail] = React.useState('');
