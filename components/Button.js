@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {TouchableOpacity,StyleSheet, Text, View } from 'react-native';
+import {TouchableOpacity,StyleSheet, Text, View} from 'react-native';
 
 const Button = ({ title }) => {
   return (

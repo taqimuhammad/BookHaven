@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text,TextInput ,ScrollView,KeyboardAvoidingView } from 'react-native'
+import {TouchableOpacity,StyleSheet,Text,TextInput,ScrollView,KeyboardAvoidingView} from 'react-native'
 
 const UserDetail = () => {
     const [cnic, onChangeCnic] = React.useState('');
@@ -28,17 +28,7 @@ const UserDetail = () => {
                     placeholderTextColor={'black'}
                     keyboardType="default"
                 />
-                <TextInput
-                    style={styles.input}
-                    value={address}
-                    onChangeText={onChangeAddress}
-                    placeholder="Enter your Address"
-                    placeholderTextColor={'black'}
-                    keyboardType="default"
-                />
-
             </ScrollView>
-
          </KeyboardAvoidingView>
   );
 }
