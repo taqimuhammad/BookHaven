@@ -1,5 +1,6 @@
 import * as React from "react";
-import {ScrollView,Text,TextInput,KeyboardAvoidingView,Platform,StyleSheet} from "react-native";
+import {View,ScrollView,Text,TextInput,KeyboardAvoidingView,Platform,StyleSheet} from "react-native";
+import Button from "../components/Button";
 
 const SignUp = () => {
     const [fullName, onChangeFullName] = React.useState('');
@@ -29,7 +30,8 @@ const SignUp = () => {
                     onChangeText={onChangeEmail}
                     placeholder="Enter your email"
                     placeholderTextColor={'black'}
-                    keyboardType="email-address"
+                    keyboardType="default"
+                    //keyboardType="email-address"
                 />
                 <TextInput
                     style={styles.input}
@@ -37,7 +39,8 @@ const SignUp = () => {
                     onChangeText={onChangeNumber}
                     placeholder="Enter number"
                     placeholderTextColor={'black'}
-                    keyboardType="numeric"
+                    keyboardType="default"
+                    //keyboardType="numeric"
                 />
                 <TextInput
                     style={styles.input}
@@ -45,7 +48,8 @@ const SignUp = () => {
                     onChangeText={onChangePassword}
                     placeholder="Enter password"
                     placeholderTextColor={'black'}
-                    secureTextEntry={true}
+                    keyboardType="default"
+                    //secureTextEntry={true}
                 />
                 <TextInput
                     style={styles.input}
@@ -53,10 +57,13 @@ const SignUp = () => {
                     onChangeText={onChangeReEnterPassword}
                     placeholder="Re enter password"
                     placeholderTextColor={'black'}
-                    secureTextEntry={true}
+                    keyboardType="default"
+                    //secureTextEntry={true}
                 />
             </ScrollView>
-
+            <View style={styles.button}>
+                <Button title = "Sign Up"/>
+            </View>
         </KeyboardAvoidingView>
     );
 }
@@ -79,6 +86,12 @@ const styles = StyleSheet.create({
         width:300,
         margin: 10,
         borderBottomWidth:1,
+    },
+    button:{
+        flex:1,
+        alignSelf:'center',
+        position:'absolute',
+        bottom:130,
     }
   });
 

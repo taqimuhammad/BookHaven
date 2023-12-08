@@ -1,5 +1,6 @@
 import * as React from "react";
-import {ScrollView,KeyboardAvoidingView,Platform,TextInput,StyleSheet} from "react-native";
+import {View,ScrollView,KeyboardAvoidingView,Platform,TextInput,StyleSheet, TextInputComponent} from "react-native";
+import Button from "../components/Button";
 
 const Login = () => {
     const [email, onChangeEmail] = React.useState('');
@@ -27,6 +28,9 @@ const Login = () => {
                     secureTextEntry={true}
                 />
             </ScrollView>
+            <View style={styles.button}>
+                <Button title = "Log In"/>
+            </View>
         </KeyboardAvoidingView>
     );
 }
@@ -48,6 +52,11 @@ const styles = StyleSheet.create({
         width:300,
         margin: 10,
         borderBottomWidth:1,
+    },
+    button:{
+        alignSelf:'center',
+        position:'absolute',
+        bottom:-100,
     }
   });
 
