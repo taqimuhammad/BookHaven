@@ -29,7 +29,7 @@ const Login = () => {
                 />
             </ScrollView>
             <View style={styles.button}>
-                <Button title = "Log In"/>
+                <Button title = "LOG IN"/>
             </View>
         </KeyboardAvoidingView>
     );

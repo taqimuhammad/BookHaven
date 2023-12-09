@@ -4,11 +4,12 @@ import SignUp from "./screens/SignUp";
 import Login from "./screens/Login";
 import UserDetail from "./screens/UserDetail";
 import Button from "./components/Button";
+import AddBook from "./screens/AddBook";
 
 const App = () => {
   return (
     <View style={styles.container}>
-        <Login />
+        <AddBook />
     </View>
   );
 }

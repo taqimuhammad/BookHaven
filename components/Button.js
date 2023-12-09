@@ -23,14 +23,14 @@ const styles = StyleSheet.create({
       justifyContent:'center',
       fontSize:30,
       backgroundColor:'#404B7C',
-      height:50,
-      width:180,
+      height:48,
+      width:248,
       borderRadius:25,
     },
     text:{
-      fontSize:23,
+      fontSize:22,
       color:'white',
-      fontWeight:'bold',
+      fontWeight:'500',
     }
 });
 

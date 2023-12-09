@@ -30,8 +30,7 @@ const SignUp = () => {
                     onChangeText={onChangeEmail}
                     placeholder="Enter your email"
                     placeholderTextColor={'black'}
-                    keyboardType="default"
-                    //keyboardType="email-address"
+                    keyboardType="email-address"
                 />
                 <TextInput
                     style={styles.input}
@@ -39,8 +38,7 @@ const SignUp = () => {
                     onChangeText={onChangeNumber}
                     placeholder="Enter number"
                     placeholderTextColor={'black'}
-                    keyboardType="default"
-                    //keyboardType="numeric"
+                    keyboardType="numeric"
                 />
                 <TextInput
                     style={styles.input}
@@ -48,8 +46,7 @@ const SignUp = () => {
                     onChangeText={onChangePassword}
                     placeholder="Enter password"
                     placeholderTextColor={'black'}
-                    keyboardType="default"
-                    //secureTextEntry={true}
+                    secureTextEntry={true}
                 />
                 <TextInput
                     style={styles.input}
@@ -57,12 +54,11 @@ const SignUp = () => {
                     onChangeText={onChangeReEnterPassword}
                     placeholder="Re enter password"
                     placeholderTextColor={'black'}
-                    keyboardType="default"
-                    //secureTextEntry={true}
+                    secureTextEntry={true}
                 />
             </ScrollView>
             <View style={styles.button}>
-                <Button title = "Sign Up"/>
+                <Button title = "SIGN UP"/>
             </View>
         </KeyboardAvoidingView>
     );
@@ -91,7 +87,7 @@ const styles = StyleSheet.create({
         flex:1,
         alignSelf:'center',
         position:'absolute',
-        bottom:130,
+        bottom:190,
     }
   });
 
