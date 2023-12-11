@@ -1,6 +1,8 @@
 import * as React from "react";
 import {View,ScrollView,Text,TextInput,KeyboardAvoidingView,Platform,StyleSheet} from "react-native";
 import Button from "../components/Button";
+import DropDown from "../components/DropDown";
+import DropDownTwo from "../components/DropDownTwo";
 
 const AddBook = () => {
 
@@ -13,7 +15,7 @@ const AddBook = () => {
       style={styles.container} > 
 
           <ScrollView keyboardDismissMode="on-drag"> 
-              <Text style={styles.heading}>Let's Get Started !</Text>        
+              <Text style={styles.heading}>Add Book</Text>        
               <TextInput
                   style={styles.input}
                   value={bookTitle}
@@ -30,9 +32,11 @@ const AddBook = () => {
                   placeholderTextColor={'black'}
                   keyboardType="email-address"
               />
-              <Text>Select Status</Text>
-              <Text>Select Type</Text>
-              <Text>Add Book Image Box</Text>
+              <DropDown />
+              <DropDownTwo />
+              <View style={styles.box}>
+
+              </View>
           </ScrollView>
           <View style={styles.button}>
               <Button title = "Add"/>
@@ -64,7 +68,18 @@ const styles = StyleSheet.create({
       flex:1,
       alignSelf:'center',
       position:'absolute',
-      bottom:190,
+      bottom:50,
+  },
+  box:{
+    marginTop:20,
+    height:200,
+    width:280,
+    borderRadius:10,
+    borderWidth:1,
+    borderColor:10,
+    alignContent:'center',
+    alignSelf:'center',
+    backgroundColor:'#F3EFFF',
   }
 });
 
