@@ -1,10 +1,12 @@
 import { StyleSheet, Text, View, ScrollView, TextInput } from 'react-native';
-import React from 'react';
+import * as  React from 'react';
+import Card from '../components/Card';
 
 const Library = () => {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.heading}>My Library</Text>
+      <Card />
 
     </ScrollView>
   );
