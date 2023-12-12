@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     },
     dropdown:{
       width:300,
-      height:50,
+      height:45,
       borderRadius:10,
       borderWidth:1,
       alignSelf:'center',

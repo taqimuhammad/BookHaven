@@ -3,10 +3,11 @@ import * as React from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 
 const status =[
-    {start: 'Buy', code: 'B'},
-    {start: 'Sell', code: 'S'},
+    {start: 'Borrow', code: 'B'},
+    {start: 'For Sale', code: 'S'},
     {start: 'Exchange', code: 'E'},
     {start: 'Donate', code: 'D'},
+    {start: 'For Rent', code: 'R'},
 ];
 
 const DropDownTwo = () => {
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
     },
     dropdown:{
       width:300,
-      height:50,
+      height:45,
       borderRadius:10,
       borderWidth:1,
       alignSelf:'center',

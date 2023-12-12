@@ -1,5 +1,5 @@
 import * as React from "react";
-import {View,ScrollView,KeyboardAvoidingView,Platform,TextInput,StyleSheet, TextInputComponent} from "react-native";
+import { View, ScrollView, KeyboardAvoidingView, Platform, TextInput, StyleSheet, TextInputComponent } from "react-native";
 import Button from "../components/Button";
 
 const Login = () => {
@@ -7,9 +7,9 @@ const Login = () => {
     const [password, onChangePassword] = React.useState('');
 
     return (
-        <KeyboardAvoidingView 
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.container}> 
+        <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            style={styles.container}>
             <ScrollView keyboardDismissMode="on-drag">
                 <TextInput
                     style={styles.input}
@@ -29,35 +29,35 @@ const Login = () => {
                 />
             </ScrollView>
             <View style={styles.button}>
-                <Button title = "LOG IN"/>
+                <Button title="LOG IN" />
             </View>
         </KeyboardAvoidingView>
     );
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex:0.2,
-        alignSelf:'center',
+    container: {
+        flex: 0.2,
+        alignSelf: 'center',
     },
-    heading:{
-        fontSize:30,
-        margin:10,
-        paddingBottom:5,
-        fontWeight:'bold',
+    heading: {
+        fontSize: 30,
+        margin: 10,
+        paddingBottom: 5,
+        fontWeight: 'bold',
     },
     input: {
-        fontSize:20,
-        height:50,
-        width:300,
+        fontSize: 20,
+        height: 50,
+        width: 300,
         margin: 10,
-        borderBottomWidth:1,
+        borderBottomWidth: 1,
     },
-    button:{
-        alignSelf:'center',
-        position:'absolute',
-        bottom:-100,
+    button: {
+        alignSelf: 'center',
+        position: 'absolute',
+        bottom: -100,
     }
-  });
+});
 
 export default Login;
