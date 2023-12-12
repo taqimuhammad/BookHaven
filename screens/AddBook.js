@@ -1,8 +1,9 @@
 import * as React from "react";
-import {View,ScrollView,Text,TextInput,KeyboardAvoidingView,Platform,StyleSheet} from "react-native";
+import {View,TouchableOpacity,Text,TextInput,KeyboardAvoidingView,Platform,StyleSheet} from "react-native";
 import Button from "../components/Button";
 import DropDown from "../components/DropDown";
 import DropDownTwo from "../components/DropDownTwo";
+import { AntDesign } from '@expo/vector-icons';
 
 const AddBook = () => {
 
@@ -14,7 +15,7 @@ const AddBook = () => {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container} > 
 
-          <ScrollView keyboardDismissMode="on-drag"> 
+          <View> 
               <Text style={styles.heading}>Add Book</Text>        
               <TextInput
                   style={styles.input}
@@ -34,10 +35,13 @@ const AddBook = () => {
               />
               <DropDown />
               <DropDownTwo />
-              <View style={styles.box}>
-
-              </View>
-          </ScrollView>
+              <TouchableOpacity>
+                <View style={styles.box}>
+                    <Text style={styles.boxtext}>Add Book Image </Text>
+                    <AntDesign name="plus" size={50} style={styles.plus}/>
+                </View>
+              </TouchableOpacity>
+          </View>
           <View style={styles.button}>
               <Button title = "Add"/>
           </View>
@@ -68,7 +72,7 @@ const styles = StyleSheet.create({
       flex:1,
       alignSelf:'center',
       position:'absolute',
-      bottom:50,
+      bottom:10,
   },
   box:{
     marginTop:20,
@@ -80,6 +84,16 @@ const styles = StyleSheet.create({
     alignContent:'center',
     alignSelf:'center',
     backgroundColor:'#F3EFFF',
+  },
+  boxtext:{
+    fontSize:20,
+    alignSelf:'center',
+    marginTop:10,
+  },
+  plus:{
+    color:'#404B7C',
+    alignSelf:'center',
+    marginTop:50,
   }
 });
 
