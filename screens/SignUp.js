@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         flex:1,
         alignSelf:'center',
         position:'absolute',
-        bottom:190,
+        bottom:140,
     }
   });
 

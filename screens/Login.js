@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, ScrollView, KeyboardAvoidingView, Platform, TextInput, StyleSheet, TextInputComponent } from "react-native";
+import { View, ScrollView, KeyboardAvoidingView, Platform, TextInput, StyleSheet, Text } from "react-native";
 import Button from "../components/Button";
 
 const Login = () => {
