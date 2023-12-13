@@ -7,7 +7,8 @@ const Library = () => {
     <ScrollView style={styles.container}>
       <Text style={styles.heading}>My Library</Text>
       <Card />
-
+      <Card />
+      <Card />
     </ScrollView>
   );
 }
@@ -18,11 +19,12 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   heading: {
-    fontSize: 30,
-    paddingTop: 50,
+    fontSize:30,
+    paddingTop:30,
+    paddingBottom:10,
     margin: 10,
-    paddingBottom: 5,
     fontWeight: 'bold',
+    textAlign:'center',
   },
 });
 
