@@ -1,9 +1,12 @@
 import * as React from 'react';
-import {TouchableOpacity,StyleSheet,Text,TextInput,ScrollView,KeyboardAvoidingView} from 'react-native'
+import {TouchableOpacity,StyleSheet,Text,TextInput,ScrollView,KeyboardAvoidingView} from 'react-native';
+import MultiSelect from '../components/MultiSelect';
+import Button from '../components/Button';
 
 const UserDetail = () => {
     const [cnic, onChangeCnic] = React.useState('');
     const [address, onChangeAddress] = React.useState('');
+    const [bio, onChangeBio] = React.useState('');
 
     return (
         <KeyboardAvoidingView 
@@ -28,6 +31,15 @@ const UserDetail = () => {
                     placeholderTextColor={'black'}
                     keyboardType="default"
                 />
+                <TextInput
+                    style={styles.input}
+                    value={bio}
+                    onChangeText={onChangeBio}
+                    placeholder="Add your bio"
+                    placeholderTextColor={'black'}
+                    keyboardType="default"
+                    multiline={true}
+                />
             </ScrollView>
          </KeyboardAvoidingView>
   );
@@ -51,7 +63,7 @@ const styles = StyleSheet.create({
         width:300,
         margin: 10,
         borderBottomWidth:1,
-    }
-})
+    },
+});
 
 export default UserDetail;
