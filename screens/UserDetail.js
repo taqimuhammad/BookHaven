@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {TouchableOpacity,StyleSheet,Text,TextInput,ScrollView,KeyboardAvoidingView} from 'react-native';
+import {StyleSheet,Text,TextInput,ScrollView,KeyboardAvoidingView} from 'react-native';
 import MultiSelect from '../components/MultiSelect';
 import Button from '../components/Button';
 
@@ -11,7 +11,7 @@ const UserDetail = () => {
     return (
         <KeyboardAvoidingView 
          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-         style={styles.container} > 
+         style={styles.container}> 
 
             <ScrollView keyboardDismissMode="on-drag"> 
                 <Text style={styles.heading}>Enter your Details</Text>        
@@ -42,7 +42,7 @@ const UserDetail = () => {
                 />
             </ScrollView>
             <View style={styles.button}>
-              <Button title = "Add"/>
+              <Button title = "Done"/>
             </View>
          </KeyboardAvoidingView>
   );
