@@ -41,6 +41,9 @@ const UserDetail = () => {
                     multiline={true}
                 />
             </ScrollView>
+            <View style={styles.button}>
+              <Button title = "Add"/>
+            </View>
          </KeyboardAvoidingView>
   );
 }
@@ -64,6 +67,12 @@ const styles = StyleSheet.create({
         margin: 10,
         borderBottomWidth:1,
     },
+    button:{
+        flex:1,
+        alignSelf:'center',
+        position:'absolute',
+        bottom:100,
+    }
 });
 
 export default UserDetail;
