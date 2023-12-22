@@ -4,7 +4,7 @@ import { View, StyleSheet } from "react-native";
 
 const App = () => {
   return (
-    <navigtion />
+    <navigation />
   );
 }
 
