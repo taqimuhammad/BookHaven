@@ -6,7 +6,7 @@ import splash2 from './splash2';
 const splash3 = ({ navigation }) => {
   
   const handleGetStarted = () => {
-    navigation.navigate("signup");
+    navigation.navigate("homescreen");
   };
   
   const handleLogin = () => {
@@ -56,14 +56,14 @@ const styles = StyleSheet.create({
 
   backButtonContainer: {
     alignSelf: 'flex-start',
-    marginTop: 44, // Adjust this value to match your status bar height
+    marginTop: 20, // Adjust this value to match your status bar height
     marginLeft: 16,
   },
  
  
   getStartedContainer: {
     alignItems: 'center',
-    marginBottom: -500, // Adjust this to match the provided screen layout
+    marginBottom: -527, // Adjust this to match the provided screen layout
   },
   
   getStartedButton: {
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#404B7C', // Match the color with your design
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 10, // Space between the "Get started" and "Log in" buttons
+     // Space between the "Get started" and "Log in" buttons
   },
   getStartedButtonText: {
     color: '#FFFFFF',
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
 
   loginContainer: {
     alignItems: 'center',
-    marginBottom: 109,
+    marginBottom: 110,
     marginLeft: 160,
   },
    loginButtonText: {
