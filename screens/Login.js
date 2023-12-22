@@ -2,7 +2,7 @@ import * as React from "react";
 import { View, ScrollView, KeyboardAvoidingView, Platform, TextInput, StyleSheet, Text } from "react-native";
 import Button from "../components/Button";
 
-const Login = () => {
+const Login = ({ navigation }) => {
     const [email, onChangeEmail] = React.useState('');
     const [password, onChangePassword] = React.useState('');
 
@@ -29,7 +29,7 @@ const Login = () => {
                 />
             </ScrollView>
             <View style={styles.button}>
-                <Button title="LOG IN" />
+                <Button title="LOG IN" navigation={navigation} />
             </View>
         </KeyboardAvoidingView>
     );
@@ -37,6 +37,7 @@ const Login = () => {
 
 const styles = StyleSheet.create({
     container: {
+        top:250,
         flex: 0.2,
         alignSelf: 'center',
     },

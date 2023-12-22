@@ -7,7 +7,13 @@ import splash2 from './screens/splash2';
 import splash3 from './screens/splash3';
 import homescreen from './screens/homescreen';
 import notification from './components/notification';
-import { SearchBar } from 'react-native-screens';
+
+import SignUp from './screens/SignUp';
+import Login from './screens/Login';
+import Button from './components/Button';
+import menuscreen from './components/menuscreen';
+
+
 
 const stack=createNativeStackNavigator ()
 
@@ -42,11 +48,24 @@ const navigation = () => {
       name='notification'
       component={notification}
       />
-      
       <stack.Screen
-      name='search'
-      component={SearchBar}
+      name='login'
+      component={Login}
       />
+      <stack.Screen
+      name='signup'
+      component={SignUp}
+      />
+      <stack.Screen
+      name='loginpagebutton'
+      component={Button}
+      />
+      <stack.Screen
+      name='menuscreen'
+      component={menuscreen}
+      />
+      
+     
     </stack.Navigator>
    </NavigationContainer>
     

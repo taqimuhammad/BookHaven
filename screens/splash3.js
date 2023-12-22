@@ -1,12 +1,12 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Text, View, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import splash2 from './splash2';
+
 
 const splash3 = ({ navigation }) => {
   
   const handleGetStarted = () => {
-    navigation.navigate("homescreen");
+    navigation.navigate("signup");
   };
   
   const handleLogin = () => {
