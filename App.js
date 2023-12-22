@@ -1,11 +1,10 @@
-import * as React from "react";
-import { View, StyleSheet } from "react-native";
+import React from 'react';
+import Navigation from "./navigation";
 
-
-const App = () => {
-  return (
-    <navigation />
+export default function App() {
+  return(
+   // <Navigation />
+    
   );
-}
 
-export default App;
+
