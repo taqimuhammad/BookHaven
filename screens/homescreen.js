@@ -3,7 +3,9 @@ import { TouchableOpacity, StatusBar } from 'react-native';
 import { StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import SearchBar from '../components/searchbar';
+
 const HomePage = ({ navigation }) => {
+
   const [searchPhrase, setSearchPhrase] = useState('');
   const [clicked, setClicked] = useState(false);
 
@@ -11,12 +13,14 @@ const HomePage = ({ navigation }) => {
     navigation.navigate("notification");
   };
   
-  const menubar = () => {
-    navigation.navigate("menuscreen")
+  const handlemenubar = () => {
+    navigation.navigate('menuscreen');
+
+
   };
   
   const messagebar = () => {
-    navigation.navigate("msg_sc")
+    navigation.navigate("msg_sc");
   };
 
 
@@ -37,7 +41,7 @@ const HomePage = ({ navigation }) => {
       </View>
       
       <View style={styles.menubarContainer}>
-        <TouchableOpacity onPress={menubar}>
+        <TouchableOpacity onPress={handlemenubar}>
           <Icon name="menu" size={36} color="#404B7C" />
         </TouchableOpacity>
       </View>

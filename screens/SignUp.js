@@ -2,7 +2,7 @@ import * as React from "react";
 import {View,ScrollView,Text,TextInput,KeyboardAvoidingView,Platform,StyleSheet} from "react-native";
 import Button from "../components/Button";
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
     const [fullName, onChangeFullName] = React.useState('');
     const [email, onChangeEmail] = React.useState('');
     const [number, onChangeNumber] = React.useState('');
@@ -12,7 +12,8 @@ const SignUp = () => {
     return (
         <KeyboardAvoidingView 
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.container} > 
+        style={styles.container}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20} > 
 
             <ScrollView keyboardDismissMode="on-drag"> 
                 <Text style={styles.heading}>Let's Get Started !</Text>        
@@ -58,7 +59,7 @@ const SignUp = () => {
                 />
             </ScrollView>
             <View style={styles.button}>
-                <Button title = "SIGN UP"/>
+                <Button title = "SIGN UP" navigation={navigation}/>
             </View>
         </KeyboardAvoidingView>
     );
