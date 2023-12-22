@@ -4,9 +4,7 @@ import { View, StyleSheet } from "react-native";
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Library />
-    </View>
+    <navigtion />
   );
 }
 
