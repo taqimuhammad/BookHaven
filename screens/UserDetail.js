@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {StyleSheet,Text,TextInput,ScrollView,KeyboardAvoidingView} from 'react-native';
-import MultiSelect from '../components/MultiSelect';
+import {View,StyleSheet,Text,TextInput,ScrollView,KeyboardAvoidingView} from 'react-native';
 import Button from '../components/Button';
 
 const UserDetail = () => {
@@ -12,9 +11,8 @@ const UserDetail = () => {
         <KeyboardAvoidingView 
          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
          style={styles.container}> 
-
-            <ScrollView keyboardDismissMode="on-drag"> 
-                <Text style={styles.heading}>Enter your Details</Text>        
+        <ScrollView keyboardDismissMode="on-drag"> 
+            <Text style={styles.heading}>Enter your Details</Text>        
                 <TextInput
                     style={styles.input}
                     value={cnic}
@@ -38,7 +36,6 @@ const UserDetail = () => {
                     placeholder="Add your bio"
                     placeholderTextColor={'black'}
                     keyboardType="default"
-                    multiline={true}
                 />
             </ScrollView>
             <View style={styles.button}>
@@ -71,7 +68,7 @@ const styles = StyleSheet.create({
         flex:1,
         alignSelf:'center',
         position:'absolute',
-        bottom:100,
+        bottom:50,
     }
 });
 
