@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View} from 'react-native-web'; 
+import { StyleSheet, Text, View} from 'react-native'; 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import splash from './screens/splash';
@@ -72,13 +72,4 @@ const navigation = () => {
   );
 };
 
-const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroungColour: '#fff',
-    alignItems: 'centre',
-    justifyContent:'centre',
-
-}, 
-});
  export default navigation;
