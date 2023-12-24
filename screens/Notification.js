@@ -3,17 +3,17 @@ import { View, Text, StyleSheet } from 'react-native';
 import { TouchableOpacity, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const menuscreen = ({ navigation }) =>
+const Notification = ({ navigation }) =>
  {
     const handleBack = () => {
-        navigation.navigate("homescreen");
+        navigation.navigate("Homescreen");
       };
   
 return(
 <View style={styles.container}>
 
       <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content" />
-      <Text style={styles.title}>Menu</Text> 
+      <Text style={styles.title}>Notification</Text> 
 
       <View style={styles.backButtonContainer}>
           <TouchableOpacity onPress={handleBack} >
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
   });
 
 
-export default menuscreen;
+export default Notification;

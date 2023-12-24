@@ -10,11 +10,11 @@ const HomePage = ({ navigation }) => {
   const [clicked, setClicked] = useState(false);
 
   const notificationbar = () => {
-    navigation.navigate("notification");
+    navigation.navigate("Notification");
   };
   
   const handlemenubar = () => {
-    navigation.navigate('menuscreen');
+    navigation.navigate('Menuscreen');
 
 
   };

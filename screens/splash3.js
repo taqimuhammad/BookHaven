@@ -3,7 +3,7 @@ import { TouchableOpacity, StyleSheet, Text, View, ImageBackground } from 'react
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
-const splash3 = ({ navigation }) => {
+const Splash3 = ({ navigation }) => {
   
   const handleGetStarted = () => {
     navigation.navigate("signup");
@@ -94,4 +94,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default splash3;
+export default Splash3;
