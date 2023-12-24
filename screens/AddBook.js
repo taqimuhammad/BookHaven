@@ -16,6 +16,7 @@ const AddBook = () => {
       style={styles.container} > 
 
           <View> 
+            
               <Text style={styles.heading}>Add Book</Text>        
               <TextInput
                   style={styles.input}
