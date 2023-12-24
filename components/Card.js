@@ -24,9 +24,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         width: 350,
-        height: 155,
+        height: 122,
         borderRadius: 10,
-        backgroundColor: '#f3efff',
+        backgroundColor: '#f7f5ff',
         marginBottom: 30,
     },
     image: {
@@ -38,21 +38,21 @@ const styles = StyleSheet.create({
     },
     title: {
         paddingTop: 5,
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: 'bold',
         marginLeft: 10,
     },
     author: {
-        fontSize: 12,
+        fontSize: 13,
         fontWeight: 'bold',
         marginLeft: 12,
     },
     tag:{
-        width:260,
+        width:250,
         flexDirection:'row',
         alignContent:'space-between',
-        marginTop:45,
-        marginLeft:5,
+        marginTop:58,
+        marginLeft:15,
     }    
 });
 
