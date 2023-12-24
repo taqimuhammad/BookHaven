@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     borderRadius:10,
     alignContent:'center',
     alignSelf:'center',
-    backgroundColor:'#f3efff',
+    backgroundColor:'#f7f5ff',
   },
   boxtext:{
     fontSize:20,
