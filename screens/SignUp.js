@@ -10,6 +10,7 @@ const SignUp = ({ navigation }) => {
     const [RePassword, onChangeReEnterPassword] = React.useState('');
 
     return (
+        <View>
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             style={styles.container}
@@ -57,6 +58,7 @@ const SignUp = ({ navigation }) => {
                     secureTextEntry={true}
                 />
             </ScrollView>
+            </KeyboardAvoidingView>
             <View style={styles.button}>
                 <Button title="SIGN UP" navigation={navigation} />
             </View>
@@ -76,7 +78,7 @@ const SignUp = ({ navigation }) => {
                     <Image source={require('../img/gg.png')} style={styles.img2} />
                 </TouchableOpacity>
             </View>
-        </KeyboardAvoidingView>
+        </View>
     );
 }
 
