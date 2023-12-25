@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import * as React from 'react';
 import Tag from './Tag';
 import { Ionicons } from '@expo/vector-icons';
@@ -9,7 +9,9 @@ const Card = ({name,author,img,text,color,text2,color2}) => {
             <Image source={img} style={styles.image} />
             <View>
                 <Text style={styles.title}>{ name }</Text>
-                {/* <Ionicons name="close" size={24} color="red" /> */}
+                <TouchableOpacity style={styles.close}>
+                    <Ionicons name="close" size={24} color="red" />
+                </TouchableOpacity>
                 <Text style={styles.author}>{ author }</Text>
                 <View style={styles.tag}>
                     <Tag text={text} color={color} />
@@ -55,6 +57,11 @@ const styles = StyleSheet.create({
         alignContent:'space-between',
         marginTop:58,
         marginLeft:15,
+    },
+    close:{
+        position:'absolute',
+        flexDirection:'row',
+        marginLeft:242,
     }    
 });
 
