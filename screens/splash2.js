@@ -4,10 +4,10 @@ import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
-const splash2 = ({navigation}) => {
+const Splash2 = ({navigation}) => {
    
   const handlenext = () => {
-    navigation.navigate("splash3")
+    navigation.navigate("Splash3")
   };
 
 
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
  
 });
 
-export default splash2;
+export default Splash2;

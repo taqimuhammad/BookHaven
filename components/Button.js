@@ -5,7 +5,7 @@ const Button = ({ title, navigation}) => {
   
   const handlebutton = () => {
     if (navigation && typeof navigation.navigate === 'function') {
-      navigation.navigate("homescreen");
+      navigation.navigate("Homescreen");
     } else {
       console.error('Navigation prop is not available');
     }

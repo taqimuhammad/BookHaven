@@ -1,23 +1,31 @@
 import React from 'react';
-import { StyleSheet, Text, View} from 'react-native'; 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import splash from './screens/splash';
-import splash2 from './screens/splash2';
-import splash3 from './screens/splash3';
-import homescreen from './screens/homescreen';
-import notification from './components/notification';
+
+import Splash from './screens/Splash';
+import Splash2 from './screens/Splash2';
+import Splash3 from './screens/Splash3';
+import Homescreen from './screens/Homescreen';
+import Notification from './screens/Notification';
 
 import SignUp from './screens/SignUp';
 import Login from './screens/Login';
+
+import Menuscreen from './screens/Menubar';
+import Chat from './screens/Chat';
+import Community from './screens/Community';
+import Settings from './screens/Settings';
+import Signout from './screens/Signout';
+import Wallet from './screens/Wallet';
+import Wishlist from './screens/Wishlist';
 import Button from './components/Button';
-import menuscreen from './components/menuscreen';
+
 
 
 
 const stack=createNativeStackNavigator ()
 
-const navigation = () => {
+const Navigation = () => {
   return (
    <NavigationContainer>
     <stack.Navigator
@@ -25,28 +33,29 @@ const navigation = () => {
           headerShown: false, // This will hide the header for all screens
         }}
         >
-      
+
       <stack.Screen
-      name='splash1'
-      component={splash}
+      name='Splash'
+      component={Splash}
       />
       <stack.Screen
-      name='splash2'
-      component={splash2}
+      name='Splash2'
+      component={Splash2}
       />
        <stack.Screen
-      name='splash3'
-      component={splash3}
+      name='Splash3'
+      component={Splash3}
       />
       
       <stack.Screen
-      name='homescreen'
-      component={homescreen}
+      name='Homescreen'
+      component={Homescreen}
+      
       />
 
       <stack.Screen
-      name='notification'
-      component={notification}
+      name='Notification'
+      component={Notification}
       />
       <stack.Screen
       name='login'
@@ -61,15 +70,47 @@ const navigation = () => {
       component={Button}
       />
       <stack.Screen
-      name='menuscreen'
-      component={menuscreen}
+      name='Menuscreen'
+      component={Menuscreen}
+      />
+
+      <stack.Screen
+      name='Chat'
+      component={Chat}
       />
       
-     
+      <stack.Screen
+      name='Community'
+      component={Community}
+      />
+      
+      <stack.Screen
+      name='Settings'
+      component={Settings}
+      />
+      
+      <stack.Screen
+      name='Signout'
+      component={Signout}
+      />
+      
+      <stack.Screen
+      name='Wallet'
+      component={Wallet}
+      />
+      
+      <stack.Screen
+      name='Wishlist'
+      component={Wishlist}
+      />
+      
+      
     </stack.Navigator>
    </NavigationContainer>
     
   );
 };
 
- export default navigation;
+
+
+ export default Navigation;

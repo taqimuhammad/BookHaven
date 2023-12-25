@@ -1,20 +1,11 @@
 import React from 'react';
-import Navigation from "./navigation";
-import { View, StyleSheet } from 'react-native';
-
+// import Navigation from "./Navigation";
+//import Bottomnav from './components/Bottomnav';
+import Wishlist from './screens/Wishlist';
 export default function App() {
   return(
-    <View style={styles.container}>
-      <Navigation />
-    </View>
+    // <Navigation />
+ // <Bottomnav/>
+ <Wishlist/>
   );
-
 }
-
-const styles = StyleSheet.create({
-  container: {
-     flex:1,
-     alignItems:'center',
-     justifyContent:'center',
-  },
-});  
