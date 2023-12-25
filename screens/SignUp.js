@@ -91,11 +91,9 @@ const styles = StyleSheet.create({
     },
     kbview: {
         flex: 2,
-        backgroundColor: 'pink',
     },
     bottomview: {
         flex: 1,
-        backgroundColor: 'yellow',
     },
     heading: {
         fontSize: 30,
