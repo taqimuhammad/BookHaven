@@ -1,14 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 
-const splash = ({navigation}) => {
+const Splash = ({navigation}) => {
   const handlenext = () => {
-    navigation.navigate("splash2")
+    navigation.navigate("Splash2")
     
   };
 
   const handleskip = () => {
-    navigation.navigate("splash3")
+    navigation.navigate("Splash3")
   };
 
   return (
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
   
 });
 
-export default splash;
+export default Splash;

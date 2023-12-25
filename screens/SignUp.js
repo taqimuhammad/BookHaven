@@ -13,7 +13,7 @@ const SignUp = ({navigation}) => {
         <KeyboardAvoidingView 
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.container}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20} > 
+       > 
 
             <ScrollView keyboardDismissMode="on-drag"> 
                 <Text style={styles.heading}>Let's Get Started !</Text>        
