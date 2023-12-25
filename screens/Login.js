@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
         top:250,
         flex: 0.2,
         alignSelf: 'center',
-        backgroundColor:'pink',
     },
     heading: {
         fontSize: 30,
