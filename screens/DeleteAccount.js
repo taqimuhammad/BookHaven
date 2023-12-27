@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
         borderRadius:20,
         borderWidth:2,
         borderColor:'#F30E0E',
-        marginBottom:50,
       },
       text: {
         alignSelf: 'center',
