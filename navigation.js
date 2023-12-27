@@ -2,10 +2,10 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Splash from './screens/Splash';
-import Splash2 from './screens/Splash2';
-import Splash3 from './screens/Splash3';
-import Homescreen from './screens/Homescreen';
+import Splash from './screens/splash';
+import Splash2 from './screens/splash2';
+import Splash3 from './screens/splash3';
+import Homescreen from './screens/homescreen';
 import Notification from './screens/Notification';
 
 import SignUp from './screens/SignUp';
