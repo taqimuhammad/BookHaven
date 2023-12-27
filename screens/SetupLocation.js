@@ -3,25 +3,25 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Button from '../components/Button';
 
-const Wallet = ({ navigation }) => {
+const SetupLocation = ({ navigation }) => {
   const handleBack = () => {
     navigation.navigate("Homescreen");
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>E- Wallet</Text>
+      <Text style={styles.title}>Location</Text>
       <View style={styles.backButtonContainer}>
         <TouchableOpacity onPress={handleBack} >
           <Icon name="arrow-back" size={34} color="black" />
         </TouchableOpacity>
       </View>
       <View>
-        <Text style={styles.text}>Your E-wallet will appear here</Text>
-        <Image style={styles.image} source={require('../img/wallet.png')} />
-        <Text style={styles.btext}>Setup E-wallet now and make {'\n'} online payments with ease.</Text>
+        <Text style={styles.text}>Your location has not been set</Text>
+        <Image style={styles.image} source={require('../img/location.png')} />
+        <Text style={styles.btext}>Set your location now and find {'\n'}    books available near you!</Text>
         <View style={styles.button}>
-          <Button title="Setup E-Wallet" />
+          <Button title="Set Location" />
         </View>
       </View>
 
@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   text: {
+    color:'grey',
     alignSelf: 'center',
     fontSize: 20,
     marginTop: 50,
@@ -70,4 +71,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Wallet;
+export default SetupLocation;

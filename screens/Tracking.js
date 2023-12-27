@@ -3,26 +3,23 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Button from '../components/Button';
 
-const Wallet = ({ navigation }) => {
+const Tracking = ({ navigation }) => {
   const handleBack = () => {
     navigation.navigate("Homescreen");
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>E- Wallet</Text>
+      <Text style={styles.title}>Tracking</Text>
       <View style={styles.backButtonContainer}>
         <TouchableOpacity onPress={handleBack} >
           <Icon name="arrow-back" size={34} color="black" />
         </TouchableOpacity>
       </View>
       <View>
-        <Text style={styles.text}>Your E-wallet will appear here</Text>
-        <Image style={styles.image} source={require('../img/wallet.png')} />
-        <Text style={styles.btext}>Setup E-wallet now and make {'\n'} online payments with ease.</Text>
-        <View style={styles.button}>
-          <Button title="Setup E-Wallet" />
-        </View>
+        <Text style={styles.text}>You have no orders currently on the way</Text>
+        <Image style={styles.image} source={require('../img/tracking.png')} />
+        <Text style={styles.btext}>Have your orders delivered to {'\n'}            your doorsteps!</Text>
       </View>
 
     </View>
@@ -47,12 +44,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   text: {
+    color:'grey',
     alignSelf: 'center',
     fontSize: 20,
     marginTop: 50,
   },
   image: {
     marginTop: 50,
+    marginLeft:25,
     resizeMode: 'contain',
     height: 200,
   },
@@ -61,13 +60,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
     fontSize: 20,
   },
-  button: {
-    flex: 1,
-    position: 'absolute',
-    alignSelf: 'center',
-    bottom: -110,
-  }
 });
 
 
-export default Wallet;
+export default Tracking;
