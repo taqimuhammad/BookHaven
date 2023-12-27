@@ -26,6 +26,7 @@ return(
 };
 const styles = StyleSheet.create({
     container: {
+      position: 'absolute',
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
@@ -33,9 +34,9 @@ const styles = StyleSheet.create({
     },
   
     backButtonContainer: {
-        position: 'alignself',
-        top: -330,
-        right: 150,
+        position: 'absolute',
+        top: 12,
+        left: 10,
     },
 
     title: {
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       position: 'absolute',
       top: 4,
+      left:135
     },
     // Add more styles for other components on the home page if needed
   });

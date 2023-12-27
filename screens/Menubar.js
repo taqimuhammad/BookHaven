@@ -12,13 +12,13 @@ const Menuscreen = ({ navigation }) =>
         navigation.navigate("Chat");
       };
      
-    const handlecommunity = () => {
-        navigation.navigate("Community");
+    const handleLocation = () => {
+        navigation.navigate("Location");
       };
     const handlesettings = () => {
         navigation.navigate("Settings");
       };
-    const handlesignout = () => {
+    const handleLogout = () => {
         navigation.navigate("Signout");
       };
     const handlewallet = () => {
@@ -26,7 +26,16 @@ const Menuscreen = ({ navigation }) =>
       };  
     const handlewishlist = () => {
         navigation.navigate("Wishlist");
-      };   
+      };  
+      const handleorder  = () => {
+        navigation.navigate("");
+      }; 
+      const handlepayment = () => {
+        navigation.navigate("");
+      };
+      const handletracking = () => {
+        navigation.navigate("");
+      }; 
 return(
 <View style={styles.container}>
     <ImageBackground
@@ -49,9 +58,9 @@ return(
         </TouchableOpacity>
         </View>
 
-        <View style={styles.communityContainer}>
-        <TouchableOpacity onPress={handlecommunity}>
-          <Text style={styles.communitybuttonText}>Community</Text>
+        <View style={styles.LocationContainer}>
+        <TouchableOpacity onPress={handleLocation}>
+          <Text style={styles.LocationbuttonText}>Location</Text>
         </TouchableOpacity>
         </View>
 
@@ -61,9 +70,9 @@ return(
         </TouchableOpacity>
         </View>
         
-        <View style={styles.signoutContainer}>
-        <TouchableOpacity onPress={handlesignout}>
-          <Text style={styles.signoutbuttonText}>Signout</Text>
+        <View style={styles.LogoutContainer}>
+        <TouchableOpacity onPress={handleLogout}>
+          <Text style={styles.LogoutbuttonText}>Logout</Text>
         </TouchableOpacity>
       </View>
 
@@ -78,6 +87,21 @@ return(
           <Text style={styles.wishlistbuttonText}>Wishlist</Text>
         </TouchableOpacity>
       </View>
+      <View style={styles.order}>
+        <TouchableOpacity onPress={handleorder}>
+          <Text style={styles.orderText}>Orders</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.payment}>
+        <TouchableOpacity onPress={handlepayment}>
+          <Text style={styles.paymentText}>Payment</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.tracking}>
+        <TouchableOpacity onPress={handletracking}>
+          <Text style={styles.trackingText}>Tracking</Text>
+        </TouchableOpacity>
+      </View>
     
 
     </ImageBackground>
@@ -87,6 +111,7 @@ return(
 };
 const styles = StyleSheet.create({
   container: {
+    position:"relative",
     flex: 1,
   },
   backgroundImage: {
@@ -97,7 +122,7 @@ const styles = StyleSheet.create({
     nameContainer: {
       position: 'absolute',
       top: 130,
-      left:100,
+      left:55,
 
     },
     nameText: {
@@ -105,11 +130,11 @@ const styles = StyleSheet.create({
       fontSize: 26, 
       fontWeight: 'bold',
     },
-  
+  //home
     backButtonContainer: {
       position: 'absolute',
-      top: 232.2,
-      left:64,
+      top: 204,
+      left:50,
     },
     backbuttonText: {
       color: 'white', 
@@ -119,8 +144,8 @@ const styles = StyleSheet.create({
     
     chatContainer: {
       position: 'absolute',
-      top: 405,
-      left:64, 
+      top: 358,
+      left:50, 
     },
     
     chatbuttonText: {
@@ -128,14 +153,47 @@ const styles = StyleSheet.create({
       fontSize: 22, 
       fontWeight: 'bold', 
     },
-    
-    communityContainer: {
+    order: {
       position: 'absolute',
-      top: 362,
-      left:64, 
+      top: 396,
+      left:50, 
     },
     
-    communitybuttonText: {
+    orderText: {
+      color: 'white', 
+      fontSize: 22, 
+      fontWeight: 'bold', 
+    },
+    payment: {
+      position: 'absolute',
+      top: 435,
+      left:50, 
+    },
+    
+    paymentText: {
+      color: 'white', 
+      fontSize: 22, 
+      fontWeight: 'bold', 
+    },
+    tracking: {
+      position: 'absolute',
+      top: 471,
+      left:50, 
+    },
+    
+    trackingText: {
+      color: 'white', 
+      fontSize: 22, 
+      fontWeight: 'bold', 
+    },
+    
+    LocationContainer: {
+      position: 'absolute',
+      top: 320,
+      left:50, 
+    },
+    
+    LocationbuttonText: {
       color: 'white', 
       fontSize: 22, 
       fontWeight: 'bold', 
@@ -144,8 +202,8 @@ const styles = StyleSheet.create({
     
   settingsContainer: {
     position: 'absolute',
-      top: 447,
-      left:64, 
+      top: 508,
+      left:50, 
   },
   
   settingsbuttonText: {
@@ -156,22 +214,22 @@ const styles = StyleSheet.create({
 
     
    
-  signoutContainer: {
+  LogoutContainer: {
     position: 'absolute',
-    top: 554,
-    left:64, 
+    top: 600,
+    left:50, 
   },
   
-  signoutbuttonText: {
+  LogoutbuttonText: {
     color: 'white', 
-    fontSize: 26, 
+    fontSize: 22, 
     fontWeight: 'bold', 
   },
     
     walletContainer: {
       position: 'absolute',
-      top: 275,
-      left:64, 
+      top: 244,
+      left:50, 
     },
     
     walletbuttonText: {
@@ -182,8 +240,8 @@ const styles = StyleSheet.create({
     
     wishlistContainer: {
       position: 'absolute',
-      top: 320,
-      left:64, 
+      top: 282,
+      left:50, 
     },
     
     wishlistbuttonText: {

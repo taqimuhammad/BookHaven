@@ -13,12 +13,14 @@ import Login from './screens/Login';
 
 import Menuscreen from './screens/Menubar';
 import Chat from './screens/Chat';
-import Community from './screens/Community';
+import Location from './screens/Location';
 import Settings from './screens/Settings';
 import Signout from './screens/Signout';
 import Wallet from './screens/Wallet';
 import Wishlist from './screens/Wishlist';
 import Button from './components/Button';
+import Bookdetail from './components/Bookdetail'
+
 
 
 
@@ -36,75 +38,58 @@ const Navigation = () => {
 
       <stack.Screen
       name='Splash'
-      component={Splash}
-      />
+      component={Splash}/>
       <stack.Screen
       name='Splash2'
-      component={Splash2}
-      />
+      component={Splash2}/>
        <stack.Screen
       name='Splash3'
-      component={Splash3}
-      />
-      
+      component={Splash3}/> 
       <stack.Screen
       name='Homescreen'
-      component={Homescreen}
-      
-      />
-
+      component={Homescreen}/>
       <stack.Screen
       name='Notification'
-      component={Notification}
-      />
+      component={Notification}/>
       <stack.Screen
       name='login'
-      component={Login}
-      />
+      component={Login}/>
       <stack.Screen
       name='signup'
-      component={SignUp}
-      />
+      component={SignUp}/>
       <stack.Screen
       name='loginpagebutton'
-      component={Button}
-      />
+      component={Button}/>
       <stack.Screen
       name='Menuscreen'
-      component={Menuscreen}
-      />
+      component={Menuscreen}/>
 
       <stack.Screen
       name='Chat'
-      component={Chat}
-      />
+      component={Chat}/>
       
       <stack.Screen
-      name='Community'
-      component={Community}
-      />
+      name='Location'
+      component={Location}/>
       
       <stack.Screen
       name='Settings'
-      component={Settings}
-      />
+      component={Settings}/>
       
       <stack.Screen
       name='Signout'
-      component={Signout}
-      />
+      component={Signout}/>
       
       <stack.Screen
       name='Wallet'
-      component={Wallet}
-      />
+      component={Wallet}/>
       
       <stack.Screen
       name='Wishlist'
-      component={Wishlist}
-      />
-      
-      
+      component={Wishlist}/>
+      <stack.Screen
+      name='Bookdetail'
+      component={Bookdetail }/>
     </stack.Navigator>
    </NavigationContainer>
     

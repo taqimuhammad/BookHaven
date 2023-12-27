@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { TouchableOpacity, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const Community = ({ navigation }) => {
+const Location = ({ navigation }) => {
     const handleBack = () => {
         navigation.navigate("Homescreen");
     };
@@ -12,7 +12,7 @@ const Community = ({ navigation }) => {
         <View style={styles.container}>
 
             <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content" />
-            <Text style={styles.title}>Menu</Text>
+            <Text style={styles.title}>Location</Text>
 
             <View style={styles.backButtonContainer}>
                 <TouchableOpacity onPress={handleBack} >
@@ -48,4 +48,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Community;
+export default Location;

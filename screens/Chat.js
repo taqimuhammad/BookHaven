@@ -13,7 +13,7 @@ return(
 <View style={styles.container}>
 
       <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content" />
-      <Text style={styles.title}>Menu</Text> 
+      <Text style={styles.title}>Chat</Text> 
 
       <View style={styles.backButtonContainer}>
           <TouchableOpacity onPress={handleBack} >

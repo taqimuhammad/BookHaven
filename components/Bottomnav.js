@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-around',
       position: 'absolute', // Positioning it absolutely 
+      top:700,
       bottom: 0,           // At the bottom of the screen
       left: 0,             // Align to the left
       right: 0,            // Align to the right
