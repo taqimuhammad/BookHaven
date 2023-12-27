@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {View,StyleSheet,Text,TextInput,ScrollView,KeyboardAvoidingView} from 'react-native';
 import Button from '../components/Button';
+import MultiSelect from '../components/MultiSelect';
 
 const UserDetail = () => {
     const [cnic, onChangeCnic] = React.useState('');
@@ -11,7 +12,7 @@ const UserDetail = () => {
         <KeyboardAvoidingView 
          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
          style={styles.container}> 
-        <ScrollView keyboardDismissMode="on-drag"> 
+        <View keyboardDismissMode="on-drag"> 
             <Text style={styles.heading}>Enter your Details</Text>        
                 <TextInput
                     style={styles.input}
@@ -29,15 +30,16 @@ const UserDetail = () => {
                     placeholderTextColor={'black'}
                     keyboardType="default"
                 />
-                <TextInput
+                {/* <TextInput
                     style={styles.input}
                     value={bio}
                     onChangeText={onChangeBio}
                     placeholder="Add your bio"
                     placeholderTextColor={'black'}
                     keyboardType="default"
-                />
-            </ScrollView>
+                /> */}
+                <MultiSelect />
+            </View>
             <View style={styles.button}>
               <Button title = "Done"/>
             </View>
@@ -68,8 +70,8 @@ const styles = StyleSheet.create({
         flex:1,
         alignSelf:'center',
         position:'absolute',
-        bottom:50,
-    }
+        bottom:10,
+    },
 });
 
 export default UserDetail;

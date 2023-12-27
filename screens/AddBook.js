@@ -16,6 +16,7 @@ const AddBook = () => {
       style={styles.container} > 
 
           <View> 
+            
               <Text style={styles.heading}>Add Book</Text>        
               <TextInput
                   style={styles.input}
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
     borderRadius:10,
     alignContent:'center',
     alignSelf:'center',
-    backgroundColor:'#f3efff',
+    backgroundColor:'#f7f5ff',
   },
   boxtext:{
     fontSize:20,

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, ScrollView, KeyboardAvoidingView, Platform, TextInput, StyleSheet, Text } from "react-native";
+import { View, ScrollView, KeyboardAvoidingView, Platform, TextInput, StyleSheet, Text,TouchableOpacity } from "react-native";
 import Button from "../components/Button";
 
 const Login = ({ navigation }) => {
@@ -31,6 +31,11 @@ const Login = ({ navigation }) => {
             <View style={styles.button}>
                 <Button title="LOG IN" navigation={navigation} />
             </View>
+            <View style={styles.text}>
+                <TouchableOpacity activeOpacity={0.9}>
+                    <Text style={styles.textw}>Don't have an Account ?          <Text style={styles.sign}>Sign Up</Text></Text>
+                </TouchableOpacity> 
+            </View>
         </KeyboardAvoidingView>
     );
 }
@@ -58,7 +63,22 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         position: 'absolute',
         bottom: -100,
-    }
+    },
+    text:{
+        alignSelf: 'center',
+        justifyContent:'center',
+        position:'absolute',
+        bottom:-130,
+        height:30,
+        width:250,
+    },
+    sign:{
+        fontWeight:'bold',
+        color:'#404B7C',
+    },
+    textw:{
+        fontSize:17,
+    },
 });
 
 export default Login;
