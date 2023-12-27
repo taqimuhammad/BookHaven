@@ -18,7 +18,7 @@ const UserProfile = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.topview}>
-        <Text style={styles.heading}>EDIT PROFILE</Text>
+        <Text style={styles.heading}>Edit Profile</Text>
         <View style={styles.backButtonContainer}>
           <TouchableOpacity onPress={handleBack} >
             <Icon name="arrow-back" size={34} color="white" />
