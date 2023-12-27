@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   },
   editicon: {
     position: 'absolute',
-    top: 60,
+    top: 64,
     right: 20,
   },
   topview: {
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     borderWidth: 3,
     position: 'absolute',
-    top: 40,
+    top: 30,
     left: 30,
   },
   username: {
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     flex: 2,
   },
   insidebody: {
-    marginTop: 90,
+    marginTop: 75,
     alignSelf:'center',
   }
 });
