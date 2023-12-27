@@ -20,7 +20,7 @@ import AddBook from './screens/AddBook';
 export default function App() {
   return(
     <View style={styles.container}>
-       <Navigation />
+<Navigation />
     </View>
   );
 }
