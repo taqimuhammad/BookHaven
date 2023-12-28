@@ -1,19 +1,11 @@
 import * as React from 'react';
 import {TouchableOpacity,StyleSheet, Text, View} from 'react-native';
 
-const Button = ({ title, navigation}) => {
+const Button = ({ title}) => {
   
-  const handlebutton = () => {
-    if (navigation && typeof navigation.navigate === 'function') {
-      navigation.navigate("Homescreen");
-    } else {
-      console.error('Navigation prop is not available');
-    }
-  };
-
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} activeOpacity={0.8} onPress={handlebutton}>
+      <TouchableOpacity style={styles.button} activeOpacity={0.8} >
         <Text style={styles.text}>{ title }</Text>
       </TouchableOpacity>
     </View>

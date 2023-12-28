@@ -1,8 +1,18 @@
 import * as React from "react";
 import { View, ScrollView, KeyboardAvoidingView, Platform, TextInput, StyleSheet, Text,TouchableOpacity } from "react-native";
-import Button from "../components/Button";
+
 
 const Login = ({ navigation }) => {
+
+    const handlesignin= () => {
+        navigation.navigate('SignUp'); 
+      };
+    const handleloginPress = () => {
+        navigation.navigate('Homescreen'); 
+      };
+      
+
+
     const [email, onChangeEmail] = React.useState('');
     const [password, onChangePassword] = React.useState('');
 
@@ -29,11 +39,13 @@ const Login = ({ navigation }) => {
                 />
             </ScrollView>
             <View style={styles.button}>
-                <Button title="LOG IN" navigation={navigation} />
+            <TouchableOpacity style={styles.buttonc} onPress={handleloginPress} >
+                   <Text style={styles.textc}>LOGIN</Text>
+                    </TouchableOpacity>
             </View>
             <View style={styles.text}>
-                <TouchableOpacity activeOpacity={0.9}>
-                    <Text style={styles.textw}>Don't have an Account ?          <Text style={styles.sign}>Sign Up</Text></Text>
+                <TouchableOpacity  onPress={handlesignin}>
+                    <Text style={styles.textw}>Don't have an Account ? <Text style={styles.sign}>Sign Up</Text></Text>
                 </TouchableOpacity> 
             </View>
         </KeyboardAvoidingView>
@@ -59,6 +71,19 @@ const styles = StyleSheet.create({
         margin: 10,
         borderBottomWidth: 1,
     },
+    buttonc:{
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor:'#404B7C',
+        height:48,
+        width:248,
+        borderRadius:25,
+      },
+      textc:{
+        fontSize:22,
+        color:'white',
+        fontWeight:'500',
+      },
     button: {
         alignSelf: 'center',
         position: 'absolute',
@@ -68,15 +93,18 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         justifyContent:'center',
         position:'absolute',
-        bottom:-130,
-        height:30,
+        bottom:-144,
+        height:45,
         width:250,
+        
     },
     sign:{
         fontWeight:'bold',
         color:'#404B7C',
+        
     },
     textw:{
+        
         fontSize:17,
     },
 });

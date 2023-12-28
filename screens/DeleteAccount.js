@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View,TouchableOpacity } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import DeleteButton from '../components/DeleteButton';
 
 const DeleteAccount = ({ navigation }) => {
     const handleBack = () => {
-        navigation.navigate("Homescreen");
+        navigation.navigate("Settings");
+      };
+      const handled = () => {
+        navigation.navigate("DeleteConfirmation");
       };
   return (
     <View style={styles.container}>
@@ -20,7 +22,11 @@ const DeleteAccount = ({ navigation }) => {
         Once your account is terminated,{'\n'}     all your account data will be {'\n'}          permanently deleted.</Text>
 
       </View>
-      <DeleteButton title="Proceed" />
+      <View style={styles.button}>
+          <TouchableOpacity style={styles.buttonc} onPress={handled} >
+          <Text style={styles.textc}>Proceed</Text>
+           </TouchableOpacity>
+           </View>
     </View>
   );
 }
@@ -52,6 +58,25 @@ const styles = StyleSheet.create({
         borderRadius:20,
         borderWidth:2,
         borderColor:'#F30E0E',
+      },
+      buttonc:{
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor:'red',
+        height:48,
+        width:248,
+        borderRadius:25,
+      },
+      textc:{
+        fontSize:22,
+        color:'white',
+        fontWeight:'500',
+      },
+      button: {
+        
+        position: 'absolute',
+        alignSelf: 'center',
+        bottom: 90,
       },
       text: {
         alignSelf: 'center',

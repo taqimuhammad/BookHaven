@@ -1,23 +1,21 @@
 import React from 'react';
 import { View, Image, TouchableOpacity , StyleSheet} from 'react-native';
-
-// Import your icons
 import searchicon from '../img/searchicon.png';
 import homeicon from '../img/homeicon.png';
 import libraryicon from '../img/libraryicon.png';
 
-const Bottomnav = () => {
-  // Functions to handle icon press
+const Bottomnav = ({ navigation }) => {
+
   const handleSearchPress = () => {
-    // Logic for search press
+   
   };
 
   const handleHomePress = () => {
-    // Logic for home press
+    navigation.navigate('Homescreen');
   };
 
   const handleLibraryPress = () => {
-    // Logic for library press
+    navigation.navigate('Library');
   };
 
   return (
@@ -38,39 +36,40 @@ const styles = StyleSheet.create({
     container: {
       flexDirection: 'row',
       justifyContent: 'space-around',
-      position: 'absolute', // Positioning it absolutely 
-      bottom: 0,           // At the bottom of the screen
-      left: 0,             // Align to the left
-      right: 0,            // Align to the right
-      backgroundColor: 'white', // Background color for the nav
+      position: 'absolute',  
+      top:700,
+      bottom: 0,           
+      left: 0,             
+      right: 0,            
+      backgroundColor: 'white', 
       padding: 2, 
       borderTopWidth: 2,   
-      borderTopColor: '#98979F'            // Optional padding for better appearance
+      borderTopColor: '#98979F'            
     },
     homeicon: {
-      width: 25,  // Set the width of the icon
-      height: 25, // Set the height of the icon
+      width: 25,  
+      height: 25, 
     },
     icon: {
-        width: 35,  // Set the width of the icon
-        height: 35, // Set the height of the icon
+        width: 35,  
+        height: 35, 
       },
     homeButton: {
-        backgroundColor: '#404B7C', // Background color for the circle
-        padding: 15,             // Padding around the icon, can be adjusted
-        borderRadius: 50,        // Large border radius to create a rounded shape
-        justifyContent: 'center', // Center the icon horizontally
-        alignItems: 'center',    // Center the icon vertically
-        width: 50,               // Width of the circle (including padding)
-        height: 50,              // Height of the circle (including padding)
+        backgroundColor: '#404B7C',
+        padding: 15,            
+        borderRadius: 50,        
+        justifyContent: 'center', 
+        alignItems: 'center',    
+        width: 50,              
+        height: 50,              
       },
       iconButton: {
-        padding: 15,             // Padding around the icon, can be adjusted
-        borderRadius: 50,        // Large border radius to create a rounded shape
-        justifyContent: 'center', // Center the icon horizontally
-        alignItems: 'center',    // Center the icon vertically
-        width: 50,               // Width of the circle (including padding)
-        height: 50,              // Height of the circle (including padding)
+        padding: 15,             
+        borderRadius: 50,       
+        justifyContent: 'center', 
+        alignItems: 'center',    
+        width: 50,              
+        height: 50,             
       },
     
   });
