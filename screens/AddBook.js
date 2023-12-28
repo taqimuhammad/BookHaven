@@ -5,7 +5,10 @@ import DropDown from "../components/DropDown";
 import DropDownTwo from "../components/DropDownTwo";
 import { AntDesign } from '@expo/vector-icons';
 
-const AddBook = () => {
+const AddBook = ({navigation}) => {
+  const handleadd = () => {
+    navigation.navigate("Homescreen");
+  };
 
   const [bookTitle,onChangeBookTitle] = React.useState('');
   const [authorName,onChangeAuthorName] = React.useState('');
@@ -44,7 +47,9 @@ const AddBook = () => {
               </TouchableOpacity>
           </View>
           <View style={styles.button}>
-              <Button title = "Add"/>
+          <TouchableOpacity style={styles.buttonc} onPress={handleadd} >
+        <Text style={styles.textc}>Add</Text>
+        </TouchableOpacity>
           </View>
       </KeyboardAvoidingView>
   );
@@ -68,6 +73,19 @@ const styles = StyleSheet.create({
       width:300,
       margin: 10,
       borderBottomWidth:1,
+  },
+  buttonc:{
+    alignItems:'center',
+    justifyContent:'center',
+    backgroundColor:'#404B7C',
+    height:48,
+    width:248,
+    borderRadius:25,
+  },
+  textc:{
+    fontSize:22,
+    color:'white',
+    fontWeight:'500',
   },
   button:{
       flex:1,

@@ -12,7 +12,7 @@ const HomePage = ({ navigation }) => {
   const [clicked, setClicked] = useState(false);
 
   const notificationbar = () => {
-    navigation.navigate("Notification");
+    navigation.navigate('Notification');
   };
   
   const handlemenubar = () => {
@@ -60,7 +60,7 @@ const HomePage = ({ navigation }) => {
         ))}
       </ScrollView>
 
-      <Bottomnav/>
+      <Bottomnav navigation={navigation} />
 
     </View>
   );

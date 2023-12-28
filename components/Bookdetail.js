@@ -18,8 +18,9 @@ const Bookdetail = ({ route , navigation}) => {
     <ScrollView style={styles.container}>
       <Text style={styles.heading}>Book Details</Text>
       <View style={styles.msgContainer}>
-          <TouchableOpacity onPress={handleBack} >
-          <Icon name="message" size={34} color="rgba(64, 75, 124, 1)" />
+          <TouchableOpacity onPress={msgiconbar} >            
+          <Icon name="message" left={10} top={6} size={34} color="rgba(64, 75, 124, 1)" />
+          <Text>Message</Text>
           </TouchableOpacity>
         </View>
       <View style={styles.backButtonContainer}>
@@ -34,7 +35,7 @@ const Bookdetail = ({ route , navigation}) => {
         <Text style={styles.author}>Author: {book.author}</Text>
         <Text style={styles.price}>Price: {book.price}</Text>
         <Text style={styles.uploadedBy}>Uploaded by: {book.uploadedBy}</Text>
-        
+        <Text style={styles.chattext}>Message with {book.type}r Now:</Text>
       </View>
     </ScrollView>
   );
@@ -69,8 +70,8 @@ const styles = StyleSheet.create({
 },
 msgContainer:{
   position: "absolute",
-  top: 396,
-  left: 230,
+  bottom: 34,
+  right: 40,
 },
   title: {
     left:35,
@@ -89,6 +90,14 @@ msgContainer:{
     fontSize: 20,
     fontWeight: "normal",
     paddingBottom:8,
+  },
+  chattext:{
+    right:20,
+    fontSize: 20,
+    fontWeight: "normal",
+    padding:55,
+  
+
   },
   uploadedBy: {
     left:35,

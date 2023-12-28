@@ -8,6 +8,9 @@ const Tracking2 = ({ navigation }) => {
     const handleBack = () => {
         navigation.navigate("Homescreen");
     };
+    const hanblet2 = () => {
+        navigation.navigate("Tracking3");
+    };
 
     return (
         <View style={styles.container}>
@@ -20,10 +23,12 @@ const Tracking2 = ({ navigation }) => {
             <View style={styles.card}>
                 <Text style={styles.text}>Order # abc123</Text>
                 <Text style={styles.text}>Status: Not Started</Text>
-                <TouchableOpacity style={styles.order}> 
-                    <Text style={styles.edittext}>View Order Details</Text>
-                    <AntDesign name="right" size={16} color="black" style={styles.icon} />
+                <View style={styles.order}>
+                <TouchableOpacity onPress={hanblet2} > 
+                    <Text style={styles.edittext}>View Order Details  </Text>
+                    <AntDesign name="right" size={18} color="black" style={styles.icon} />
                 </TouchableOpacity>
+                </View>
             </View>
 
         </View>
@@ -72,22 +77,23 @@ const styles = StyleSheet.create({
         position:'absolute',
         bottom:10,
         right:10,
-        height:30,
+        height:35,
         width:200,
         borderRadius:20,
         borderWidth:1,
-        borderColor:'lightgrey'
+        borderColor:'lightgrey',
+        padding:2,
+        
     },
     edittext:{
         fontSize:20,
         textAlign:'center',
         textAlignVertical:'center',
-        margin:5,
     },
     icon:{
         position:'absolute',
-        right:5,
-        bottom:5,
+        right:0,
+        bottom:2,
     }
 
 });

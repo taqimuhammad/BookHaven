@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, ScrollView, Text, TextInput, KeyboardAvoidingView, Platform, StyleSheet, Image, TouchableOpacity } from "react-native";
-import Button from "../components/Button";
+
 
 const SignUp = ({ navigation }) => {
     const [fullName, onChangeFullName] = React.useState('');
@@ -8,6 +8,15 @@ const SignUp = ({ navigation }) => {
     const [number, onChangeNumber] = React.useState('');
     const [password, onChangePassword] = React.useState('');
     const [RePassword, onChangeReEnterPassword] = React.useState('');
+
+    
+    const handleSignUpPress = () => {
+      navigation.navigate('Homescreen'); 
+    };
+    const handlelogin = () => {
+        navigation.navigate('Login'); 
+      };
+    
 
     return (
         <View style={styles.container}>
@@ -61,15 +70,19 @@ const SignUp = ({ navigation }) => {
             </KeyboardAvoidingView>
             <View style={styles.bottomview} >
                 <View style={styles.button}>
-                    <Button title="SIGN UP" navigation={navigation} />
+                  <TouchableOpacity style={styles.buttonc} onPress={handleSignUpPress} >
+                   <Text style={styles.textc}>SIGNUP</Text>
+                    </TouchableOpacity>
+    
                 </View>
                 <View style={styles.text}>
-                    <TouchableOpacity activeOpacity={0.9}>
-                        <Text style={styles.textw}>Already have an Account?           <Text style={styles.log}>Log In</Text></Text>
+                    <TouchableOpacity onPress={handlelogin}>
+                        <Text style={styles.textw}>Already have an Account?           
+                        <Text style={styles.log}>Log In</Text></Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.or}>
-                    <Text style={styles.ortext}>OR</Text>
+                    <Text style={styles.ortext}>{'OR'}</Text>
                 </View>
                 <View style={styles.img}>
                     <TouchableOpacity>
@@ -102,6 +115,19 @@ const styles = StyleSheet.create({
         paddingBottom: 5,
         fontWeight: 'bold',
     },
+    buttonc:{
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor:'#404B7C',
+        height:48,
+        width:248,
+        borderRadius:25,
+      },
+      textc:{
+        fontSize:22,
+        color:'white',
+        fontWeight:'500',
+      },
     input: {
         fontSize: 20,
         height: 50,
@@ -122,6 +148,7 @@ const styles = StyleSheet.create({
         bottom: 110,
         height: 30,
         width: 250,
+        paddingBottom:7,
     },
     log: {
         fontWeight: 'bold',
@@ -139,7 +166,8 @@ const styles = StyleSheet.create({
         width: 25,
     },
     ortext: {
-        fontSize: 20,
+        fontSize: 18,
+        fontWeight: 'bold',
     },
     img: {
         flexDirection: 'row',

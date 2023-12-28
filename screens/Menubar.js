@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
+import Bottomnav from '../components/Bottomnav';
 
 const Menuscreen = ({ navigation }) =>
  {
@@ -13,7 +14,7 @@ const Menuscreen = ({ navigation }) =>
       };
      
     const handleLocation = () => {
-        navigation.navigate("Location");
+        navigation.navigate("SetupLocation");
       };
     const handlesettings = () => {
         navigation.navigate("Settings");
@@ -26,7 +27,11 @@ const Menuscreen = ({ navigation }) =>
       };  
     const handlewishlist = () => {
         navigation.navigate("Wishlist");
-      };  
+      }; 
+       
+      const handleprofile = () => {
+        navigation.navigate("UserProfile");
+      }; 
       const handleorder  = () => {
         navigation.navigate("");
       }; 
@@ -34,17 +39,19 @@ const Menuscreen = ({ navigation }) =>
         navigation.navigate("");
       };
       const handletracking = () => {
-        navigation.navigate("");
+        navigation.navigate("Tracking");
       }; 
 return(
 <View style={styles.container}>
     <ImageBackground
-      source={require('../img/Sidebar.png')} // Replace with the path to your background image
-      resizeMode='cover' // or 
+      source={require('../img/Sidebar.png')} 
+      resizeMode='cover' 
       style={styles.backgroundImage}
     >
         <View style={styles.nameContainer}>
+        <TouchableOpacity onPress={handleprofile} >
           <Text style={styles.nameText}>JohnSnow</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.backButtonContainer}>
           <TouchableOpacity onPress={handleBack} >
@@ -102,6 +109,7 @@ return(
           <Text style={styles.trackingText}>Tracking</Text>
         </TouchableOpacity>
       </View>
+      <Bottomnav navigation={navigation} />
     
 
     </ImageBackground>

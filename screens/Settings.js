@@ -2,12 +2,13 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Bottomnav from '../components/Bottomnav';
 
 
 const Settings = ({ navigation }) =>
  {
     const handleEditprofile = () => {
-        navigation.navigate("");
+        navigation.navigate("EditProfile");
       };
       
     const handleSecurity = () => {
@@ -15,28 +16,28 @@ const Settings = ({ navigation }) =>
       };
      
     const handleNotification = () => {
-        navigation.navigate("");
+        navigation.navigate("Notification");
       };
     const handleBack = () => {
-        navigation.navigate("");
+        navigation.navigate("Menuscreen");
       };
     const handleFAQ = () => {
         navigation.navigate("");
       };
     const handleHelp = () => {
-        navigation.navigate("");
+        navigation.navigate("HelpSupport");
       };  
     const handleTerms = () => {
-        navigation.navigate("");
+        navigation.navigate("TermsPolicies");
       };  
       const handleReport  = () => {
-        navigation.navigate("");
+        navigation.navigate("ReportProblem");
       }; 
       const handleDelete = () => {
-        navigation.navigate("");
+        navigation.navigate("DeleteAccount");
       };
       const handlelogout = () => {
-        navigation.navigate("");
+        navigation.navigate("Signout");
       }; 
 return(
 <View style={styles.container}>
@@ -104,7 +105,7 @@ return(
           <Text style={styles.logoutText}>logout</Text>
         </TouchableOpacity>
       </View>
-    
+      <Bottomnav navigation={navigation} />
 
     </ImageBackground>
 </View>

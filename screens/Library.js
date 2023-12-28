@@ -1,9 +1,14 @@
-import { StyleSheet, Text, View, ScrollView, TextInput } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TextInput,TouchableOpacity } from 'react-native';
 import * as  React from 'react';
 import Card from '../components/Card';
-import Button from '../components/Button';
 
-const Library = () => {
+
+const Library = ({navigation}) => {
+
+  const handleaddbook = () => {
+    navigation.navigate("AddBook");
+  };
+
   const image = require('../img/img1.jpg');
   const image2 = require('../img/img2.jpg');
   const image3 = require('../img/img3.png');
@@ -64,7 +69,9 @@ const Library = () => {
       </View>
       <View style={styles.buttonview}>
         <View style={styles.button}>
-          <Button title="Add Books" />
+        <TouchableOpacity style={styles.buttonc} onPress={handleaddbook} >
+        <Text style={styles.textc}>Add Books</Text>
+        </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -80,8 +87,22 @@ const styles = StyleSheet.create({
   scrollview: {
     flex: 3,
   },
+  textc:{
+    fontSize:22,
+    color:'white',
+    fontWeight:'500',
+  },
+  
   headingview: {
     flex: 0.5,
+  },
+  buttonc:{
+    alignItems:'center',
+    justifyContent:'center',
+    backgroundColor:'#404B7C',
+    height:48,
+    width:248,
+    borderRadius:25,
   },
   heading: {
     fontSize: 30,
@@ -97,7 +118,7 @@ const styles = StyleSheet.create({
   button: {
     alignSelf: 'center',
     position: 'absolute',
-    bottom: 10,
+    top: 20,
   }
 });
 

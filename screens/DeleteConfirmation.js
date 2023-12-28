@@ -1,12 +1,15 @@
 import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import DeleteButton from '../components/DeleteButton';
+
 
 const DeleteConfirmation = ({ navigation }) => {
     const handleBack = () => {
-        navigation.navigate("Homescreen");
+        navigation.navigate("DeleteAccount");
     };
+    const handleda = () => {
+        navigation.navigate("Settings");
+      };
 
     const [password, onChangePassword] = React.useState('');
 
@@ -31,7 +34,11 @@ const DeleteConfirmation = ({ navigation }) => {
                     secureTextEntry={true}
                 />
             </View>
-            <DeleteButton title="Delete Account" />
+            <View style={styles.button}>
+          <TouchableOpacity style={styles.buttonc} onPress={handleda} >
+          <Text style={styles.textc}>Delete Account</Text>
+           </TouchableOpacity>
+           </View>
         </View>
     );
 }
@@ -71,6 +78,25 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: '#F30E0E',
     },
+    buttonc:{
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor:'red',
+        height:48,
+        width:248,
+        borderRadius:25,
+      },
+      textc:{
+        fontSize:22,
+        color:'white',
+        fontWeight:'500',
+      },
+      button: {
+        
+        position: 'absolute',
+        alignSelf: 'center',
+        bottom: 190,
+      },
     insideview:{
         marginTop:120,
     }

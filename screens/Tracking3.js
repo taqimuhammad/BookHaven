@@ -7,6 +7,9 @@ const Tracking3 = ({ navigation }) => {
     const handleBack = () => {
         navigation.navigate("Homescreen");
     };
+    const handlet3 = () => {
+        navigation.navigate("Tracking4");
+    };
 
     return (
         <View style={styles.container}>
@@ -31,6 +34,13 @@ const Tracking3 = ({ navigation }) => {
                     Price:{'\n'}
                     PKR 350
                 </Text>
+                <View style={styles.order}>
+                <View style={styles.button}>
+                <TouchableOpacity style={styles.buttonc} onPress={handlet3} >
+                <Text style={styles.textc}>Get Tracking No</Text>
+                </TouchableOpacity>
+                </View>
+                </View>
             </View>
 
         </View>
@@ -57,6 +67,31 @@ const styles = StyleSheet.create({
         paddingBottom: 5,
         fontWeight: 'bold',
     },
+    buttonc:{
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor:'#404B7C',
+        height:48,
+        width:248,
+        borderRadius:25,
+      },
+      textc:{
+        fontSize:22,
+        color:'white',
+        fontWeight:'500',
+      },
+      button: {
+        flex: 1,
+        position: 'absolute',
+        alignSelf: 'center',
+        bottom: -110,
+      },
+      text: {
+        color:'grey',
+        alignSelf: 'center',
+        fontSize: 20,
+        marginTop: 50,
+      },
     card:{
         marginTop:30,
         height:110,

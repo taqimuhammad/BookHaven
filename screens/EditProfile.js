@@ -12,6 +12,9 @@ const UserProfile = ({ navigation }) => {
   const [RePassword, onChangeReEnterPassword] = React.useState('');
 
   const handleBack = () => {
+    navigation.navigate("Settings");
+  };
+  const handlep = () => {
     navigation.navigate("Homescreen");
   };
 
@@ -76,7 +79,9 @@ const UserProfile = ({ navigation }) => {
             secureTextEntry={true}
           />
           <View style={styles.button}>
-            <Button title="Update Profile" navigation={navigation} />
+          <TouchableOpacity style={styles.buttonc} onPress={handlep} >
+                <Text style={styles.textc}>Update Profile</Text>
+                </TouchableOpacity>
           </View>
 
         </View>
@@ -113,6 +118,19 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 20,
     top: 55,
+  },
+  buttonc:{
+    alignItems:'center',
+    justifyContent:'center',
+    backgroundColor:'#404B7C',
+    height:48,
+    width:248,
+    borderRadius:25,
+  },
+  textc:{
+    fontSize:22,
+    color:'white',
+    fontWeight:'500',
   },
   editicon: {
     position: 'absolute',

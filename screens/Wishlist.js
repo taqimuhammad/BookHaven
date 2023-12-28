@@ -25,7 +25,7 @@ const Wishlist = ({ navigation }) =>
       };
     const handleSubmit = () => {
        
-        console.log(bookTitle, authorName, bookType, data);
+      //  console.log(bookTitle, authorName, bookType, data);
       };
       
     
@@ -33,7 +33,7 @@ const Wishlist = ({ navigation }) =>
 return(
 <View style={styles.container}>
 
-      <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content" />
+      
       
       <Text style={styles.title}>Wishlist</Text> 
 
@@ -63,7 +63,7 @@ return(
         style={styles.input}
         placeholderTextColor={'black'}
         keyboardType="default"
-        placeholder="Enter Book Type"
+        placeholder="Enter Book Genre"
         onChangeText={setBookType}
         value={bookType}
       />
@@ -75,24 +75,22 @@ return(
       boxStyles={{
         borderColor:'black',
         borderWidth:1, 
-        margin:10,
+        margin:1,
         width:300,
         height:50,         
     
     
     
-    }} //override default styles
-      defaultOption={{  value:'Select Status' }}   //default selected option
+    }}     
+    defaultOption={{  value:'Select Status'  }}   //default selected option
     />
 
       <View >
       <TouchableOpacity
         onPress={handleSubmit}
-        style={styles.buttonContainer}
-        activeOpacity={0.7} >
-
-           <Text style={styles.buttonText}>Add</Text>
-            </TouchableOpacity>
+        style={styles.buttonContainer}> 
+        <Text style={styles.buttonText}>Add</Text>
+      </TouchableOpacity>
     </View>
 </View>
 
@@ -100,16 +98,16 @@ return(
 };
 const styles = StyleSheet.create({
     container: {
-      position:"relative",
-      flex: 1,
+      position:"absolute",
       alignItems: 'center',
       justifyContent: 'center',
+      paddingTop:199,
       
     },
   
     backButtonContainer: {
         position: 'absolute',
-        top: 10,
+        top: 34,
         left: 15,
     },
 
@@ -118,18 +116,20 @@ const styles = StyleSheet.create({
       color: 'black',
       fontWeight: 'bold',
       position: 'absolute',
-      top: 4,
+      top: 34,
+      left:120,
     },
     input: {
 
-      top:-20,
+      bottom:20,
       fontSize:20,
-      height:50,
+      height:40,
       width:300,
       margin: 10,
-      borderBottomWidth:2,
+      borderBottomWidth:1,
       borderColor: 'black',
-       padding: 10,
+    
+      // paddingTop:4 ,
     },
     
 
@@ -142,11 +142,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#404B7C', // The color you provided
       paddingVertical: 12, // Can be adjusted for height
       borderRadius: 30, // Adjust for rounded corners
-      shadowColor: 'black',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
+      
     },
     buttonText: {
       color: 'white',
