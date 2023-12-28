@@ -12,8 +12,8 @@ const Chat = ({ navigation }) =>
 return(
 <View style={styles.container}>
 
-      <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content" />
-      <Text style={styles.title}>Menu</Text> 
+      
+      <Text style={styles.title}>Chat</Text> 
 
       <View style={styles.backButtonContainer}>
           <TouchableOpacity onPress={handleBack} >
@@ -33,9 +33,9 @@ const styles = StyleSheet.create({
     },
   
     backButtonContainer: {
-        position: 'alignself',
-        top: -330,
-        right: 150,
+        position: "absolute",
+        top: 34,
+        left: 20,
     },
 
     title: {
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
       color: 'black',
       fontWeight: 'bold',
       position: 'absolute',
-      top: 4,
+      top: 34,
     },
     // Add more styles for other components on the home page if needed
   });

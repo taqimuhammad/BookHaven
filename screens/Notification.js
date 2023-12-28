@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { TouchableOpacity, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Bottomnav from '../components/Bottomnav';
 
 const Notification = ({ navigation }) =>
  {
@@ -11,41 +12,46 @@ const Notification = ({ navigation }) =>
   
 return(
 <View style={styles.container}>
-
-      <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content" />
+      <View style={styles.titlec}>
       <Text style={styles.title}>Notification</Text> 
-
+      </View>
       <View style={styles.backButtonContainer}>
           <TouchableOpacity onPress={handleBack} >
           <Icon name="arrow-back" size={34} color="black" />
           </TouchableOpacity>
         </View>
+        <Bottomnav navigation={navigation} />
+
 </View>
 
 );
 };
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#FFFFFF', // Set the background color for the home page
+      position:"relative",
+    flex: 1,   
+      backgroundColor: '#FFFFFF', 
     },
   
     backButtonContainer: {
-        position: 'alignself',
-        top: -330,
-        right: 150,
+        position: 'absolute',
+        top: 40,
+        left: 20,
+    },
+    
+    titlec:{
+      position:"absolute",
+      top:30,
+      left:100,
     },
 
     title: {
       fontSize: 34,
       color: 'black',
       fontWeight: 'bold',
-      position: 'absolute',
-      top: 4,
+  
     },
-    // Add more styles for other components on the home page if needed
+    
   });
 
 

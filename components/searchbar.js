@@ -34,9 +34,11 @@ const SearchBar = ({ clicked, searchPhrase, setSearchPhrase, setClicked }) => { 
         {clicked && (
           <Entypo 
             name="cross" 
-            size={20} 
+            size={30} 
             color="black" 
-            style={{ padding: 2 }} 
+            style={{ top:-17,
+            right:20
+           }} 
             onPress={() => {
               setSearchPhrase("");
               setClicked(false); // Corrected setClicked
@@ -44,18 +46,7 @@ const SearchBar = ({ clicked, searchPhrase, setSearchPhrase, setClicked }) => { 
           />
         )}
       </View>
-      {/* cancel button, depending on whether the search bar is clicked or not */}
-      {clicked && (
-        <View>
-          <Button
-            title="Cancel"
-            onPress={() => {
-              Keyboard.dismiss();
-              setClicked(false); // Corrected setClicked
-            }}
-          ></Button>
-        </View>
-      )}
+
     </View>
   );
 };
@@ -64,8 +55,9 @@ export default SearchBar;
 
 const styles = StyleSheet.create({
     container: {
-        top:-215,
-      margin: -14,
+        top:80,
+      paddingHorizontal:20,
+      position:'absolute',
       justifyContent: "flex-start",
       alignItems: "center",
       flexDirection: "row",
@@ -75,7 +67,7 @@ const styles = StyleSheet.create({
       
       padding: 10,
       flexDirection: "row",
-      width: "100%",
+      width: "105%",
       backgroundColor: "#d9dbda",
       borderRadius: 15,
       alignItems: "center",

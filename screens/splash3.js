@@ -6,11 +6,11 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 const Splash3 = ({ navigation }) => {
   
   const handleGetStarted = () => {
-    navigation.navigate("signup");
+    navigation.navigate("SignUp");
   };
   
   const handleLogin = () => {
-    navigation.navigate("login");
+    navigation.navigate("Login");
   };
 
   const handleBack = () => {

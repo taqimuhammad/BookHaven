@@ -59,8 +59,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     card:{
-        marginTop:30,
-        height:140,
+        
+        marginTop:25,
+        height:170,
         width:300,
         borderRadius:20,
         borderWidth:1,
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
     body:{
         height:300,
         width:300,
-        marginTop:30,
+        marginTop:20,
     },
     heading:{
         fontSize:22,

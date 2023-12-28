@@ -5,7 +5,7 @@ import React from 'react';
 const HelpSupport = ({ navigation }) => {
 
     const handleBack = () => {
-        navigation.navigate("Homescreen");
+        navigation.navigate("Settings");
     };
 
     return (

@@ -1,8 +1,10 @@
 import React, { useState } from 'react'; // Corrected import
-import { TouchableOpacity, StatusBar } from 'react-native';
+import { TouchableOpacity, ScrollView} from 'react-native';
 import { StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import SearchBar from '../components/searchbar';
+import SearchBar from '../components/Searchbar';
+import Bottomnav from '../components/Bottomnav';
+import { BookContainer, Bookinfo } from '../components/BookContainer';
 
 const HomePage = ({ navigation }) => {
 
@@ -10,7 +12,7 @@ const HomePage = ({ navigation }) => {
   const [clicked, setClicked] = useState(false);
 
   const notificationbar = () => {
-    navigation.navigate("Notification");
+    navigation.navigate('Notification');
   };
   
   const handlemenubar = () => {
@@ -52,6 +54,14 @@ const HomePage = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
+      <ScrollView style={styles.bookList}>
+        {Bookinfo.map((book) => (
+          <BookContainer key={book.id} {...book} />
+        ))}
+      </ScrollView>
+
+      <Bottomnav navigation={navigation} />
+
     </View>
   );
 };
@@ -59,26 +69,26 @@ const HomePage = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    position : "relative",
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFFFFF', // Set the background color for the home page
   },
 
   menubarContainer: {
-    position: 'alignself',
-    top: -334,
-    right: 140,
+    position:"relative",
+    top:-50,
+    right: 150,
   },
   
   messagebarContainer: {
-    position: 'alignself',
-    top: -366,
-    left: 155,
+    position:"relative",
+    top:-80,
+    left: 150,
   },
   
   notificationContainer: {
-    position: 'alignself',
-    top: -300,
+    top: -13,
     left: 115,
   },
 
@@ -86,8 +96,7 @@ const styles = StyleSheet.create({
     fontSize: 34,
     color: 'black',
     fontWeight: 'bold',
-    position: 'absolute',
-    top: 12,
+    top: 24,
   },
   // Add more styles for other components on the home page if needed
 });

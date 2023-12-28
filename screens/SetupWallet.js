@@ -11,6 +11,9 @@ const SetupWallet = ({ navigation }) => {
     const handleBack = () => {
         navigation.navigate("Homescreen");
     };
+    const handlewalletsetup = () => {
+        navigation.navigate("WalletCard");
+    };
 
     return (
         <View style={styles.container}>
@@ -60,7 +63,9 @@ const SetupWallet = ({ navigation }) => {
                 </KeyboardAvoidingView>
             </View>
             <View style={styles.button}>
-                <Button title="Setup E-Wallet" />
+            <TouchableOpacity style={styles.buttonc} onPress={handlewalletsetup} >
+                   <Text style={styles.textc}>Setup E-Wallet</Text>
+                    </TouchableOpacity>
             </View>
         </View>
     )
@@ -91,6 +96,19 @@ const styles = StyleSheet.create({
         marginTop: 50,
         marginLeft: 10,
     },
+    buttonc:{
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor:'#404B7C',
+        height:48,
+        width:248,
+        borderRadius:25,
+      },
+      textc:{
+        fontSize:22,
+        color:'white',
+        fontWeight:'500',
+      },
     input: {
         fontSize: 20,
         height: 50,

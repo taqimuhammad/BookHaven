@@ -5,7 +5,7 @@ import React from 'react';
 const TermsPolicies = ({ navigation }) => {
 
     const handleBack = () => {
-        navigation.navigate("Homescreen");
+        navigation.navigate("Settings");
     };
 
     return (

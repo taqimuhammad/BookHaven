@@ -7,13 +7,18 @@ const ReportProblem = ({ navigation }) => {
 
     const [title, onChangeTitle] = React.useState('');
     const [description, onChangeDescription] = React.useState('');
+
     const handleBack = () => {
+        navigation.navigate("Settings");
+    };
+
+    const handlereport = () => {
         navigation.navigate("Homescreen");
     };
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Report problem</Text>
+            <Text style={styles.title}>Tracking</Text>
             <View style={styles.backButtonContainer}>
                 <TouchableOpacity onPress={handleBack} >
                     <Icon name="arrow-back" size={34} color="black" />
@@ -40,7 +45,9 @@ const ReportProblem = ({ navigation }) => {
                     />
             </View>
             <View style={styles.button}>
-                    <Button title="Report" navigation={navigation} />
+            <TouchableOpacity style={styles.buttonc} onPress={handlereport} >
+                <Text style={styles.textc}>Report</Text>
+                </TouchableOpacity>
             </View>
 
         </View>
@@ -74,6 +81,19 @@ const styles = StyleSheet.create({
         borderRadius:20,
         borderWidth:1,
     },
+    buttonc:{
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor:'#404B7C',
+        height:48,
+        width:248,
+        borderRadius:25,
+      },
+      textc:{
+        fontSize:22,
+        color:'white',
+        fontWeight:'500',
+      },
     input: {
         fontSize: 20,
         height: 50,

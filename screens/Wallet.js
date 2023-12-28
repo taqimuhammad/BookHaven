@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Button from '../components/Button';
 
 const Wallet = ({ navigation }) => {
   const handleBack = () => {
     navigation.navigate("Homescreen");
   };
-
+  const handlewallet = () => {
+    navigation.navigate("SetupWallet");
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>E- Wallet</Text>
@@ -21,7 +22,10 @@ const Wallet = ({ navigation }) => {
         <Image style={styles.image} source={require('../img/wallet.png')} />
         <Text style={styles.btext}>Setup E-wallet now and make {'\n'} online payments with ease.</Text>
         <View style={styles.button}>
-          <Button title="Setup E-Wallet" />
+        
+       <TouchableOpacity style={styles.buttonc} onPress={handlewallet} >
+                   <Text style={styles.textc}>Setup E-Wallet</Text>
+                    </TouchableOpacity>
         </View>
       </View>
 
@@ -45,6 +49,19 @@ const styles = StyleSheet.create({
     margin: 10,
     paddingBottom: 5,
     fontWeight: 'bold',
+  },
+  buttonc:{
+    alignItems:'center',
+    justifyContent:'center',
+    backgroundColor:'#404B7C',
+    height:48,
+    width:248,
+    borderRadius:25,
+  },
+  textc:{
+    fontSize:22,
+    color:'white',
+    fontWeight:'500',
   },
   text: {
     alignSelf: 'center',
