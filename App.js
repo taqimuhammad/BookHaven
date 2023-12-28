@@ -16,11 +16,15 @@ import Tracking from './screens/Tracking';
 import DeleteAccount from './screens/DeleteAccount';
 import DeleteConfirmation from './screens/DeleteConfirmation';
 import AddBook from './screens/AddBook';
+import TermsPolicies from './screens/TermsPolicies';
+import Faqs from './screens/Faqs';
+import HelpSupport from './screens/HelpSupport';
+import ReportProblem from './screens/ReportProblem';
 
 export default function App() {
   return(
     <View style={styles.container}>
-<Navigation />
+      <Navigation />
     </View>
   );
 }
