@@ -13,7 +13,7 @@ const ReportProblem = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Tracking</Text>
+            <Text style={styles.title}>Report problem</Text>
             <View style={styles.backButtonContainer}>
                 <TouchableOpacity onPress={handleBack} >
                     <Icon name="arrow-back" size={34} color="black" />

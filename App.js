@@ -24,7 +24,7 @@ import ReportProblem from './screens/ReportProblem';
 export default function App() {
   return(
     <View style={styles.container}>
-      <Navigation />
+<Navigation />
     </View>
   );
 }
