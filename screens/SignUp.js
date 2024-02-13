@@ -9,14 +9,14 @@ const SignUp = ({ navigation }) => {
     const [password, onChangePassword] = React.useState('');
     const [RePassword, onChangeReEnterPassword] = React.useState('');
 
-    
+
     const handleSignUpPress = () => {
-      navigation.navigate('Homescreen'); 
+        navigation.navigate('Homescreen');
     };
     const handlelogin = () => {
-        navigation.navigate('Login'); 
-      };
-    
+        navigation.navigate('Login');
+    };
+
 
     return (
         <View style={styles.container}>
@@ -68,22 +68,25 @@ const SignUp = ({ navigation }) => {
                     />
                 </ScrollView>
             </KeyboardAvoidingView>
-            <View style={styles.bottomview} >
+            <View style={styles.bottomview}>
+
                 <View style={styles.button}>
-                  <TouchableOpacity style={styles.buttonc} onPress={handleSignUpPress} >
-                   <Text style={styles.textc}>SIGNUP</Text>
+                    <TouchableOpacity style={styles.buttonc} onPress={handleSignUpPress} >
+                        <Text style={styles.textc}>SIGNUP</Text>
                     </TouchableOpacity>
-    
                 </View>
+
                 <View style={styles.text}>
                     <TouchableOpacity onPress={handlelogin}>
-                        <Text style={styles.textw}>Already have an Account?           
-                        <Text style={styles.log}>Log In</Text></Text>
+                        <Text style={styles.textw}>Already have an Account?
+                        <Text style={styles.log}>          Log In</Text></Text>
                     </TouchableOpacity>
                 </View>
+
                 <View style={styles.or}>
                     <Text style={styles.ortext}>{'OR'}</Text>
                 </View>
+
                 <View style={styles.img}>
                     <TouchableOpacity>
                         <Image source={require('../img/f.png')} style={styles.img1} />
@@ -92,6 +95,7 @@ const SignUp = ({ navigation }) => {
                         <Image source={require('../img/gg.png')} style={styles.img2} />
                     </TouchableOpacity>
                 </View>
+
             </View>
         </View>
     );
@@ -112,22 +116,22 @@ const styles = StyleSheet.create({
         fontSize: 30,
         paddingTop: 50,
         margin: 10,
-        paddingBottom: 5,
         fontWeight: 'bold',
     },
-    buttonc:{
-        alignItems:'center',
-        justifyContent:'center',
-        backgroundColor:'#404B7C',
-        height:48,
-        width:248,
-        borderRadius:25,
-      },
-      textc:{
-        fontSize:22,
-        color:'white',
-        fontWeight:'500',
-      },
+    buttonc: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#404B7C',
+        height: 48,
+        width: 248,
+        borderRadius: 25,
+        marginBottom:5,
+    },
+    textc: {
+        fontSize: 22,
+        color: 'white',
+        fontWeight: '500',
+    },
     input: {
         fontSize: 20,
         height: 50,
@@ -148,7 +152,7 @@ const styles = StyleSheet.create({
         bottom: 110,
         height: 30,
         width: 250,
-        paddingBottom:7,
+        paddingBottom: 7,
     },
     log: {
         fontWeight: 'bold',
@@ -168,6 +172,7 @@ const styles = StyleSheet.create({
     ortext: {
         fontSize: 18,
         fontWeight: 'bold',
+        color: '#404B7C',
     },
     img: {
         flexDirection: 'row',
