@@ -39,7 +39,7 @@ import Library from './screens/Library'
 import TermsPolicies from './screens/TermsPolicies';
 import HelpSupport from './screens/HelpSupport';
 import ReportProblem from './screens/ReportProblem';
-
+import Faqs from './screens/Faqs';
 
 
 
@@ -147,25 +147,35 @@ const Navigation = () => {
        <stack.Screen
       name='TermsPolicies'
       component={TermsPolicies}/>
+      
        <stack.Screen
       name='HelpSupport'
       component={HelpSupport}/>
-       <stack.Screen
+      
+      <stack.Screen
       name='ReportProblem'
       component={ReportProblem}/>
+
+      <stack.Screen
+      name='Faqs'
+      component={Faqs}/>
       
        <stack.Screen
       name='Wishlist'
       component={Wishlist}/>
+      
        <stack.Screen
       name='Bottomnav'
       component={Bottomnav}/>
+      
       <stack.Screen
       name='Library'
       component={Library}/>
+      
       <stack.Screen
       name='Bookdetail'
       component={Bookdetail }/>
+
     </stack.Navigator>
    </NavigationContainer>
     
