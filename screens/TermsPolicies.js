@@ -10,39 +10,51 @@ const TermsPolicies = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+
             <Text style={styles.title}>Terms & Policies</Text>
             <View style={styles.backButtonContainer}>
                 <TouchableOpacity onPress={handleBack} >
                     <Icon name="arrow-back" size={34} color="black" />
                 </TouchableOpacity>
             </View>
-            <ScrollView style={styles.card}>
-                <Text style={styles.texthead}>Terms of Use</Text>
-                <Text style={styles.textin}>Sed ut perspiciatis unde omnis iste natus error 
-                    sit voluptatem accusantium doloremque laudantium, 
-                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et 
-                    quasi architecto beatae vitae dicta sunt explicabo. Nemo enim 
-                    ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-                    fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem {'\n'}
-                    sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor 
-                    sit amet, consectetur, adipisci velit, sed quia non numquam eius modi 
-                    tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-                    ui dolorem eum fugiat quo voluptas nulla pariatur</Text>
-                    <Text style={styles.texthead}>Policies</Text>
-                <Text style={styles.textin}>Sed ut perspiciatis unde omnis iste natus error 
-                    sit voluptatem accusantium doloremque laudantium, 
-                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et 
-                    quasi architecto beatae vitae dicta sunt explicabo. Nemo enim 
-                    ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-                    fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem {'\n'}
-                    sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor 
-                    sit amet, consectetur, adipisci velit, sed quia non numquam eius modi 
-                    tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-                    ui dolorem eum fugiat quo voluptas nulla pariatur</Text>
-            </ScrollView>
-            <View style={styles.view}>
 
-            </View>
+            <ScrollView style={styles.card}>
+                <Text style={styles.texthead}>Privacy Policy</Text>
+                <Text style={styles.textin}>
+                    At Book Haven, we are committed to protecting your privacy and ensuring the
+                    security of your personal information. Our Privacy Policy outlines
+                    how we collect, use, and safeguard your data when you use our platform.
+                </Text>
+
+                <Text style={styles.texthead}>Terms of Service</Text>
+                <Text style={styles.textin}>
+                    Welcome to Book Haven! By accessing or using our platform, you agree to
+                    comply with our Terms of Service. These terms govern your use of the platform,
+                    including registration, posting content, and engaging in transactions.
+                </Text>
+
+                <Text style={styles.texthead}>Community Guidelines</Text>
+                <Text style={styles.textin}>
+                    Our Community Guidelines are designed to foster a safe and respectful environment
+                    for all users. Please review these guidelines before participating in discussions
+                    or interacting with other members of the community.
+                </Text>
+
+                <Text style={styles.texthead}>Payment and Transaction Policies</Text>
+                <Text style={styles.textin}>
+                    Before making a purchase or engaging in a transaction on Book Haven, please review
+                    our Payment and Transaction Policies. These policies cover payment processing, fees, refunds,
+                    and dispute resolution procedures.
+                </Text>
+
+                <Text style={styles.texthead}>Safety and Security Policies</Text>
+                <Text style={styles.textin}>
+                    Your safety and security are our top priorities. Our Safety and Security Policies outline
+                    the measures we take to protect your account, personal information, and transactions from
+                    unauthorized access and fraudulent activity.
+                </Text>
+            </ScrollView>
+            
         </View>
     );
 }
@@ -72,18 +84,16 @@ const styles = StyleSheet.create({
         marginTop: 20,
         height: 200,
         width: 320,
-    },
-    view: {
-        flex: 0.1,
+        marginBottom: 10,
     },
     texthead: {
-        marginBottom:10,
+        marginBottom: 10,
         color: '#404B7C',
         fontSize: 25,
         fontWeight: '500',
     },
-    textin:{
-        fontSize:16,    
-        marginBottom:10,
+    textin: {
+        fontSize: 18,
+        marginBottom: 10,
     },
 });
