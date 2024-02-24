@@ -1,19 +1,23 @@
 import * as React from 'react';
-import {View,StyleSheet,Text,TextInput,ScrollView,KeyboardAvoidingView} from 'react-native';
-import Button from '../components/Button';
+import { View, StyleSheet, Text, TextInput, ScrollView, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import MultiSelect from '../components/MultiSelect';
 
-const UserDetail = () => {
+const UserDetail = ({ navigation }) => {
     const [cnic, onChangeCnic] = React.useState('');
     const [address, onChangeAddress] = React.useState('');
     const [bio, onChangeBio] = React.useState('');
 
+    const handlePress = () => {
+        navigation.navigate('Homescreen');
+    };
+
     return (
-        <KeyboardAvoidingView 
-         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-         style={styles.container}> 
-        <View keyboardDismissMode="on-drag"> 
-            <Text style={styles.heading}>Enter your Details</Text>        
+        <View style={styles.container}>
+        <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            style={styles.sc}>
+            <View keyboardDismissMode="on-drag">
+                <Text style={styles.heading}>Enter your Details</Text>
                 <TextInput
                     style={styles.input}
                     value={cnic}
@@ -41,36 +45,57 @@ const UserDetail = () => {
                 <MultiSelect />
             </View>
             <View style={styles.button}>
-              <Button title = "Done"/>
+                <TouchableOpacity style={styles.buttonc} onPress={handlePress} >
+                    <Text style={styles.textc}>Done</Text>
+                </TouchableOpacity>
             </View>
-         </KeyboardAvoidingView>
-  );
+        </KeyboardAvoidingView>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        alignSelf:'center',
+    container: {
+        flex: 1,
+        backgroundColor:'white',
     },
-    heading:{
-        fontSize:30,
-        paddingTop:50,
-        margin:10,
-        paddingBottom:5,
-        fontWeight:'bold',
+    sc: {
+        flex: 1,
+        alignSelf: 'center',
+    },
+    heading: {
+        fontSize: 30,
+        paddingTop: 50,
+        margin: 10,
+        paddingBottom: 5,
+        fontWeight: 'bold',
     },
     input: {
-        fontSize:20,
-        height:50,
-        width:300,
+        fontSize: 20,
+        height: 50,
+        width: 300,
         margin: 10,
-        borderBottomWidth:1,
+        borderBottomWidth: 1,
     },
-    button:{
-        flex:1,
-        alignSelf:'center',
-        position:'absolute',
-        bottom:10,
+    button: {
+        flex: 1,
+        alignSelf: 'center',
+        position: 'absolute',
+        bottom: 10,
+    },
+    buttonc: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#404B7C',
+        height: 48,
+        width: 248,
+        borderRadius: 25,
+        marginBottom: 5,
+    },
+    textc: {
+        fontSize: 22,
+        color: 'white',
+        fontWeight: '500',
     },
 });
 

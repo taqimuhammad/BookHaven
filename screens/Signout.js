@@ -2,10 +2,15 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { TouchableOpacity, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Button from '../components/Button';
 
 const Signout = ({ navigation }) => {
   const handleBack = () => {
     navigation.navigate("Homescreen");
+  };
+
+  const handlePress = () => {
+    navigation.navigate('Login');
   };
 
   return (
@@ -17,6 +22,13 @@ const Signout = ({ navigation }) => {
           <Icon name="arrow-back" size={34} color="black" />
         </TouchableOpacity>
       </View>
+
+        <View style={styles.button}>
+          <TouchableOpacity style={styles.buttonc} onPress={handlePress} >
+            <Text style={styles.textc}>Sign Out</Text>
+          </TouchableOpacity>
+        </View>
+
     </View>
 
   );
@@ -39,6 +51,26 @@ const styles = StyleSheet.create({
     margin: 10,
     paddingBottom: 5,
     fontWeight: 'bold',
+  },
+  button: {
+    flex: 1,
+    alignSelf: 'center',
+    position: 'absolute',
+    top:300,
+  },
+  buttonc: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#404B7C',
+    height: 48,
+    width: 248,
+    borderRadius: 25,
+    marginBottom: 5,
+  },
+  textc: {
+    fontSize: 22,
+    color: 'white',
+    fontWeight: '500',
   },
 
 });

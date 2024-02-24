@@ -19,60 +19,48 @@ const Faqs = ({ navigation }) => {
             </View>
             <View>
                 <ScrollView contentContainerStyle={styles.mainContainer}>
-                    <Text style={{ color: '#000000', marginVertical: 20 }}>Light Theme</Text>
                     <Accordion
-                        headerText="Light Theme"
+                        headerText="Question 1"
                         headerTextStyles={{ fontSize: 18 }}
                     >
-                        <View style={{padding:10}}>
-                            <Text style={{ color: '#000000' }}>Light Theme</Text>
-                            <Text style={{ color: '#000000' }}>Light Theme</Text>
-                            <Text style={{ color: '#000000' }}>Light Theme</Text>
-                            <Text style={{ color: '#000000' }}>Light Theme</Text>
-                            <Text style={{ color: '#000000' }}>Light Theme</Text>
+                        <View style={{ padding: 10, paddingTop: 5 }}>
+                            <Text style={{ fontSize: 18 }}>The users can pay throught the online systems or they can pay by meeting physcially</Text>
                         </View>
                     </Accordion>
-
-                    <Text style={{ color: '#000000', marginVertical: 20 }}>Dark Theme</Text>
+                    <View style={{ marginBottom: 10 }}></View>
                     <Accordion
-                        bodyStyles={{
-                            backgroundColor: 'black',
-                        }}
-                        headerText="Dark Theme"
-                        headerStyles={{ paddingVertical: 15, backgroundColor: '#000000' }}
-                        headerTextStyles={{ color: '#ffffff' }}
-                        headerIconStyles={{ fontSize: 15 }}
+                        headerText="Question 2"
+                        headerTextStyles={{ fontSize: 18 }}
                     >
-                        <View style={{ padding: 10 }}>
-                            <Text style={{ color: '#ffffff' }}>Dark Theme</Text>
-                            <Text style={{ color: '#ffffff' }}>Dark Theme</Text>
-                            <Text style={{ color: '#ffffff' }}>Dark Theme</Text>
-                            <Text style={{ color: '#ffffff' }}>Dark Theme</Text>
-                            <Text style={{ color: '#ffffff' }}>Dark Theme</Text>
+                        <View style={{ padding: 10, paddingTop: 5 }}>
+                            <Text style={{ fontSize: 18 }}>The users can pay throught the online systems or they can pay by meeting physcially</Text>
                         </View>
                     </Accordion>
-
-                    <Text style={{ color: '#000000', marginVertical: 20 }}>Props Intro</Text>
+                    <View style={{ marginBottom: 10 }}></View>
                     <Accordion
-                        parentContainerStyles={{
-                            marginTop: 20,
-                        }}
-                        bodyStyles={{
-                            backgroundColor: 'yellow',
-                        }}
-                        headerText="Header"
-                        headerStyles={{ paddingVertical: 20 }}
-                        headerTextStyles={{ fontStyle: 'italic' }}
-                        headerIconStyles={{ fontSize: 15 }}
-                        isOpen={isOpen}
-                        onPress={() => setIsOpen(!isOpen)}
+                        headerText="Question 3"
+                        headerTextStyles={{ fontSize: 18 }}
                     >
-                        <View style={{ padding: 10 }}>
-                            <Text style={{ color: '#000000' }}>Header</Text>
-                            <Text style={{ color: '#000000' }}>Header</Text>
-                            <Text style={{ color: '#000000' }}>Header</Text>
-                            <Text style={{ color: '#000000' }}>Header</Text>
-                            <Text style={{ color: '#000000' }}>Header</Text>
+                       <View style={{padding:10,paddingTop:5}}>
+                            <Text style={{ fontSize:18 }}>The users can pay throught the online systems or they can pay by meeting physcially</Text>
+                        </View>
+                    </Accordion>
+                    <View style={{ marginBottom: 10 }}></View>
+                    <Accordion
+                        headerText="Question 4"
+                        headerTextStyles={{ fontSize: 18 }}
+                    >
+                        <View style={{padding:10,paddingTop:5}}>
+                            <Text style={{ fontSize:18 }}>The users can pay throught the online systems or they can pay by meeting physcially</Text>
+                        </View>
+                    </Accordion>
+                    <View style={{ marginBottom: 10 }}></View>
+                    <Accordion
+                        headerText="Question 5"
+                        headerTextStyles={{ fontSize: 18 }}
+                    >
+                        <View style={{padding:10,paddingTop:5}}>
+                            <Text style={{ fontSize:18 }}>The users can pay throught the online systems or they can pay by meeting physcially</Text>
                         </View>
                     </Accordion>
                 </ScrollView>

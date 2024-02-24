@@ -11,7 +11,7 @@ const SignUp = ({ navigation }) => {
 
 
     const handleSignUpPress = () => {
-        navigation.navigate('Homescreen');
+        navigation.navigate('UserDetail');
     };
     const handlelogin = () => {
         navigation.navigate('Login');
@@ -104,13 +104,15 @@ const SignUp = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignSelf: 'center',
+        backgroundColor:'white',
     },
     kbview: {
         flex: 2,
+        alignSelf: 'center',
     },
     bottomview: {
         flex: 1,
+        alignSelf: 'center',
     },
     heading: {
         fontSize: 30,

@@ -10,6 +10,7 @@ import Notification from './screens/Notification';
 
 import SignUp from './screens/SignUp';
 import Login from './screens/Login';
+import UserDetail from './screens/UserDetail';
 
 import Menuscreen from './screens/Menubar';
 import Chat from './screens/Chat';
@@ -44,144 +45,148 @@ import Faqs from './screens/Faqs';
 
 
 
-const stack=createNativeStackNavigator ()
+const stack = createNativeStackNavigator()
 
 const Navigation = () => {
   return (
-   <NavigationContainer>
-    <stack.Navigator
-    screenOptions={{
+    <NavigationContainer>
+      <stack.Navigator
+        screenOptions={{
           headerShown: false, // This will hide the header for all screens
         }}
-        >
+      >
 
-      <stack.Screen
-      name='Splash'
-      component={Splash}/>
-      <stack.Screen
-      name='Splash2'
-      component={Splash2}/>
-       <stack.Screen
-      name='Splash3'
-      component={Splash3}/> 
-      <stack.Screen
-      name='Homescreen'
-      component={Homescreen}/>
-      <stack.Screen
-      name='Notification'
-      component={Notification}/>
-      <stack.Screen
-      name='Login'
-      component={Login}/>
-      <stack.Screen
-      name='SignUp'
-      component={SignUp}/>
-      <stack.Screen
-      name='loginpagebutton'
-      component={Button}/>
-      <stack.Screen
-      name='Menuscreen'
-      component={Menuscreen}/>
+        <stack.Screen
+          name='Splash'
+          component={Splash} />
+        <stack.Screen
+          name='Splash2'
+          component={Splash2} />
+        <stack.Screen
+          name='Splash3'
+          component={Splash3} />
+        <stack.Screen
+          name='Homescreen'
+          component={Homescreen} />
+        <stack.Screen
+          name='Notification'
+          component={Notification} />
+        <stack.Screen
+          name='Login'
+          component={Login} />
+        <stack.Screen
+          name='SignUp'
+          component={SignUp} />
+        <stack.Screen
+          name='loginpagebutton'
+          component={Button} />
+        <stack.Screen
+          name='Menuscreen'
+          component={Menuscreen} />
 
-      <stack.Screen
-      name='Chat'
-      component={Chat}/>
-      
-      <stack.Screen
-      name='Location'
-      component={Location}/>
-      
-      <stack.Screen
-      name='Settings'
-      component={Settings}/>
-      
-      <stack.Screen
-      name='Signout'
-      component={Signout}/>
-      
-      <stack.Screen
-      name='Wallet'
-      component={Wallet}/>
+        <stack.Screen
+          name='Chat'
+          component={Chat} />
 
-      <stack.Screen
-      name='SetupWallet'
-      component={SetupWallet}/>
-      
-      <stack.Screen
-      name='WalletCard'
-      component={WalletCard}/>
-      
-      <stack.Screen
-      name='Tracking'
-      component={Tracking}/>
+        <stack.Screen
+          name='Location'
+          component={Location} />
 
-      <stack.Screen
-      name='Tracking2'
-      component={Tracking2}/>
-      <stack.Screen
-      name='Tracking3'
-      component={Tracking3}/>
-      <stack.Screen
-      name='Tracking4'
-      component={Tracking4}/>
-      <stack.Screen
-      name='UserProfile'
-      component={UserProfile}/>
-      <stack.Screen
-      name='EditProfile'
-      component={EditProfile}/>
+        <stack.Screen
+          name='Settings'
+          component={Settings} />
 
-      <stack.Screen
-      name='SetupLocation'
-      component={SetupLocation}/>
-       <stack.Screen
-      name='DeleteAccount'
-      component={DeleteAccount}/>
-       <stack.Screen
-      name='DeleteConfirmation'
-      component={DeleteConfirmation}/>
-       <stack.Screen
-      name='AddBook'
-      component={AddBook }/>
+        <stack.Screen
+          name='Signout'
+          component={Signout} />
 
-       <stack.Screen
-      name='TermsPolicies'
-      component={TermsPolicies}/>
-      
-       <stack.Screen
-      name='HelpSupport'
-      component={HelpSupport}/>
-      
-      <stack.Screen
-      name='ReportProblem'
-      component={ReportProblem}/>
+        <stack.Screen
+          name='Wallet'
+          component={Wallet} />
 
-      <stack.Screen
-      name='Faqs'
-      component={Faqs}/>
-      
-       <stack.Screen
-      name='Wishlist'
-      component={Wishlist}/>
-      
-       <stack.Screen
-      name='Bottomnav'
-      component={Bottomnav}/>
-      
-      <stack.Screen
-      name='Library'
-      component={Library}/>
-      
-      <stack.Screen
-      name='Bookdetail'
-      component={Bookdetail }/>
+        <stack.Screen
+          name='SetupWallet'
+          component={SetupWallet} />
 
-    </stack.Navigator>
-   </NavigationContainer>
-    
+        <stack.Screen
+          name='WalletCard'
+          component={WalletCard} />
+
+        <stack.Screen
+          name='Tracking'
+          component={Tracking} />
+
+        <stack.Screen
+          name='Tracking2'
+          component={Tracking2} />
+        <stack.Screen
+          name='Tracking3'
+          component={Tracking3} />
+        <stack.Screen
+          name='Tracking4'
+          component={Tracking4} />
+        <stack.Screen
+          name='UserProfile'
+          component={UserProfile} />
+        <stack.Screen
+          name='EditProfile'
+          component={EditProfile} />
+
+        <stack.Screen
+          name='SetupLocation'
+          component={SetupLocation} />
+        <stack.Screen
+          name='DeleteAccount'
+          component={DeleteAccount} />
+        <stack.Screen
+          name='DeleteConfirmation'
+          component={DeleteConfirmation} />
+        <stack.Screen
+          name='AddBook'
+          component={AddBook} />
+
+        <stack.Screen
+          name='TermsPolicies'
+          component={TermsPolicies} />
+
+        <stack.Screen
+          name='HelpSupport'
+          component={HelpSupport} />
+
+        <stack.Screen
+          name='ReportProblem'
+          component={ReportProblem} />
+
+        <stack.Screen
+          name='Faqs'
+          component={Faqs} />
+
+        <stack.Screen
+          name='Wishlist'
+          component={Wishlist} />
+
+        <stack.Screen
+          name='Bottomnav'
+          component={Bottomnav} />
+
+        <stack.Screen
+          name='Library'
+          component={Library} />
+
+        <stack.Screen
+          name='Bookdetail'
+          component={Bookdetail} />
+
+        <stack.Screen
+          name='UserDetail'
+          component={UserDetail} />
+
+      </stack.Navigator>
+    </NavigationContainer>
+
   );
 };
 
 
 
- export default Navigation;
+export default Navigation;
