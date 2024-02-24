@@ -17,9 +17,10 @@ const Login = ({ navigation }) => {
     const [password, onChangePassword] = React.useState('');
 
     return (
+        <View style={styles.container}>
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            style={styles.container}>
+            style={styles.sc}>
             <ScrollView keyboardDismissMode="on-drag">
                 <TextInput
                     style={styles.input}
@@ -40,23 +41,29 @@ const Login = ({ navigation }) => {
             </ScrollView>
             <View style={styles.button}>
             <TouchableOpacity style={styles.buttonc} onPress={handleloginPress} >
-                   <Text style={styles.textc}>LOGIN</Text>
-                    </TouchableOpacity>
+                   <Text style={styles.textc}>Login</Text>
+            </TouchableOpacity>
             </View>
             <View style={styles.text}>
                 <TouchableOpacity  onPress={handlesignin}>
-                    <Text style={styles.textw}>Don't have an Account ? <Text style={styles.sign}>Sign Up</Text></Text>
+                    <Text style={styles.textw}>Don't have an Account ? <Text style={styles.sign}>         Sign Up</Text></Text>
                 </TouchableOpacity> 
             </View>
         </KeyboardAvoidingView>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
+    container:{
+        flex:1,
+        backgroundColor:'white',
+    },
+    sc: {
         top:250,
         flex: 0.2,
         alignSelf: 'center',
+        backgroundColor:'white',
     },
     heading: {
         fontSize: 30,
