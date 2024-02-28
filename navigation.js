@@ -39,6 +39,8 @@ import Library from './screens/Library'
 import TermsPolicies from './screens/TermsPolicies';
 import HelpSupport from './screens/HelpSupport';
 import ReportProblem from './screens/ReportProblem';
+import Payment from './screens/Payment';
+import Order from './screens/Order';
 
 
 
@@ -70,6 +72,14 @@ const Navigation = () => {
       <stack.Screen
       name='Notification'
       component={Notification}/>
+      
+      <stack.Screen
+      name='Payment'
+      component={Payment}/>
+      <stack.Screen
+      name='Order'
+      component={Order}/>
+      
       <stack.Screen
       name='Login'
       component={Login}/>
