@@ -1,9 +1,11 @@
 import * as React from "react";
 import { View, ScrollView, Text, TextInput, KeyboardAvoidingView, Platform, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebaseConfig";
+import { collection, addDoc } from "firebase/firestore";
+import { auth,db } from "../firebaseConfig";
 
 const SignUp = ({ navigation }) => {
+
     const [fullName, onChangeFullName] = React.useState('');
     const [email, onChangeEmail] = React.useState('');
     const [number, onChangeNumber] = React.useState('');
@@ -27,7 +29,26 @@ const SignUp = ({ navigation }) => {
                 // ..
             });
         // navigation.navigate('UserDetail');
+        saveData();
     };
+
+    const saveData = async () =>{
+        try {
+            const docRef = await addDoc(collection(db, "Users"), {
+              email: email,
+              password: password,
+              fullname: fullName,
+              number: number,
+              repassword: RePassword,
+            });
+            console.log("Document written with ID: ", docRef.id);
+          } catch (e) {
+            console.error("Error adding document: ", e);
+          }
+
+    }
+
+
     const handlelogin = () => {
         navigation.navigate('Login');
     };
@@ -44,7 +65,7 @@ const SignUp = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         value={fullName}
-                        onChangeText={onChangeFullName}
+                        onChangeText={(text) => {onChangeFullName(text)}}
                         placeholder="Enter your full name"
                         placeholderTextColor={'black'}
                         keyboardType="default"
@@ -52,7 +73,7 @@ const SignUp = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         value={email}
-                        onChangeText={onChangeEmail}
+                        onChangeText={(text) => {onChangeEmail(text)}}
                         placeholder="Enter your email"
                         placeholderTextColor={'black'}
                         keyboardType="email-address"
@@ -60,7 +81,7 @@ const SignUp = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         value={number}
-                        onChangeText={onChangeNumber}
+                        onChangeText={(text) => {onChangeNumber(text)}}
                         placeholder="Enter number"
                         placeholderTextColor={'black'}
                         keyboardType="numeric"
@@ -68,7 +89,7 @@ const SignUp = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         value={password}
-                        onChangeText={onChangePassword}
+                        onChangeText={(text) => {onChangePassword(text)}}
                         placeholder="Enter password"
                         placeholderTextColor={'black'}
                         secureTextEntry={true}
@@ -76,7 +97,7 @@ const SignUp = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         value={RePassword}
-                        onChangeText={onChangeReEnterPassword}
+                        onChangeText={(text) => {onChangeReEnterPassword(text)}}
                         placeholder="Re enter password"
                         placeholderTextColor={'black'}
                         secureTextEntry={true}
