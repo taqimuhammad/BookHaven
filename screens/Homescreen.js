@@ -32,7 +32,7 @@ const HomePage = ({ navigation }) => {
         clicked={clicked}
         searchPhrase={searchPhrase}
         setSearchPhrase={setSearchPhrase}
-        setClicked={setClicked} // Pass setClicked as a prop
+        setClicked={setClicked} 
       />
       <Text style={styles.title}>Home</Text>
 
