@@ -33,10 +33,10 @@ const Menuscreen = ({ navigation }) =>
         navigation.navigate("UserProfile");
       }; 
       const handleorder  = () => {
-        navigation.navigate("");
+        navigation.navigate("Order");
       }; 
       const handlepayment = () => {
-        navigation.navigate("");
+        navigation.navigate("Payment");
       };
       const handletracking = () => {
         navigation.navigate("Tracking");

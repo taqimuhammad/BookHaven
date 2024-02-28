@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         borderColor:'lightgrey'
     },
     edittext:{
-        fontSize:20,
+        fontSize:17,
         textAlign:'center',
         textAlignVertical:'center',
         margin:5,
