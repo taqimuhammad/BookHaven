@@ -1,15 +1,31 @@
 import * as React from 'react';
 import { View, StyleSheet, Text, TextInput, ScrollView, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import MultiSelect from '../components/MultiSelect';
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebaseConfig";
 
 const UserDetail = ({ navigation }) => {
     const [cnic, onChangeCnic] = React.useState('');
     const [address, onChangeAddress] = React.useState('');
-    const [bio, onChangeBio] = React.useState('');
+    // const [bio, onChangeBio] = React.useState('');
 
     const handlePress = () => {
+        saveData();
         navigation.navigate('Homescreen');
     };
+
+    const saveData = async () =>{
+        try {
+            const docRef = await addDoc(collection(db, "Users"), {
+              cnic: cnic,
+              address: address,
+            });
+            console.log("Document written with ID: ", docRef.id);
+          } catch (e) {
+            console.error("Error adding document: ", e);
+          }
+
+    }
 
     return (
         <View style={styles.container}>
@@ -21,7 +37,7 @@ const UserDetail = ({ navigation }) => {
                 <TextInput
                     style={styles.input}
                     value={cnic}
-                    onChangeText={onChangeCnic}
+                    onChangeText={(text) => {onChangeCnic(text)}}
                     placeholder="Enter your cnic number"
                     placeholderTextColor={'black'}
                     keyboardType="numeric"
@@ -29,7 +45,7 @@ const UserDetail = ({ navigation }) => {
                 <TextInput
                     style={styles.input}
                     value={address}
-                    onChangeText={onChangeAddress}
+                    onChangeText={(text) => {onChangeAddress(text)}}
                     placeholder="Enter your address"
                     placeholderTextColor={'black'}
                     keyboardType="default"
