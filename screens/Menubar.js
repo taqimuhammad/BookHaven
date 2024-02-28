@@ -2,6 +2,7 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 import Bottomnav from '../components/Bottomnav';
+import { auth } from "../firebaseConfig";
 
 const Menuscreen = ({ navigation }) =>
  {
@@ -50,7 +51,7 @@ return(
     >
         <View style={styles.nameContainer}>
         <TouchableOpacity onPress={handleprofile} >
-          <Text style={styles.nameText}>JohnSnow</Text>
+          <Text style={styles.nameText}>{auth.currentUser?.email}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.backButtonContainer}>

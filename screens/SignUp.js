@@ -1,22 +1,58 @@
 import * as React from "react";
 import { View, ScrollView, Text, TextInput, KeyboardAvoidingView, Platform, StyleSheet, Image, TouchableOpacity } from "react-native";
-
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { collection, addDoc } from "firebase/firestore";
+import { auth,db } from "../firebaseConfig";
 
 const SignUp = ({ navigation }) => {
+
     const [fullName, onChangeFullName] = React.useState('');
     const [email, onChangeEmail] = React.useState('');
     const [number, onChangeNumber] = React.useState('');
     const [password, onChangePassword] = React.useState('');
     const [RePassword, onChangeReEnterPassword] = React.useState('');
 
-    
+
     const handleSignUpPress = () => {
-      navigation.navigate('Homescreen'); 
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
+                console.log(user.email)
+                navigation.navigate('UserDetail');
+                
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
+        // navigation.navigate('UserDetail');
+        saveData();
     };
+
+    const saveData = async () =>{
+        try {
+            const docRef = await addDoc(collection(db, "Users"), {
+              email: email,
+              password: password,
+              fullname: fullName,
+              number: number,
+              repassword: RePassword,
+            });
+            console.log("Document written with ID: ", docRef.id);
+          } catch (e) {
+            console.error("Error adding document: ", e);
+          }
+
+    }
+
+
     const handlelogin = () => {
-        navigation.navigate('Login'); 
-      };
-    
+        navigation.navigate('Login');
+    };
+
 
     return (
         <View style={styles.container}>
@@ -29,7 +65,7 @@ const SignUp = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         value={fullName}
-                        onChangeText={onChangeFullName}
+                        onChangeText={(text) => {onChangeFullName(text)}}
                         placeholder="Enter your full name"
                         placeholderTextColor={'black'}
                         keyboardType="default"
@@ -37,7 +73,7 @@ const SignUp = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         value={email}
-                        onChangeText={onChangeEmail}
+                        onChangeText={(text) => {onChangeEmail(text)}}
                         placeholder="Enter your email"
                         placeholderTextColor={'black'}
                         keyboardType="email-address"
@@ -45,7 +81,7 @@ const SignUp = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         value={number}
-                        onChangeText={onChangeNumber}
+                        onChangeText={(text) => {onChangeNumber(text)}}
                         placeholder="Enter number"
                         placeholderTextColor={'black'}
                         keyboardType="numeric"
@@ -53,7 +89,7 @@ const SignUp = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         value={password}
-                        onChangeText={onChangePassword}
+                        onChangeText={(text) => {onChangePassword(text)}}
                         placeholder="Enter password"
                         placeholderTextColor={'black'}
                         secureTextEntry={true}
@@ -61,29 +97,32 @@ const SignUp = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         value={RePassword}
-                        onChangeText={onChangeReEnterPassword}
+                        onChangeText={(text) => {onChangeReEnterPassword(text)}}
                         placeholder="Re enter password"
                         placeholderTextColor={'black'}
                         secureTextEntry={true}
                     />
                 </ScrollView>
             </KeyboardAvoidingView>
-            <View style={styles.bottomview} >
+            <View style={styles.bottomview}>
+
                 <View style={styles.button}>
-                  <TouchableOpacity style={styles.buttonc} onPress={handleSignUpPress} >
-                   <Text style={styles.textc}>SIGNUP</Text>
+                    <TouchableOpacity style={styles.buttonc} onPress={handleSignUpPress} >
+                        <Text style={styles.textc}>SIGNUP</Text>
                     </TouchableOpacity>
-    
                 </View>
+
                 <View style={styles.text}>
                     <TouchableOpacity onPress={handlelogin}>
-                        <Text style={styles.textw}>Already have an Account?           
-                        <Text style={styles.log}>Log In</Text></Text>
+                        <Text style={styles.textw}>Already have an Account?
+                            <Text style={styles.log}>          Log In</Text></Text>
                     </TouchableOpacity>
                 </View>
+
                 <View style={styles.or}>
                     <Text style={styles.ortext}>{'OR'}</Text>
                 </View>
+
                 <View style={styles.img}>
                     <TouchableOpacity>
                         <Image source={require('../img/f.png')} style={styles.img1} />
@@ -92,6 +131,7 @@ const SignUp = ({ navigation }) => {
                         <Image source={require('../img/gg.png')} style={styles.img2} />
                     </TouchableOpacity>
                 </View>
+
             </View>
         </View>
     );
@@ -100,34 +140,36 @@ const SignUp = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignSelf: 'center',
+        backgroundColor: 'white',
     },
     kbview: {
         flex: 2,
+        alignSelf: 'center',
     },
     bottomview: {
         flex: 1,
+        alignSelf: 'center',
     },
     heading: {
         fontSize: 30,
         paddingTop: 50,
         margin: 10,
-        paddingBottom: 5,
         fontWeight: 'bold',
     },
-    buttonc:{
-        alignItems:'center',
-        justifyContent:'center',
-        backgroundColor:'#404B7C',
-        height:48,
-        width:248,
-        borderRadius:25,
-      },
-      textc:{
-        fontSize:22,
-        color:'white',
-        fontWeight:'500',
-      },
+    buttonc: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#404B7C',
+        height: 48,
+        width: 248,
+        borderRadius: 25,
+        marginBottom: 5,
+    },
+    textc: {
+        fontSize: 22,
+        color: 'white',
+        fontWeight: '500',
+    },
     input: {
         fontSize: 20,
         height: 50,
@@ -148,7 +190,7 @@ const styles = StyleSheet.create({
         bottom: 110,
         height: 30,
         width: 250,
-        paddingBottom:7,
+        paddingBottom: 7,
     },
     log: {
         fontWeight: 'bold',
@@ -168,6 +210,7 @@ const styles = StyleSheet.create({
     ortext: {
         fontSize: 18,
         fontWeight: 'bold',
+        color: '#404B7C',
     },
     img: {
         flexDirection: 'row',
