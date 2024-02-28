@@ -1,6 +1,7 @@
 import * as React from "react";
 import { View, ScrollView, Text, TextInput, KeyboardAvoidingView, Platform, StyleSheet, Image, TouchableOpacity } from "react-native";
-
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebaseConfig";
 
 const SignUp = ({ navigation }) => {
     const [fullName, onChangeFullName] = React.useState('');
@@ -11,7 +12,21 @@ const SignUp = ({ navigation }) => {
 
 
     const handleSignUpPress = () => {
-        navigation.navigate('UserDetail');
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
+                console.log(user.email)
+                navigation.navigate('UserDetail');
+                
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
+        // navigation.navigate('UserDetail');
     };
     const handlelogin = () => {
         navigation.navigate('Login');
@@ -79,7 +94,7 @@ const SignUp = ({ navigation }) => {
                 <View style={styles.text}>
                     <TouchableOpacity onPress={handlelogin}>
                         <Text style={styles.textw}>Already have an Account?
-                        <Text style={styles.log}>          Log In</Text></Text>
+                            <Text style={styles.log}>          Log In</Text></Text>
                     </TouchableOpacity>
                 </View>
 
@@ -104,7 +119,7 @@ const SignUp = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:'white',
+        backgroundColor: 'white',
     },
     kbview: {
         flex: 2,
@@ -127,7 +142,7 @@ const styles = StyleSheet.create({
         height: 48,
         width: 248,
         borderRadius: 25,
-        marginBottom:5,
+        marginBottom: 5,
     },
     textc: {
         fontSize: 22,

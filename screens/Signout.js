@@ -2,15 +2,24 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { TouchableOpacity, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Button from '../components/Button';
+import { auth } from "../firebaseConfig";
+import { signOut } from "firebase/auth";
+
 
 const Signout = ({ navigation }) => {
   const handleBack = () => {
     navigation.navigate("Homescreen");
   };
 
-  const handlePress = () => {
-    navigation.navigate('Login');
+  const handleSignOut = () => {
+    signOut(auth)
+    .then(()=>{
+      navigation.replace('Login');
+    }).
+    catch((error) =>{
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
   };
 
   return (
@@ -24,7 +33,7 @@ const Signout = ({ navigation }) => {
       </View>
 
         <View style={styles.button}>
-          <TouchableOpacity style={styles.buttonc} onPress={handlePress} >
+          <TouchableOpacity style={styles.buttonc} onPress={handleSignOut} >
             <Text style={styles.textc}>Sign Out</Text>
           </TouchableOpacity>
         </View>

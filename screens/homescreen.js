@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import SearchBar from '../components/Searchbar';
 import Bottomnav from '../components/Bottomnav';
 import { BookContainer, Bookinfo } from '../components/BookContainer';
+import { auth } from "../firebaseConfig";
 
 const HomePage = ({ navigation }) => {
 
@@ -34,7 +35,7 @@ const HomePage = ({ navigation }) => {
         setSearchPhrase={setSearchPhrase}
         setClicked={setClicked} // Pass setClicked as a prop
       />
-      <Text style={styles.title}>Home</Text>
+      <Text style={styles.title}>{auth.currentUser?.email}</Text>
 
       <View style={styles.notificationContainer}>
         <TouchableOpacity onPress={notificationbar}>
