@@ -19,7 +19,8 @@ import Signout from './screens/Signout';
 import Wallet from './screens/Wallet';
 import Wishlist from './screens/Wishlist';
 import Button from './components/Button';
-import Bookdetail from './components/Bookdetail'
+import Bookdetail from './components/Bookdetail';
+import UserDetail from './screens/UserDetail';
 
 import Tracking4 from './screens/Tracking4';
 import UserProfile from './screens/UserProfile';
@@ -86,6 +87,9 @@ const Navigation = () => {
       <stack.Screen
       name='SignUp'
       component={SignUp}/>
+      <stack.Screen
+      name='UserDetail'
+      component={UserDetail}/>
       <stack.Screen
       name='loginpagebutton'
       component={Button}/>

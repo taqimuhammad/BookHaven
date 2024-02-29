@@ -45,9 +45,7 @@ const SignUp = ({ navigation }) => {
           } catch (e) {
             console.error("Error adding document: ", e);
           }
-
     }
-
 
     const handlelogin = () => {
         navigation.navigate('Login');
