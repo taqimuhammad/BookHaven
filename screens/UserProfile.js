@@ -3,6 +3,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Feather } from '@expo/vector-icons';
 import * as React from 'react';
 import ProfileText from '../components/ProfileText';
+import { auth } from "../firebaseConfig";
 
 const UserProfile = ({ navigation }) => {
 
@@ -25,7 +26,7 @@ const UserProfile = ({ navigation }) => {
         <View>
           <Image source={require('../img/profile.jpg')} style={styles.image} />
           <Text style={styles.username}>John Smith</Text>
-          <Text style={styles.email}>@jsmith23</Text>
+          <Text style={styles.email}>{auth.currentUser?.email}</Text>
         </View>
       </View>
       <View style={styles.body}>
@@ -84,15 +85,15 @@ const styles = StyleSheet.create({
     fontSize: 35,
     color: 'white',
     position: 'absolute',
-    right: 60,
+    right: 30,
     top: 55,
   },
   email: {
     fontSize: 25,
     color: '#C1BADC',
     position: 'absolute',
-    right: 80,
-    top: 90,
+    right: 50,
+    top: 100,
     fontWeight: 'bold',
   },
   body: {
