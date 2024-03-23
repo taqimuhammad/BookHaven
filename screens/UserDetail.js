@@ -10,7 +10,7 @@ const UserDetail = ({ navigation }) => {
     // const [bio, onChangeBio] = React.useState('');
 
     const handlePress = () => {
-        // saveData();
+        saveData();
         navigation.navigate('Homescreen');
     };
 
