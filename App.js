@@ -1,12 +1,11 @@
 import React from 'react';
 import Navigation from './Navigation';
-import { View,StyleSheet } from 'react-native';
-
+import { View, StyleSheet } from 'react-native';
 
 export default function App() {
-  return(
+  return (
     <View style={styles.container}>
-<Navigation />
+      <Navigation />
     </View>
   );
 }
@@ -14,5 +13,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-   }
+  }
 });

@@ -15,7 +15,6 @@ import Menuscreen from './screens/Menubar';
 import Chat from './screens/Chat';
 import Location from './screens/Location';
 import Settings from './screens/Settings';
-import Signout from './screens/Signout';
 import Wallet from './screens/Wallet';
 import Wishlist from './screens/Wishlist';
 import Button from './components/Button';
@@ -43,6 +42,7 @@ import ReportProblem from './screens/ReportProblem';
 import Faqs from './screens/Faqs';
 import Payment from './screens/Payment';
 import Order from './screens/Order';
+import Signout from './screens/Signout';
 
 
 
