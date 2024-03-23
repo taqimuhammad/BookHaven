@@ -14,22 +14,24 @@ const SignUp = ({ navigation }) => {
 
 
     const handleSignUpPress = () => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed up 
-                const user = userCredential.user;
-                console.log(user.email)
-                navigation.navigate('UserDetail');
+        // createUserWithEmailAndPassword(auth, email, password)
+        //     .then((userCredential) => {
+        //         // Signed up 
+        //         const user = userCredential.user;
+        //         console.log(user.email)
+        //         navigation.navigate('UserDetail');
                 
-                // ...
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
-            });
-        // navigation.navigate('UserDetail');
-        saveData();
+        //         // ...
+        //     })
+        //     .catch((error) => {
+        //         const errorCode = error.code;
+        //         const errorMessage = error.message;
+        //         // ..
+        //     });
+        // // navigation.navigate('UserDetail');
+        // saveData();
+
+        navigation.navigate('UserDetail');
     };
 
     const saveData = async () =>{
