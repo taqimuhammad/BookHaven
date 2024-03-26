@@ -19,6 +19,7 @@ const SignUp = ({ navigation }) => {
                 // Signed up 
                 const user = userCredential.user;
                 console.log(user.email)
+                saveData();
                 navigation.navigate('UserDetail');
                 
                 // ...
@@ -29,8 +30,6 @@ const SignUp = ({ navigation }) => {
                 // ..
             });
         // navigation.navigate('UserDetail');
-        saveData();
-
         // navigation.navigate('UserDetail');
     };
 
