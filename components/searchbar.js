@@ -55,7 +55,7 @@ export default SearchBar;
 
 const styles = StyleSheet.create({
     container: {
-        top:80,
+        top:20,
       paddingHorizontal:20,
       position:'absolute',
       justifyContent: "flex-start",

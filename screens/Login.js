@@ -39,7 +39,7 @@ const Login = ({ navigation }) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
             });
-        // navigation.navigate('Homescreen'); 
+        navigation.navigate('Homescreen'); 
     };
 
     return (

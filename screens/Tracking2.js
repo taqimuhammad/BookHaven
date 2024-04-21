@@ -6,7 +6,7 @@ import React from 'react';
 const Tracking2 = ({ navigation }) => {
 
     const handleBack = () => {
-        navigation.navigate("Homescreen");
+        navigation.navigate("Home");
     };
     const hanblet2 = () => {
         navigation.navigate("Tracking3");

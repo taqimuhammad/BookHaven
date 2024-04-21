@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Location = ({ navigation }) => {
     const handleBack = () => {
-        navigation.navigate("Homescreen");
+        navigation.navigate("Home");
     };
 
     return (

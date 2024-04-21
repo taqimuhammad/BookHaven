@@ -9,11 +9,11 @@ const Order = ({ navigation }) => {
   const [delivery, setDelivery] = useState();
 
   const handleBack = () => {
-    navigation.navigate("Homescreen");
+    navigation.navigate("Home");
   };
 
   const handlePress = () => {
-    navigation.navigate('Homescreen');
+    navigation.navigate('Home');
   };
 
   return (

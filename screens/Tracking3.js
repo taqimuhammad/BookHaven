@@ -5,7 +5,7 @@ import React from 'react';
 const Tracking3 = ({ navigation }) => {
 
     const handleBack = () => {
-        navigation.navigate("Homescreen");
+        navigation.navigate("Home");
     };
     const handlet3 = () => {
         navigation.navigate("Tracking4");
