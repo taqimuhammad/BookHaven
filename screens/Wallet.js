@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Wallet = ({ navigation }) => {
   const handleBack = () => {
-    navigation.navigate("Homescreen");
+    navigation.navigate("Home");
   };
   const handlewallet = () => {
     navigation.navigate("SetupWallet");

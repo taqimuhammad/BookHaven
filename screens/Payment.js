@@ -7,10 +7,10 @@ import img1 from '../img/img4.png';
 const Payment = ({ navigation }) =>
  {
     const handleBack = () => {
-        navigation.navigate("Homescreen");
+        navigation.navigate("Home");
       };
       const handlePress = () => {
-        navigation.navigate('Homescreen'); 
+        navigation.navigate('Home'); 
       };
 return(
 <View style={styles.container}>

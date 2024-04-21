@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Tracking = ({ navigation }) => {
   const handleBack = () => {
-    navigation.navigate("Homescreen");
+    navigation.navigate("Home");
   };
   const handletracking = () => {
     navigation.navigate("Tracking2");
