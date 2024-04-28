@@ -12,6 +12,7 @@ import Homescreen from './screens/Homescreen';
 import Notification from './screens/Notification';
 import UserDetail from './screens/UserDetail';
 import SignUp from './screens/SignUp';
+import Signout from './screens/Signout';
 import Login from './screens/Login';
 import Menuscreen from './screens/Menubar';
 import Chat from './screens/Chat';
@@ -83,6 +84,7 @@ const StackNavigator = () => {
       <Stack.Screen name='TermsPolicies' component={TermsPolicies} options={{ headerShown: false }}/>
       <Stack.Screen name='HelpSupport' component={HelpSupport} options={{ headerShown: false }}/>
       <Stack.Screen name='ReportProblem' component={ReportProblem} options={{ headerShown: false }}/>
+      <Stack.Screen name='Faqs' component={Faqs} options={{ headerShown: false }}/>
       <Stack.Screen name='Wishlist' component={Wishlist} options={{ headerShown: false }}/>
       <Stack.Screen name='Bottomnav' component={Bottomnav} options={{ headerShown: false }}/>
       <Stack.Screen name='Library' component={Library} options={{ headerShown: false }}/>
