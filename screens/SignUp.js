@@ -17,10 +17,11 @@ const SignUp = ({ navigation }) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed up 
+               
                 const user = userCredential.user;
                 console.log(user.email)
-                saveData();
-                navigation.navigate('UserDetail');
+                
+                
                 
                 // ...
             })
@@ -29,8 +30,8 @@ const SignUp = ({ navigation }) => {
                 const errorMessage = error.message;
                 // ..
             });
-        // navigation.navigate('UserDetail');
-        // navigation.navigate('UserDetail');
+         navigation.navigate('UserDetail');
+        saveData();
     };
 
     const saveData = async () =>{
@@ -114,7 +115,7 @@ const SignUp = ({ navigation }) => {
                 <View style={styles.text}>
                     <TouchableOpacity onPress={handlelogin}>
                         <Text style={styles.textw}>Already have an Account?
-                            <Text style={styles.log}>          Log In</Text></Text>
+                            <Text style={styles.log}>Log In</Text></Text>
                     </TouchableOpacity>
                 </View>
 

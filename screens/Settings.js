@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Bottomnav from '../components/Bottomnav';
+
 
 
 const Settings = ({ navigation }) =>
@@ -19,7 +19,7 @@ const Settings = ({ navigation }) =>
         navigation.navigate("Notification");
       };
     const handleBack = () => {
-        navigation.navigate("Menuscreen");
+        navigation.navigate("Home");
       };
     const handleFAQ = () => {
         navigation.navigate("Faqs");
@@ -105,7 +105,6 @@ return(
           <Text style={styles.logoutText}>logout</Text>
         </TouchableOpacity>
       </View>
-      <Bottomnav navigation={navigation} />
 
     </ImageBackground>
 </View>

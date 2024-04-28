@@ -21,7 +21,7 @@ const Wishlist = ({ navigation }) =>
       ]
 
     const handleBack = () => {
-        navigation.navigate("Homescreen");
+        navigation.navigate("Home");
       };
     const handleSubmit = () => {
        

@@ -9,7 +9,7 @@ const SetupWallet = ({ navigation }) => {
     const [cvcNumber, onChangeCvcNumber] = React.useState('');
     const [expiryDate, onChangeExpiryDate] = React.useState('');
     const handleBack = () => {
-        navigation.navigate("Homescreen");
+        navigation.navigate("Home");
     };
     const handlewalletsetup = () => {
         navigation.navigate("WalletCard");
