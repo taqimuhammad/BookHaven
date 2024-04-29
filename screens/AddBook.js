@@ -7,7 +7,7 @@ import { AntDesign } from '@expo/vector-icons';
 
 const AddBook = ({navigation}) => {
   const handleadd = () => {
-    navigation.navigate("Homescreen");
+    navigation.navigate("Library");
   };
 
   const [bookTitle,onChangeBookTitle] = React.useState('');
