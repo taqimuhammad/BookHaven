@@ -12,7 +12,7 @@ const Settings = ({ navigation }) =>
       };
       
     const handleSecurity = () => {
-        navigation.navigate("");
+        navigation.navigate("UserProfile");
       };
      
     const handleNotification = () => {
