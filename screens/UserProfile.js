@@ -2,6 +2,7 @@ import { TouchableOpacity, StyleSheet, Text, View, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Feather } from '@expo/vector-icons';
 import * as React from 'react';
+import { AntDesign } from '@expo/vector-icons';
 import ProfileText from '../components/ProfileText';
 import { auth } from "../firebaseConfig";
 
@@ -9,6 +10,34 @@ const UserProfile = ({ navigation }) => {
 
   const handleBack = () => {
     navigation.navigate("Homescreen");
+  };
+
+  const GoToEditProfile = () => {
+    navigation.navigate("EditProfile");
+  };
+
+  const GoToWallet = () => {
+    navigation.navigate("Wallet");
+  };
+
+  const GoToWishlist = () => {
+    navigation.navigate("Wishlist");
+  };
+
+  const GoToSettings = () => {
+    navigation.navigate("Settings");
+  };
+
+  const GoToLibrary = () => {
+    navigation.navigate("Library");
+  };
+
+  const GoToLocation = () => {
+    navigation.navigate("SetupLocation");
+  };
+
+  const GoToLogout = () => {
+    navigation.navigate("Signout");
   };
 
   return (
@@ -31,13 +60,63 @@ const UserProfile = ({ navigation }) => {
       </View>
       <View style={styles.body}>
         <View style={styles.insidebody}>
-          <ProfileText title="Edit Profile"/>
-          <ProfileText title="Manage E-Wallet"/>
-          <ProfileText title="Wishlist"/>
-          <ProfileText title="Settings"/>
-          <ProfileText title="Library"/>
-          <ProfileText title="Set Location"/>
-          <ProfileText title="Logout"/>
+
+          <View style={styles.tab}>
+            <TouchableOpacity onPress={GoToEditProfile}>
+              <Text style={styles.tabtext}>Edit Profile</Text>
+              <AntDesign name="right" size={21} color="black" style={styles.tabicon} />
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.tab}>
+            <TouchableOpacity onPress={GoToWallet}>
+              <Text style={styles.tabtext}>Manage E-Wallet</Text>
+              <AntDesign name="right" size={21} color="black" style={styles.tabicon} />
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.tab}>
+            <TouchableOpacity onPress={GoToWishlist}>
+              <Text style={styles.tabtext}>Wishlist</Text>
+              <AntDesign name="right" size={21} color="black" style={styles.tabicon} />
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.tab}>
+            <TouchableOpacity onPress={GoToSettings}>
+              <Text style={styles.tabtext}>Settings</Text>
+              <AntDesign name="right" size={21} color="black" style={styles.tabicon} />
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.tab}>
+            <TouchableOpacity onPress={GoToLibrary}>
+              <Text style={styles.tabtext}>Library</Text>
+              <AntDesign name="right" size={21} color="black" style={styles.tabicon} />
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.tab}>
+            <TouchableOpacity onPress={GoToLocation}>
+              <Text style={styles.tabtext}>Set Location</Text>
+              <AntDesign name="right" size={21} color="black" style={styles.tabicon} />
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.tab}>
+            <TouchableOpacity onPress={GoToLogout}>
+              <Text style={styles.tabtext}>Logout</Text>
+              <AntDesign name="right" size={21} color="black" style={styles.tabicon} />
+            </TouchableOpacity>
+          </View>
+
+          {/* <ProfileText title="Edit Profile" />
+          <ProfileText title="Manage E-Wallet" />
+          <ProfileText title="Wishlist" />
+          <ProfileText title="Settings" />
+          <ProfileText title="Library" />
+          <ProfileText title="Set Location" />
+          <ProfileText title="Logout" /> */}
         </View>
       </View>
     </View>
@@ -101,7 +180,25 @@ const styles = StyleSheet.create({
   },
   insidebody: {
     marginTop: 75,
-    alignSelf:'center',
+    alignSelf: 'center',
+  },
+  tab: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'lightgrey',
+    height: 40,
+    width: 250,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 10,
+  },
+  tabtext: {
+    fontSize: 20,
+    width: 250,
+  },
+  tabicon: {
+    position: 'absolute',
+    alignSelf: 'flex-end',
+    marginLeft: 50,
   }
 });
 
