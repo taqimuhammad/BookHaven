@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     position : "relative",
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF', // Set the background color for the home page
+    backgroundColor: 'white', // Set the background color for the home page
   },
  
   bookList:{ 

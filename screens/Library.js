@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignSelf: 'center',
+    backgroundColor:'white',
   },
   scrollview: {
     flex: 3,
