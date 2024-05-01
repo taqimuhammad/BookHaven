@@ -24,29 +24,38 @@ const data = [
     { key: '16', value: 'Comedy' },
 ];
 
-const UserDetail = ({ navigation }) => {
+const UserDetail = ({ navigation, route }) => {
     const [cnic, onChangeCnic] = React.useState('');
     const [address, onChangeAddress] = React.useState('');
     const [selected, setSelected] = React.useState('');
-
-    const handlePress = () => {
-        saveData();
-        navigation.navigate('Homescreen');
-    };
+    const [userID,setUserID] = React.useState('');
+    const [location,setLocation] = React.useState('');
+    const { email, password, fullName, number, RePassword } = route.params;
 
     const saveData = async () => {
         try {
             const docRef = await addDoc(collection(db, "Users"), {
+                email: email,
+                fullname: fullName,
+                number: number,
+                password: password,
+                repassword: RePassword,
                 cnic: cnic,
                 address: address,
-                selectedGenres:selected,
+                selectedGenres: selected,
+                location:location,
+                userID:userID,
             });
             console.log("Document written with ID: ", docRef.id);
         } catch (e) {
             console.error("Error adding document: ", e);
         }
-
     }
+
+    const handlePress = () => {
+        saveData();
+        navigation.navigate('Homescreen');
+    };
 
     return (
         <View style={styles.container}>
@@ -147,11 +156,11 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: '500',
     },
-    multiselectlist:{
-        width:300,
-        height:55,
-        alignSelf:'center',
-        marginTop:10,
+    multiselectlist: {
+        width: 300,
+        height: 55,
+        alignSelf: 'center',
+        marginTop: 10,
     }
 });
 
