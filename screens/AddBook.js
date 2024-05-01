@@ -6,6 +6,8 @@ import DropDownTwo from "../components/DropDownTwo";
 import { AntDesign } from '@expo/vector-icons';
 import { SelectList } from "react-native-dropdown-select-list";
 import { Ionicons, FontAwesome, EvilIcons } from '@expo/vector-icons';
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebaseConfig";
 
 const data1 = [
   { key: '1', value: 'Available' },
@@ -21,15 +23,29 @@ const data2 = [
 ];
 
 const AddBook = ({ navigation }) => {
-  
 
+  const [bookID, setbookID] = React.useState('');
   const [bookTitle, onChangeBookTitle] = React.useState('');
   const [authorName, onChangeAuthorName] = React.useState('');
-  const [selected1, setSelected1] = React.useState('');
-  const [selected2, setSelected2] = React.useState('');
+  const [selectedStatus, setSelectedStatus] = React.useState('');
+  const [selectedType, setSelectedType] = React.useState('');
 
-
+  const saveData = async () => {
+    try {
+      const docRef = await addDoc(collection(db, "Books"), {
+        BookId: bookID,
+        BookTitle: bookTitle,
+        Author: authorName,
+        Status: selectedStatus,
+        Type: selectedType,
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  }
   const handleadd = () => {
+    saveData();
     navigation.navigate("Library");
   };
 
@@ -64,7 +80,7 @@ const AddBook = ({ navigation }) => {
           <View style={styles.selectlist1}>
             <SelectList
               data={data1}
-              setSelected={(val) => setSelected1(val)}
+              setSelected={(val) => setSelectedStatus(val)}
               boxStyles={{ borderColor: 'black' }}
               inputStyles={{ fontSize: 20 }}
               dropdownStyles={{ borderColor: 'black' }}
@@ -81,7 +97,7 @@ const AddBook = ({ navigation }) => {
           <View style={styles.selectlist2}>
             <SelectList
               data={data2}
-              setSelected={setSelected2}
+              setSelected={setSelectedType}
               boxStyles={{ borderColor: 'black' }}
               inputStyles={{ fontSize: 20 }}
               dropdownStyles={{ borderColor: 'black' }}
