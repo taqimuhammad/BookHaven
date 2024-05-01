@@ -82,11 +82,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    alignSelf: 'center',
     backgroundColor:'white',
   },
   scrollview: {
     flex: 3,
+    alignSelf:'center',
   },
   textc:{
     fontSize:22,
