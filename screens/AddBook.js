@@ -120,11 +120,13 @@ const AddBook = ({ navigation }) => {
           </View>
 
         </View>
+
         <View style={styles.button}>
           <TouchableOpacity style={styles.buttonc} onPress={handleadd} >
             <Text style={styles.textc}>Add</Text>
           </TouchableOpacity>
         </View>
+        
       </KeyboardAvoidingView>
     </View>
   );
