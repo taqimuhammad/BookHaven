@@ -1,13 +1,14 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import { View, TouchableOpacity, Text, TextInput, KeyboardAvoidingView, Platform, StyleSheet } from "react-native";
-import Button from "../components/Button";
-import DropDown from "../components/DropDown";
-import DropDownTwo from "../components/DropDownTwo";
 import { AntDesign } from '@expo/vector-icons';
 import { SelectList } from "react-native-dropdown-select-list";
 import { Ionicons, FontAwesome, EvilIcons } from '@expo/vector-icons';
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "../firebaseConfig";
+import { db, storage } from "../firebaseConfig";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import * as ImagePicker from 'expo-image-picker';
+
 
 const data1 = [
   { key: '1', value: 'Available' },
@@ -24,11 +25,107 @@ const data2 = [
 
 const AddBook = ({ navigation }) => {
 
-  const [bookID, setbookID] = React.useState('');
-  const [bookTitle, onChangeBookTitle] = React.useState('');
-  const [authorName, onChangeAuthorName] = React.useState('');
-  const [selectedStatus, setSelectedStatus] = React.useState('');
-  const [selectedType, setSelectedType] = React.useState('');
+  const [bookID, setbookID] = useState('');
+  const [bookTitle, onChangeBookTitle] = useState('');
+  const [authorName, onChangeAuthorName] = useState('');
+  const [selectedStatus, setSelectedStatus] = useState('');
+  const [selectedType, setSelectedType] = useState('');
+  const [picture, setPicture] = useState(null);
+  const [image, setImage] = useState(null);
+
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
+    }
+  };
+
+  useEffect(() => {
+    const uploadImage = async () => {
+
+      // convert image into blob image
+      const blobImage = await new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          resolve(xhr.response);
+        };
+        xhr.onerror = function () {
+          reject(new TypeError("Network Request Failed"));
+        };
+        xhr.responseType = "blob";
+        xhr.open("GET", image, true);
+        xhr.send(null);
+
+      });
+
+      // set metadata of image
+      /** @type {any} */
+      const metadata = {
+        contentType: 'image/jpeg',
+      };
+
+      // upload image on storage
+      const storageRef = ref(storage, 'BookImages/' + Date.now());
+      const uploadTask = uploadBytesResumable(storageRef, blobImage, metadata);
+
+      // Listen for state changes, errors, and completion of the upload.
+      uploadTask.on('state_changed',
+        (snapshot) => {
+          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log('Upload is ' + progress + '% done');
+          switch (snapshot.state) {
+            case 'paused':
+              console.log('Upload is paused');
+              break;
+            case 'running':
+              console.log('Upload is running');
+              break;
+          }
+        },
+        (error) => {
+          // A full list of error codes is available at
+          // https://firebase.google.com/docs/storage/web/handle-errors
+          switch (error.code) {
+            case 'storage/unauthorized':
+              // User doesn't have permission to access the object
+              break;
+            case 'storage/canceled':
+              // User canceled the upload
+              break;
+
+            // ...
+
+            case 'storage/unknown':
+              // Unknown error occurred, inspect error.serverResponse
+              break;
+          }
+        },
+        () => {
+          // Upload completed successfully, now we can get the download URL
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            console.log('File available at', downloadURL);
+          });
+        }
+      );
+
+    };
+
+    if (image != null) {
+      uploadImage();
+      setImage(null);
+    }
+
+  }, [image]);
 
   const saveData = async () => {
     try {
@@ -113,7 +210,7 @@ const AddBook = ({ navigation }) => {
 
 
           <View style={styles.box}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={pickImage}>
               <Text style={styles.boxtext}>Add Book Image </Text>
               <AntDesign name="plus" size={50} style={styles.plus} />
             </TouchableOpacity>
@@ -126,7 +223,7 @@ const AddBook = ({ navigation }) => {
             <Text style={styles.textc}>Add</Text>
           </TouchableOpacity>
         </View>
-        
+
       </KeyboardAvoidingView>
     </View>
   );
