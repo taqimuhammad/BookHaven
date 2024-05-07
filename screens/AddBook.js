@@ -114,6 +114,7 @@ const AddBook = ({ navigation }) => {
           // Upload completed successfully, now we can get the download URL
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             console.log('File available at', downloadURL);
+            setPicture(downloadURL);
           });
         }
       );
@@ -135,6 +136,7 @@ const AddBook = ({ navigation }) => {
         Author: authorName,
         Status: selectedStatus,
         Type: selectedType,
+        Image: picture,
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
