@@ -19,7 +19,8 @@ const SignUp = ({ navigation }) => {
                 // Signed up 
                
                 const user = userCredential.user;
-                console.log(user.email)
+                alert("User Created Sucessfully");
+                console.log(user.email);
                 navigation.navigate('UserDetail',{
                     email,
                     password,
@@ -35,6 +36,7 @@ const SignUp = ({ navigation }) => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                alert(errorMessage);
                 // ..
             });
     };

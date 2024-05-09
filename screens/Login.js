@@ -13,7 +13,7 @@ const Login = ({ navigation }) => {
               // User is signed in, see docs for a list of available properties
               // https://firebase.google.com/docs/reference/js/auth.user
               const uid = user.uid;
-              navigation.navigate('Homescreen'); 
+              navigation.replace('Homescreen'); 
               // ...
             } else {
               // User is signed out
@@ -39,7 +39,7 @@ const Login = ({ navigation }) => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                alert("Something wrong has happened",errorMessage);
+                alert(errorMessage);
             });
     };
 
