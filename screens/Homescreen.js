@@ -11,35 +11,16 @@ const HomePage = ({ navigation }) => {
   const [searchPhrase, setSearchPhrase] = useState('');
   const [clicked, setClicked] = useState(false);
 
-  const notificationbar = () => {
-    navigation.navigate('Notification');
-  };
-
-  const messagebar = () => {
-    navigation.navigate("msg_sc");
-  };
+ 
 
   return (
-    <View style={styles.container}>
+    <View >
 
         <SearchBar
         clicked={clicked}
         searchPhrase={searchPhrase}
         setSearchPhrase={setSearchPhrase}
         setClicked={setClicked}/>
-
-      <View style={styles.notificationContainer}>
-      <TouchableOpacity onPress={notificationbar}>
-      <Icon name="notifications" size={34} color="#404B7C" />
-      </TouchableOpacity>
-      </View>
-      
-
-      <View style={styles.messagebarContainer}>
-      <TouchableOpacity onPress={messagebar}>
-      <Icon name="messenger" size={30} color="#404B7C" />
-      </TouchableOpacity>
-      </View>
 
       <ScrollView style={styles.bookList}>
         {Bookinfo.map((book) => (
@@ -62,19 +43,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'white', // Set the background color for the home page
   },
  
-  bookList:{ 
-  top:10,
-  },
   
-  messagebarContainer: {
-    top:-80,
-    left: 150,
-  },
   
-  notificationContainer: {
-    top: -13,
-    left: 115,
-  },
+  
+  
+
 
   
 });
