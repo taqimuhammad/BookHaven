@@ -31,6 +31,7 @@ const Login = ({ navigation }) => {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
+                alert("User Logged in Sucessfully");
                 console.log('Logged in with:',user.email);
                 navigation.replace('Homescreen');
                 // ...
@@ -38,8 +39,8 @@ const Login = ({ navigation }) => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                alert("Something wrong has happened",errorMessage);
             });
-        // navigation.navigate('Homescreen'); 
     };
 
     return (
