@@ -158,7 +158,6 @@ const styles = StyleSheet.create({
     },
     multiselectlist: {
         width: 300,
-        height: 55,
         alignSelf: 'center',
         marginTop: 10,
     }
