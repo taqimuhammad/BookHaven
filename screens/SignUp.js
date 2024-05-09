@@ -121,8 +121,7 @@ const SignUp = ({ navigation }) => {
 
                 <View style={styles.text}>
                     <TouchableOpacity onPress={handlelogin}>
-                        <Text style={styles.textw}>Already have an Account?
-                            <Text style={styles.log}>Log In</Text></Text>
+                        <Text style={styles.textw}>Already have an account?<Text style={styles.log}>    Log In</Text></Text>
                     </TouchableOpacity>
                 </View>
 
@@ -196,7 +195,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 110,
         height: 30,
-        width: 250,
+        width: 260,
         paddingBottom: 7,
     },
     log: {
