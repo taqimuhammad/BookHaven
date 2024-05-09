@@ -22,7 +22,7 @@ const Settings = ({ navigation }) =>
         navigation.navigate("Home");
       };
     const handleFAQ = () => {
-        navigation.navigate("Faqs");
+        navigation.navigate("Faq");
       };
     const handleHelp = () => {
         navigation.navigate("HelpSupport");
