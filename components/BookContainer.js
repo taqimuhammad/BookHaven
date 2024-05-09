@@ -58,6 +58,7 @@ const BookContainer = ({ title, author, price, uploadedBy, type, image }) =>{
    
 
   return (
+  
   <View style={styles.bookContainer}>
     <Image source={image} style={styles.bookImage} />
     <View style={styles.Bookinformation}>
@@ -77,9 +78,12 @@ const BookContainer = ({ title, author, price, uploadedBy, type, image }) =>{
       </View>
     </View>
   </View>
+  
  );
 };
 const styles = StyleSheet.create({
+  
+
   bookContainer: {
     flexDirection: "row",
     alignItems: 'center',
@@ -91,9 +95,9 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
-    margin: 10, 
-    marginBottom: 40,
-
+    marginBottom:15,
+    
+    
   
   },
   bookImage: {
