@@ -4,6 +4,10 @@ import { useNavigation } from '@react-navigation/native';
 import img1 from '../img/img4.png'; 
 import img2 from '../img/img5.png'; 
 import img3 from '../img/img6.png'; 
+import img4 from '../img/img1.jpg'; 
+import img6 from '../img/img2.jpg'; 
+import img5 from '../img/img3.png'; 
+
 
 const Bookinfo = [
   {
@@ -38,6 +42,64 @@ const Bookinfo = [
   },
   {
     id: 4,
+    title: 'The Great Gatsby',
+    author: 'Scott Fitzgerald',
+    price: '0 PKR',
+    uploadedBy: 'Awwab Sabir',
+    type: 'Sale',
+    image: img6,
+    
+  },
+  {
+    id: 5,
+    title: 'The Cursed Child',
+    author: 'J.K Rowling',
+    price: '0 PKR',
+    uploadedBy: 'Ali Haider',
+    type: 'Borrow',
+    image: img4,
+    
+  },{
+    id: 6,
+    title: 'Matilda',
+    author: 'Roald Dahl',
+    price: '600 PKR',
+    uploadedBy: 'Ayesha Nadeem',
+    type: 'Sale',
+    image: img5,
+    
+  },{
+    id: 7,
+    title: 'The Great Gatsby',
+    author: 'Scott Fitzgerald',
+    price: '550 PKR',
+    uploadedBy: 'Sanan Baig',
+    type: 'Borrow',
+    image: img6, 
+  },
+  
+  {
+    id: 8,
+    title: 'The Picture of Dorian Gray',
+    author: 'Oscar Wilde',
+    price: '350 PKR',
+    uploadedBy: 'Ayesha Nadeem',
+    type: 'Sale',
+    image: img1,
+    
+  },
+  {
+    id: 9,
+    title: 'The Chronicles of Narnia',
+    author: 'C.S. Lewis',
+    price: '400 PKR',
+    uploadedBy: 'Farasat Kareem',
+    type: 'Exchange',
+    image: img2,
+    
+  },
+  {
+    id: 10,
     title: 'The Psychology of Money',
     author: 'Morgan Housel',
     price: '0 PKR',
@@ -46,8 +108,111 @@ const Bookinfo = [
     image: img3,
     
   },
-  // .
-  // ... other book objects
+  {
+    id: 11,
+    title: 'The Great Gatsby',
+    author: 'Scott Fitzgerald',
+    price: '0 PKR',
+    uploadedBy: 'Awwab Sabir',
+    type: 'Sale',
+    image: img6,
+    
+  },
+  {
+    id: 12,
+    title: 'The Cursed Child',
+    author: 'J.K Rowling',
+    price: '0 PKR',
+    uploadedBy: 'Ali Haider',
+    type: 'Borrow',
+    image: img4,
+    
+  },{
+    id: 13,
+    title: 'Matilda',
+    author: 'Roald Dahl',
+    price: '600 PKR',
+    uploadedBy: 'Ayesha Nadeem',
+    type: 'Sale',
+    image: img5,
+    
+  },{
+    id: 14,
+    title: 'The Great Gatsby',
+    author: 'Scott Fitzgerald',
+    price: '550 PKR',
+    uploadedBy: 'Sanan Baig',
+    type: 'Borrow',
+    image: img6, 
+  },
+  
+  {
+    id: 15,
+    title: 'The Picture of Dorian Gray',
+    author: 'Oscar Wilde',
+    price: '350 PKR',
+    uploadedBy: 'Ayesha Nadeem',
+    type: 'Sale',
+    image: img1,
+    
+  },
+  {
+    id: 16,
+    title: 'The Chronicles of Narnia',
+    author: 'C.S. Lewis',
+    price: '400 PKR',
+    uploadedBy: 'Farasat Kareem',
+    type: 'Exchange',
+    image: img2,
+    
+  },
+  {
+    id: 17,
+    title: 'The Psychology of Money',
+    author: 'Morgan Housel',
+    price: '0 PKR',
+    uploadedBy: 'Taqi Muhammed',
+    type: 'Borrow',
+    image: img3,
+    
+  },
+  {
+    id: 18,
+    title: 'The Great Gatsby',
+    author: 'Scott Fitzgerald',
+    price: '0 PKR',
+    uploadedBy: 'Awwab Sabir',
+    type: 'Sale',
+    image: img6,
+    
+  },
+  {
+    id: 19,
+    title: 'The Cursed Child',
+    author: 'J.K Rowling',
+    price: '0 PKR',
+    uploadedBy: 'Ali Haider',
+    type: 'Borrow',
+    image: img4,
+    
+  },{
+    id: 20,
+    title: 'Matilda',
+    author: 'Roald Dahl',
+    price: '600 PKR',
+    uploadedBy: 'Ayesha Nadeem',
+    type: 'Sale',
+    image: img5,
+    
+  },{
+    id: 21,
+    title: 'The Great Gatsby',
+    author: 'Scott Fitzgerald',
+    price: '550 PKR',
+    uploadedBy: 'Sanan Baig',
+    type: 'Borrow',
+    image: img6, 
+  },
 ];
 
 const BookContainer = ({ title, author, price, uploadedBy, type, image }) =>{

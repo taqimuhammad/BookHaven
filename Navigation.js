@@ -19,12 +19,12 @@ import Homescreen from './screens/Homescreen';
 import Notification from './screens/Notification';
 import UserDetail from './screens/UserDetail';
 import SignUp from './screens/SignUp';
+import Signout from './screens/Signout';
 import Login from './screens/Login';
 import Menuscreen from './screens/Menubar';
 import Chat from './screens/Chat';
 import Location from './screens/Location';
 import Settings from './screens/Settings';
-import Signout from './screens/Signout';
 import Wallet from './screens/Wallet';
 import Wishlist from './screens/Wishlist';
 import Button from './components/Button';
@@ -46,6 +46,7 @@ import Library from './screens/Library';
 import TermsPolicies from './screens/TermsPolicies';
 import HelpSupport from './screens/HelpSupport';
 import ReportProblem from './screens/ReportProblem';
+import Faqs from './screens/Faqs';
 import Payment from './screens/Payment';
 import Order from './screens/Order';
 import Faq from './screens/Faqs';
@@ -93,6 +94,7 @@ const StackNavigator = () => {
       <Stack.Screen name='TermsPolicies' component={TermsPolicies} options={{ headerShown: false }}/>
       <Stack.Screen name='HelpSupport' component={HelpSupport} options={{ headerShown: false }}/>
       <Stack.Screen name='ReportProblem' component={ReportProblem} options={{ headerShown: false }}/>
+      <Stack.Screen name='Faqs' component={Faqs} options={{ headerShown: false }}/>
       <Stack.Screen name='Wishlist' component={Wishlist} options={{ headerShown: false }}/>
       <Stack.Screen name='Bottomnav' component={Bottomnav} options={{ headerShown: false }}/>
       <Stack.Screen name='Library' component={Library} options={{ headerShown: false }}/>
@@ -298,3 +300,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+

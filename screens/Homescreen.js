@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TouchableOpacity, ScrollView} from 'react-native';
 import { StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import SearchBar from '../components/Searchbar';
+import SearchBar from '../components/searchbar';
 import { BookContainer, Bookinfo } from '../components/BookContainer';
 
 
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     position : "relative",
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF', // Set the background color for the home page
+    backgroundColor: 'white', // Set the background color for the home page
   },
  
   

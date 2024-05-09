@@ -20,6 +20,14 @@ const SignUp = ({ navigation }) => {
                
                 const user = userCredential.user;
                 console.log(user.email)
+                navigation.navigate('UserDetail',{
+                    email,
+                    password,
+                    fullName,
+                    number,
+                    RePassword,
+                 });
+                // saveData();
                 
                 
                 // ...
@@ -29,26 +37,22 @@ const SignUp = ({ navigation }) => {
                 const errorMessage = error.message;
                 // ..
             });
-         navigation.navigate('UserDetail');
-        saveData();
     };
 
-    const saveData = async () =>{
-        try {
-            const docRef = await addDoc(collection(db, "Users"), {
-              email: email,
-              password: password,
-              fullname: fullName,
-              number: number,
-              repassword: RePassword,
-            });
-            console.log("Document written with ID: ", docRef.id);
-          } catch (e) {
-            console.error("Error adding document: ", e);
-          }
-
-    }
-
+    // const saveData = async () =>{
+    //     try {
+    //         const docRef = await addDoc(collection(db, "Users"), {
+    //           email: email,
+    //           password: password,
+    //           fullname: fullName,
+    //           number: number,
+    //           repassword: RePassword,
+    //         });
+    //         console.log("Document written with ID: ", docRef.id);
+    //       } catch (e) {
+    //         console.error("Error adding document: ", e);
+    //       }
+    // }
 
     const handlelogin = () => {
         navigation.navigate('Login');
