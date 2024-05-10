@@ -45,13 +45,12 @@ const UserDetail = ({ navigation, route }) => {
             location: location,
             userID: userID,
         })
-            .then(() => {
-                alert("Data Added Sucessfully");
-                console.log("Document written with ID: ", auth.currentUser.uid);
-            })
-            .catch((e) => {
-                console.log("Error Adding Document", e);
-            })
+        .then(() => {
+            console.log("Document written with ID: ", auth.currentUser.uid);
+        })
+        .catch((e) => {
+            console.log("Error Adding Document", e);
+        })
     }
 
     const handlePress = () => {
