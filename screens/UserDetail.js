@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, TextInput, ScrollView, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import { MultipleSelectList } from 'react-native-dropdown-select-list';
 import { Ionicons, FontAwesome, EvilIcons } from '@expo/vector-icons';
@@ -25,32 +25,42 @@ const data = [
 ];
 
 const UserDetail = ({ navigation, route }) => {
-    const [cnic, onChangeCnic] = React.useState(null);
-    const [address, onChangeAddress] = React.useState(null);
-    const [selected, setSelected] = React.useState('');
-    const [userID, setUserID] = React.useState(null);
-    const [location, setLocation] = React.useState(null);
+    const [cnic, onChangeCnic] = useState(null);
+    const [address, onChangeAddress] = useState(null);
+    const [selected, setSelected] = useState('');
+    const [userID, setUserID] = useState(null);
+    const [location, setLocation] = useState(null);
     const { email, password, fullName, number, RePassword } = route.params;
+
+    //using useffect to set the user id waiting for checking on app/emulator.
+    useEffect(() => {
+        if (auth) {
+            setUserID(auth.currentUser.uid);
+        }
+        else {
+            console.log("User Id not set");
+        }
+    }, [selected]);
 
     const saveData = async () => {
         await setDoc(doc(db, "Users", auth.currentUser.uid), {
-            email: email,
-            fullname: fullName,
-            number: number,
-            password: password,
-            repassword: RePassword,
-            cnic: cnic,
-            address: address,
-            selectedGenres: selected,
-            location: location,
-            userID: userID,
+            Email: email,
+            Fullname: fullName,
+            Number: number,
+            Password: password,
+            Repassword: RePassword,
+            Cnic: cnic,
+            Address: address,
+            SelectedGenres: selected,
+            Location: location,
+            UserID: userID,
         })
-        .then(() => {
-            console.log("Document written with ID: ", auth.currentUser.uid);
-        })
-        .catch((e) => {
-            console.log("Error Adding Document", e);
-        })
+            .then(() => {
+                console.log("Document written with ID: ", auth.currentUser.uid);
+            })
+            .catch((e) => {
+                console.log("Error Adding Document", e);
+            })
     }
 
     const handlePress = () => {
