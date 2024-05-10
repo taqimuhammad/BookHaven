@@ -16,6 +16,7 @@ const DeleteConfirmation = ({ navigation }) => {
             const user = auth.currentUser;
             deleteUser(user).then(() => {
                 alert("Account Deleted");
+                console.log("Account Deleted");
                 navigation.navigate("Login");
             }).catch((error) => {
                 alert(error);
