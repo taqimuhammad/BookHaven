@@ -11,8 +11,13 @@ const DeleteConfirmation = ({ navigation }) => {
     const handleBack = () => {
         navigation.navigate("DeleteAccount");
     };
+
+    const handledeletefirestore = async () => {
+        const docRef = doc(db,"Users",auth.currentUser.uid);
+        await deleteDoc(docRef);
+    };
+    
     const handledeleteaccount = async () => {
-            const docRef = doc(db,"Users",auth.currentUser.uid);
             const user = auth.currentUser;
             deleteUser(user).then(() => {
                 alert("Account Deleted");
@@ -21,7 +26,6 @@ const DeleteConfirmation = ({ navigation }) => {
             }).catch((error) => {
                 alert(error);
             });
-            await deleteDoc(docRef);
     };
 
     return (
@@ -46,7 +50,10 @@ const DeleteConfirmation = ({ navigation }) => {
                 />
             </View>
             <View style={styles.button}>
-                <TouchableOpacity style={styles.buttonc} onPress={handledeleteaccount} >
+                <TouchableOpacity style={styles.buttonc} onPress={()=>{
+                    handledeletefirestore();
+                    handledeleteaccount();
+                }} >
                     <Text style={styles.textc}>Delete Account</Text>
                 </TouchableOpacity>
             </View>
