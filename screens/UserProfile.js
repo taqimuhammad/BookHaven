@@ -49,10 +49,8 @@ const UserProfile = ({ navigation }) => {
             <Icon name="arrow-back" size={34} color="white" />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.editicon}>
-          <Feather name="edit" size={24} color="white" />
-        </TouchableOpacity>
-        <View>
+        
+        <View style={styles.imageview}>
           <Image source={require('../img/profile.jpg')} style={styles.image} />
           <Text style={styles.username}>John Smith</Text>
           <Text style={styles.email}>{auth.currentUser?.email}</Text>
@@ -109,14 +107,6 @@ const UserProfile = ({ navigation }) => {
               <AntDesign name="right" size={21} color="black" style={styles.tabicon} />
             </TouchableOpacity>
           </View>
-
-          {/* <ProfileText title="Edit Profile" />
-          <ProfileText title="Manage E-Wallet" />
-          <ProfileText title="Wishlist" />
-          <ProfileText title="Settings" />
-          <ProfileText title="Library" />
-          <ProfileText title="Set Location" />
-          <ProfileText title="Logout" /> */}
         </View>
       </View>
     </View>
@@ -130,7 +120,7 @@ const styles = StyleSheet.create({
   heading: {
     color: 'white',
     fontSize: 34,
-    paddingTop: 50,
+    paddingTop: 20,
     margin: 10,
     paddingBottom: 5,
     alignSelf: 'center',
@@ -138,15 +128,10 @@ const styles = StyleSheet.create({
   backButtonContainer: {
     position: 'absolute',
     left: 20,
-    top: 60,
-  },
-  editicon: {
-    position: 'absolute',
-    top: 64,
-    right: 20,
+    top: 35,
   },
   topview: {
-    flex: 0.85,
+    flex: 0.60,
     backgroundColor: '#C1BADC',
     height: 200,
   },
@@ -157,29 +142,29 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     borderWidth: 3,
     position: 'absolute',
-    top: 30,
     left: 30,
+    top:30,
   },
   username: {
-    fontSize: 35,
+    fontSize: 30,
     color: 'white',
     position: 'absolute',
     right: 30,
-    top: 55,
+    top: 45,
   },
   email: {
-    fontSize: 25,
+    fontSize: 20,
     color: '#C1BADC',
     position: 'absolute',
-    right: 50,
-    top: 100,
+    right: 30,
+    top: 85,
     fontWeight: 'bold',
   },
   body: {
     flex: 2,
   },
   insidebody: {
-    marginTop: 75,
+    marginTop: 125,
     alignSelf: 'center',
   },
   tab: {

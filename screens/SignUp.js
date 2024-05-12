@@ -19,7 +19,8 @@ const SignUp = ({ navigation }) => {
                 // Signed up 
                
                 const user = userCredential.user;
-                console.log(user.email)
+                alert("User Created Sucessfully");
+                console.log(user.email);
                 navigation.navigate('UserDetail',{
                     email,
                     password,
@@ -35,6 +36,7 @@ const SignUp = ({ navigation }) => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                alert(errorMessage);
                 // ..
             });
     };
@@ -119,8 +121,7 @@ const SignUp = ({ navigation }) => {
 
                 <View style={styles.text}>
                     <TouchableOpacity onPress={handlelogin}>
-                        <Text style={styles.textw}>Already have an Account?
-                            <Text style={styles.log}>Log In</Text></Text>
+                        <Text style={styles.textw}>Already have an account?<Text style={styles.log}>    Log In</Text></Text>
                     </TouchableOpacity>
                 </View>
 
@@ -194,7 +195,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 110,
         height: 30,
-        width: 250,
+        width: 260,
         paddingBottom: 7,
     },
     log: {

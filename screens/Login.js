@@ -1,45 +1,65 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { View, ScrollView, KeyboardAvoidingView, Platform, TextInput, StyleSheet, Text, TouchableOpacity } from "react-native";
-import { signInWithEmailAndPassword ,onAuthStateChanged} from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 
 const Login = ({ navigation }) => {
-    const [email, onChangeEmail] = useState('');
-    const [password, onChangePassword] = useState('');
+    const [email, onChangeEmail] = useState(null);
+    const [password, onChangePassword] = useState(null);
 
-    useEffect(()=>{
+    useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
-              // User is signed in, see docs for a list of available properties
-              // https://firebase.google.com/docs/reference/js/auth.user
-              const uid = user.uid;
-              navigation.navigate('Homescreen'); 
-              // ...
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/auth.user
+                const uid = user.uid;
+                navigation.replace('Homescreen');
+                // ...
             } else {
-              // User is signed out
-              // ...
+                // User is signed out
+                // ...
             }
-          });
-          return unsubscribe
+        });
+        return unsubscribe
     }, [])
 
     const handlesignin = () => {
         navigation.navigate('SignUp');
     };
+
+    const handleforgotpassword = () => {
+        if (email != null) {
+            sendPasswordResetEmail(auth, email)
+                .then(() => {
+                    // Password reset email sent!
+                    // ..
+                    alert("Password reset email has been sent successfully");
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(errorMessage);
+                });
+        }
+        else {
+            alert("Please enter a valid email");
+        }
+    };
+
     const handleloginPress = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
                 alert("User Logged in Sucessfully");
-                console.log('Logged in with:',user.email);
+                console.log('Logged in with:', user.email);
                 navigation.replace('Homescreen');
                 // ...
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                alert("Something wrong has happened",errorMessage);
+                alert(errorMessage);
             });
     };
 
@@ -73,9 +93,15 @@ const Login = ({ navigation }) => {
                 </View>
                 <View style={styles.text}>
                     <TouchableOpacity onPress={handlesignin}>
-                        <Text style={styles.textw}>Don't have an Account ? <Text style={styles.sign}>         Sign Up</Text></Text>
+                        <Text style={styles.textw}>Don't have an account ? <Text style={styles.sign}>            Sign Up</Text></Text>
                     </TouchableOpacity>
                 </View>
+                <View style={styles.textff}>
+                    <TouchableOpacity onPress={handleforgotpassword} >
+                        <Text style={styles.textf}>Forgot Password ?</Text>
+                    </TouchableOpacity>
+                </View>
+
             </KeyboardAvoidingView>
         </View>
     );
@@ -127,20 +153,28 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'center',
         position: 'absolute',
-        bottom: -144,
+        bottom: -140,
         height: 45,
-        width: 250,
-
+        width: 260,
     },
     sign: {
         fontWeight: 'bold',
         color: '#404B7C',
-
     },
     textw: {
-
-        fontSize: 17,
+        fontSize: 15,
     },
+    textf: {
+        fontSize: 15,
+    },
+    textff: {
+        alignSelf: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
+        bottom: -160,
+        height: 45,
+        width: 260,
+    }
 });
 
 export default Login;

@@ -212,10 +212,16 @@ const AddBook = ({ navigation }) => {
 
 
           <View style={styles.box}>
+            {picture === null ? 
             <TouchableOpacity onPress={pickImage}>
               <Text style={styles.boxtext}>Add Book Image </Text>
               <AntDesign name="plus" size={50} style={styles.plus} />
-            </TouchableOpacity>
+            </TouchableOpacity> 
+            : 
+            <View>
+              <Text>King</Text>
+            </View>
+            }
           </View>
 
         </View>

@@ -1,9 +1,9 @@
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, TextInput, ScrollView, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import { MultipleSelectList } from 'react-native-dropdown-select-list';
 import { Ionicons, FontAwesome, EvilIcons } from '@expo/vector-icons';
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../firebaseConfig";
+import { collection, addDoc, setDoc, doc } from "firebase/firestore";
+import { auth, db } from "../firebaseConfig";
 
 const data = [
     { key: '1', value: 'Fiction' },
@@ -25,31 +25,42 @@ const data = [
 ];
 
 const UserDetail = ({ navigation, route }) => {
-    const [cnic, onChangeCnic] = React.useState('');
-    const [address, onChangeAddress] = React.useState('');
-    const [selected, setSelected] = React.useState('');
-    const [userID,setUserID] = React.useState('');
-    const [location,setLocation] = React.useState('');
+    const [cnic, onChangeCnic] = useState(null);
+    const [address, onChangeAddress] = useState(null);
+    const [selected, setSelected] = useState('');
+    const [userID, setUserID] = useState(null);
+    const [location, setLocation] = useState(null);
     const { email, password, fullName, number, RePassword } = route.params;
 
-    const saveData = async () => {
-        try {
-            const docRef = await addDoc(collection(db, "Users"), {
-                email: email,
-                fullname: fullName,
-                number: number,
-                password: password,
-                repassword: RePassword,
-                cnic: cnic,
-                address: address,
-                selectedGenres: selected,
-                location:location,
-                userID:userID,
-            });
-            console.log("Document written with ID: ", docRef.id);
-        } catch (e) {
-            console.error("Error adding document: ", e);
+    //using useffect to set the user id waiting for checking on app/emulator.
+    useEffect(() => {
+        if (auth) {
+            setUserID(auth.currentUser.uid);
         }
+        else {
+            console.log("User Id not set");
+        }
+    }, [selected]);
+
+    const saveData = async () => {
+        await setDoc(doc(db, "Users", auth.currentUser.uid), {
+            Email: email,
+            Fullname: fullName,
+            Number: number,
+            Password: password,
+            Repassword: RePassword,
+            Cnic: cnic,
+            Address: address,
+            SelectedGenres: selected,
+            Location: location,
+            UserID: userID,
+        })
+            .then(() => {
+                console.log("Document written with ID: ", auth.currentUser.uid);
+            })
+            .catch((e) => {
+                console.log("Error Adding Document", e);
+            })
     }
 
     const handlePress = () => {
@@ -103,12 +114,12 @@ const UserDetail = ({ navigation, route }) => {
                         />
                     </View>
                 </View>
-                <View style={styles.button}>
-                    <TouchableOpacity style={styles.buttonc} onPress={handlePress} >
-                        <Text style={styles.textc}>Done</Text>
-                    </TouchableOpacity>
-                </View>
             </KeyboardAvoidingView>
+            <View style={styles.button}>
+                <TouchableOpacity style={styles.buttonc} onPress={handlePress} >
+                    <Text style={styles.textc}>Done</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 }
@@ -158,7 +169,6 @@ const styles = StyleSheet.create({
     },
     multiselectlist: {
         width: 300,
-        height: 55,
         alignSelf: 'center',
         marginTop: 10,
     }

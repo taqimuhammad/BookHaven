@@ -1,17 +1,32 @@
 import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
+import { deleteUser } from "firebase/auth";
+import { auth,db } from '../firebaseConfig';
+import { doc, deleteDoc } from "firebase/firestore";
 
 const DeleteConfirmation = ({ navigation }) => {
+    const [password, onChangePassword] = React.useState(null);
+
     const handleBack = () => {
         navigation.navigate("DeleteAccount");
     };
-    const handleda = () => {
-        navigation.navigate("Settings");
-      };
 
-    const [password, onChangePassword] = React.useState('');
+    const handledeletefirestore = async () => {
+        const docRef = doc(db,"Users",auth.currentUser.uid);
+        await deleteDoc(docRef);
+    };
+    
+    const handledeleteaccount = async () => {
+            const user = auth.currentUser;
+            deleteUser(user).then(() => {
+                alert("Account Deleted");
+                console.log("Account Deleted");
+                navigation.navigate("Login");
+            }).catch((error) => {
+                alert(error);
+            });
+    };
 
     return (
         <View style={styles.container}>
@@ -35,10 +50,13 @@ const DeleteConfirmation = ({ navigation }) => {
                 />
             </View>
             <View style={styles.button}>
-          <TouchableOpacity style={styles.buttonc} onPress={handleda} >
-          <Text style={styles.textc}>Delete Account</Text>
-           </TouchableOpacity>
-           </View>
+                <TouchableOpacity style={styles.buttonc} onPress={()=>{
+                    handledeletefirestore();
+                    handledeleteaccount();
+                }} >
+                    <Text style={styles.textc}>Delete Account</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 }
@@ -49,7 +67,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor:'white',
+        backgroundColor: 'white',
     },
     backButtonContainer: {
         position: 'absolute',
@@ -67,7 +85,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         fontSize: 20,
         marginTop: 20,
-        marginBottom:20,
+        marginBottom: 20,
     },
     input: {
         fontSize: 20,
@@ -79,26 +97,25 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: '#F30E0E',
     },
-    buttonc:{
-        alignItems:'center',
-        justifyContent:'center',
-        backgroundColor:'red',
-        height:48,
-        width:248,
-        borderRadius:25,
-      },
-      textc:{
-        fontSize:22,
-        color:'white',
-        fontWeight:'500',
-      },
-      button: {
-        
+    buttonc: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'red',
+        height: 48,
+        width: 248,
+        borderRadius: 25,
+    },
+    textc: {
+        fontSize: 22,
+        color: 'white',
+        fontWeight: '500',
+    },
+    button: {
         position: 'absolute',
         alignSelf: 'center',
-        bottom: 190,
-      },
-    insideview:{
-        marginTop:120,
+        bottom: 10,
+    },
+    insideview: {
+        marginTop: 120,
     }
 });
