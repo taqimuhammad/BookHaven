@@ -50,6 +50,7 @@ import Faqs from './screens/Faqs';
 import Payment from './screens/Payment';
 import Order from './screens/Order';
 import Faq from './screens/Faqs';
+import Stripepay from './screens/Stripepay';
 
 
 const Stack = createNativeStackNavigator();
@@ -100,6 +101,7 @@ const StackNavigator = () => {
       <Stack.Screen name='Library' component={Library} options={{ headerShown: false }}/>
       <Stack.Screen name='Bookdetail' component={Bookdetail} options={{ headerShown: false }}/>
       <Stack.Screen name='Faq' component={Faq} options={{ headerShown: false }}/>
+      <Stack.Screen name='Stripepay' component={Stripepay} options={{ headerShown: false }}/>
  
     </Stack.Navigator>
   );
@@ -177,14 +179,14 @@ const DrawerNavigator = () => {
       }}  />
       <Drawer.Screen name='Wallet' component={Wallet} 
       options={{ 
-      headerShown: false,
+      headerShown: true,
       drawerIcon: ({ color, size }) => (
         <Icon name="wallet" color={color} size={size} />
         ),
          }}/>
       <Drawer.Screen name='Wishlist' component={Wishlist}
       options={{
-      headerShown: false,
+      headerShown: true,
       drawerIcon: ({ color, size }) => (
         <Icon name="hearto" color={color} size={size} />
         ),
@@ -192,21 +194,21 @@ const DrawerNavigator = () => {
          }}/>
       <Drawer.Screen name='Location' component={Location} 
       options={{
-      headerShown: false,
+      headerShown: true,
       drawerIcon: ({ color, size }) => (
         <EntyIcon name="location" color={color} size={size} />
         ), 
       }}/>
       <Drawer.Screen name='Order' component={Order} 
       options={{ 
-      headerShown: false,
+      headerShown: true,
       drawerIcon: ({ color, size }) => (
         <Iconm name="delivery-dining" color={color} size={size} />
         ), 
        }}/>
       <Drawer.Screen name='Payment' component={Payment}
       options={{
-      headerShown: false,
+      headerShown: true,
       drawerIcon: ({ color, size }) => (
         <Iconm name="payment" color={color} size={size} />
         ), 
@@ -215,7 +217,7 @@ const DrawerNavigator = () => {
     
       <Drawer.Screen name='Settings' component={Settings} 
       options={{ 
-      headerShown: false,
+      headerShown: true,
       drawerIcon: ({ color, size }) => (
         <Icon name="setting" color={color} size={size} />
         ),  }}/>
