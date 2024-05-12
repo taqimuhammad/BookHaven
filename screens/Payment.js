@@ -1,36 +1,28 @@
 import React from 'react';
 import { View, Text, StyleSheet,Image } from 'react-native';
 import { TouchableOpacity, StatusBar } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import img1 from '../img/img4.png'; 
 
 const Payment = ({ navigation }) =>
  {
-    const handleBack = () => {
-        navigation.navigate("Home");
-      };
+    
       const handlePress = () => {
         navigation.navigate('Home'); 
       };
 return(
 <View style={styles.container}>
-      <View style={styles.titlec}>
-      <Text style={styles.title}>Payment</Text> 
-      </View>
-      <View style={styles.backButtonContainer}>
-          <TouchableOpacity onPress={handleBack} >
-          <Icon name="arrow-back" size={34} color="black" />
-          </TouchableOpacity>
-        </View>
+   
+      
         <View style={styles.card}>
                 <Text style={styles.text}>Invoice # </Text>
                 <Text style={styles.ttext}> hrs ago</Text> 
-                <Text style={styles.btext}>You received a payment invoice of</Text>
+                <Text style={styles.btext}>YOU RECEIVED A PAYMENT INVOICE</Text>
                 <Text style={styles.bbtext}>Amount :</Text>
                 <Text style={styles.ctext}>Order Status : </Text>
                 <Text style={styles.dtext}>Order Details </Text>
-                <View style={styles.detailview}>
-                
+
+
+                <View style={styles.detailview}>                
                 <View>
                 <Image
                  source={img1} // defaultSource={require('./path/to/placeholder-image.jpg')} Corrected source
@@ -42,11 +34,8 @@ return(
                  <Text style={styles.ftext}>Price: </Text>
                  <Text style={styles.ftext}>For: Sale</Text>
                  </View>
-
-    
-              
-
                 </View>
+                
 
                 <View>
             <TouchableOpacity style={styles.buttonc} onPress={handlePress} >
@@ -70,8 +59,8 @@ const styles = StyleSheet.create({
     },
     card:{
       position:"absolute",
-      marginTop:130,
-      height:400,
+      marginTop:60,
+      height:480,
       left:10,
       width:340,
       borderRadius:20,
@@ -83,9 +72,9 @@ const styles = StyleSheet.create({
     margin:10,
     borderRadius:10,
     backgroundColor:"#C1BADC",
-    height:170,
-      borderWidth:0,
-      borderColor: '#fff',
+    height:190,
+    borderWidth:1.5,
+    borderColor: 'black',
      
   },
   bookinfo:{
@@ -110,27 +99,28 @@ const styles = StyleSheet.create({
   },
 
   btext:{
-    top:-15,
+    color:'red',
+    bottom:15,
     left:10,
      fontSize:18,
    
 
   },
   bbtext:{
-    top:-15,
+    top:15,
     left:10,
-     fontSize:18,
+     fontSize:20,
    
 
   },
   ctext:{
-    top:-15,
+    top:15,
     left:10,
-     fontSize:18,
+     fontSize:20,
 
   },
   dtext:{
-    marginTop:10,
+    marginTop:50,
     left:10,
     fontSize:20,
   },
@@ -140,11 +130,7 @@ const styles = StyleSheet.create({
     fontSize:16,
   },   
 
-    backButtonContainer: {
-        position: 'absolute',
-        top: 40,
-        left: 20,
-    },
+    
     buttontext:{
       fontSize:22,
         color:'white',
@@ -157,22 +143,11 @@ const styles = StyleSheet.create({
       height:48,
       width:248,
       left:45,
-      top:19,
+      top:60,
       borderRadius:25,
     },
     
-    titlec:{
-      position:"absolute",
-      top:35,
-      left:120,
-    },
-
-    title: {
-      fontSize: 34,
-      color: 'black',
-      fontWeight: 'bold',
-  
-    },
+   
     
   });
 
