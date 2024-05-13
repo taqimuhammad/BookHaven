@@ -51,6 +51,7 @@ import Payment from './screens/Payment';
 import Order from './screens/Order';
 import Faq from './screens/Faqs';
 import Stripepay from './screens/Stripepay';
+import NewMessage from './screens/NewMessage';
 
 
 const Stack = createNativeStackNavigator();
@@ -102,6 +103,7 @@ const StackNavigator = () => {
       <Stack.Screen name='Bookdetail' component={Bookdetail} options={{ headerShown: false }}/>
       <Stack.Screen name='Faq' component={Faq} options={{ headerShown: false }}/>
       <Stack.Screen name='Stripepay' component={Stripepay} options={{ headerShown: false }}/>
+      <Stack.Screen name='NewMessage' component={NewMessage} options={{ headerShown: false }}/>
  
     </Stack.Navigator>
   );

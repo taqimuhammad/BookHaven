@@ -8,6 +8,10 @@ const Chat = ({ navigation }) =>
     const handleBack = () => {
         navigation.navigate("Homescreen");
       };
+
+      const handlenewmessage = () => {
+        navigation.navigate("NewMessage");
+      };
   
 return(
 <View style={styles.container}>
@@ -18,6 +22,11 @@ return(
       <View style={styles.backButtonContainer}>
           <TouchableOpacity onPress={handleBack} >
           <Icon name="arrow-back" size={34} color="black" />
+          </TouchableOpacity>
+        </View>
+        <View>
+          <TouchableOpacity onPress={handlenewmessage}>
+            <Text>Goto New Message</Text>
           </TouchableOpacity>
         </View>
 </View>
