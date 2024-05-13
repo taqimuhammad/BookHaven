@@ -15,9 +15,9 @@ const Library = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.headingview}>
+      {/* <View style={styles.headingview}>
         <Text style={styles.heading}>My Library</Text>
-      </View>
+      </View> */}
       <View style={styles.scrollview}>
         <ScrollView>
           <Card
@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
   scrollview: {
     flex: 3,
     alignSelf:'center',
+    paddingTop:10,
   },
   textc:{
     fontSize:22,
