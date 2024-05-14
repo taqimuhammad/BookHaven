@@ -4,7 +4,7 @@ import { View, TouchableOpacity, Text, TextInput, KeyboardAvoidingView, Platform
 import { AntDesign } from '@expo/vector-icons';
 import { SelectList } from "react-native-dropdown-select-list";
 import { Ionicons, FontAwesome, EvilIcons } from '@expo/vector-icons';
-import { collection, addDoc ,doc, updateDoc } from "firebase/firestore";
+import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
 import { db, storage } from "../firebaseConfig";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import * as ImagePicker from 'expo-image-picker';
@@ -38,7 +38,7 @@ const AddBook = ({ navigation }) => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-      aspect: [4, 3],
+      aspect: [4, 8],
       quality: 1,
     });
 
@@ -145,21 +145,21 @@ const AddBook = ({ navigation }) => {
     }
   }
 
-  useEffect(() =>{
-    if(picture != null){
+  useEffect(() => {
+    if (picture != null) {
       saveData();
       setPicture(null);
     }
-  },[picture]);
+  }, [picture]);
 
-  const updateid = async () =>{
-    const docRef = doc(db, "Books" ,bookID);
-    await updateDoc(docRef,{
+  const updateid = async () => {
+    const docRef = doc(db, "Books", bookID);
+    await updateDoc(docRef, {
       BookId: bookID,
     })
-    .then(()=>{
-      alert("Book Added to Library");
-    })
+      .then(() => {
+        alert("Book Added to Library");
+      })
   }
 
   const handleadd = () => {
@@ -232,17 +232,10 @@ const AddBook = ({ navigation }) => {
 
 
           <View style={styles.box}>
-            {/* {picture === null ?  */}
             <TouchableOpacity onPress={pickImage}>
               <Text style={styles.boxtext}>Add Book Image </Text>
               <AntDesign name="plus" size={50} style={styles.plus} />
-            </TouchableOpacity> 
-            {/* //  :  */}
-            {/* //  <TouchableOpacity onPress={pickImage}>
-            //   <Text style={styles.boxtext}>Book Image Added </Text>
-            // </TouchableOpacity>  */}
-{/*             
-            // }  */}
+            </TouchableOpacity>
           </View>
 
         </View>

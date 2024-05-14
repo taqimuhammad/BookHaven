@@ -1,21 +1,29 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import * as React from 'react';
-import Tag from './Tag';
+import { StyleSheet, Text, View, Image, TouchableOpacity, TouchableHighlight } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const Card = ({name,author,img,text,color,text2,color2}) => {
+const Card = ({ name, author, img, type, status }) => {
+
     return (
         <View style={styles.card}>
             <Image source={img} style={styles.image} />
             <View>
-                <Text style={styles.title}>{ name }</Text>
+                <Text style={styles.title}>{name}</Text>
                 <TouchableOpacity style={styles.close}>
                     <Ionicons name="close" size={24} color="red" />
                 </TouchableOpacity>
-                <Text style={styles.author}>{ author }</Text>
+                <Text style={styles.author}>{author}</Text>
+
                 <View style={styles.tag}>
-                    <Tag text={text} color={color} />
-                    <Tag text={text2} color={color2} />
+                    <View style={styles.tagcontainer1}>
+                        <TouchableHighlight style={[styles.insidetag1, { backgroundColor: "#404b7c" }]}>
+                            <Text style={styles.tagtext}> {type} </Text>
+                        </TouchableHighlight>
+                    </View>
+                    <View style={styles.tagcontainer2}>
+                        <TouchableHighlight style={[styles.insidetag2, { backgroundColor: "#404b7c" }]}>
+                            <Text style={styles.tagtext}> {status} </Text>
+                        </TouchableHighlight>
+                    </View>
                 </View>
             </View>
         </View>
@@ -26,7 +34,6 @@ const styles = StyleSheet.create({
     card: {
         flex: 1,
         flexDirection: 'row',
-        flexWrap: 'wrap',
         width: 350,
         height: 122,
         borderRadius: 10,
@@ -51,18 +58,52 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: 12,
     },
-    tag:{
-        width:250,
-        flexDirection:'row',
-        alignContent:'space-between',
-        marginTop:58,
-        marginLeft:15,
+    tag: {
+        width: 250,
+        flexDirection: 'row',
+        alignContent: 'space-between',
+        paddingTop: 45,
+        marginLeft: 15,
     },
-    close:{
-        position:'absolute',
-        flexDirection:'row',
-        marginLeft:242,
-    }    
+    close: {
+        position: 'absolute',
+        flexDirection: 'row',
+        marginLeft: 242,
+    },
+    tagcontainer1: {
+        flex: 1,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        display: 'flex',
+    },
+    insidetag1: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 24,
+        width: 106,
+        borderRadius: 10,
+        backgroundColor: '#404b7c',
+    },
+    tagtext: {
+        fontSize: 16,
+        color: 'white',
+        fontWeight: '600',
+        textAlign: 'center',
+    },
+    tagcontainer2: {
+        flex: 1,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        display: 'flex',
+    },
+    insidetag2: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 24,
+        width: 106,
+        borderRadius: 10,
+        backgroundColor: '#3fd48d',
+    },
 });
 
-export default Card;
+export { Card };
