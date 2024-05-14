@@ -3,9 +3,9 @@ import * as React from 'react';
 
 const Tag = ({ color, text }) => {
     return (
-        <View style={styles.container}>
+        <View style={styles.tagcontainer}>
             <TouchableHighlight style={[styles.tag, { backgroundColor: color }]}>
-                <Text style={styles.text}> {text} </Text>
+                <Text style={styles.tagtext}> {text} </Text>
             </TouchableHighlight>
         </View>
     )

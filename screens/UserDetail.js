@@ -4,6 +4,7 @@ import { MultipleSelectList } from 'react-native-dropdown-select-list';
 import { Ionicons, FontAwesome, EvilIcons } from '@expo/vector-icons';
 import { collection, addDoc, setDoc, doc } from "firebase/firestore";
 import { auth, db } from "../firebaseConfig";
+import { updateProfile } from "firebase/auth";
 
 const data = [
     { key: '1', value: 'Fiction' },
@@ -29,7 +30,6 @@ const UserDetail = ({ navigation, route }) => {
     const [address, onChangeAddress] = useState(null);
     const [selected, setSelected] = useState('');
     const [userID, setUserID] = useState(null);
-    const [location, setLocation] = useState(null);
     const { email, password, fullName, number, RePassword } = route.params;
 
     //using useffect to set the user id waiting for checking on app/emulator.
@@ -52,7 +52,8 @@ const UserDetail = ({ navigation, route }) => {
             Cnic: cnic,
             Address: address,
             SelectedGenres: selected,
-            Location: location,
+            Location:'',
+            Image:'',
             UserID: userID,
         })
             .then(() => {
@@ -62,9 +63,23 @@ const UserDetail = ({ navigation, route }) => {
                 console.log("Error Adding Document", e);
             })
     }
+    const addDisplayName = async () => {
+        updateProfile(auth.currentUser, {
+            displayName: fullName,
+        }).then(() => {
+            // Profile updated!
+            // ...
+            console.log("Display Name Added");
+        }).catch((error) => {
+            // An error occurred
+            // ...
+            console.log(error);
+        });
+    }
 
     const handlePress = () => {
         saveData();
+        addDisplayName();
         navigation.navigate('Homescreen');
     };
 

@@ -4,7 +4,7 @@ import { View, TouchableOpacity, Text, TextInput, KeyboardAvoidingView, Platform
 import { AntDesign } from '@expo/vector-icons';
 import { SelectList } from "react-native-dropdown-select-list";
 import { Ionicons, FontAwesome, EvilIcons } from '@expo/vector-icons';
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
 import { db, storage } from "../firebaseConfig";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import * as ImagePicker from 'expo-image-picker';
@@ -38,7 +38,7 @@ const AddBook = ({ navigation }) => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-      aspect: [4, 3],
+      aspect: [4, 8],
       quality: 1,
     });
 
@@ -125,7 +125,6 @@ const AddBook = ({ navigation }) => {
       uploadImage();
       setImage(null);
     }
-
   }, [image]);
 
   const saveData = async () => {
@@ -139,12 +138,33 @@ const AddBook = ({ navigation }) => {
         Image: picture,
       });
       console.log("Document written with ID: ", docRef.id);
+      setbookID(docRef.id);
+      alert("Book Image Added");
     } catch (e) {
       console.error("Error adding document: ", e);
     }
   }
+
+  useEffect(() => {
+    if (picture != null) {
+      saveData();
+      setPicture(null);
+    }
+  }, [picture]);
+
+  const updateid = async () => {
+    const docRef = doc(db, "Books", bookID);
+    await updateDoc(docRef, {
+      BookId: bookID,
+    })
+      .then(() => {
+        alert("Book Added to Library");
+      })
+  }
+
   const handleadd = () => {
-    saveData();
+    // saveData();
+    updateid();
     navigation.navigate("Library");
   };
 
@@ -212,16 +232,10 @@ const AddBook = ({ navigation }) => {
 
 
           <View style={styles.box}>
-            {picture === null ? 
             <TouchableOpacity onPress={pickImage}>
               <Text style={styles.boxtext}>Add Book Image </Text>
               <AntDesign name="plus" size={50} style={styles.plus} />
-            </TouchableOpacity> 
-            : 
-            <View>
-              <Text>King</Text>
-            </View>
-            }
+            </TouchableOpacity>
           </View>
 
         </View>

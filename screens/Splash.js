@@ -1,5 +1,7 @@
-import React from 'react';
+import {useEffect}from 'react';
 import { StyleSheet, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
+import { auth } from "../firebaseConfig";
+import { onAuthStateChanged } from "firebase/auth";
 
 const Splash = ({navigation}) => {
   const handlenext = () => {
@@ -10,6 +12,22 @@ const Splash = ({navigation}) => {
   const handleskip = () => {
     navigation.navigate("Splash3")
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/auth.user
+            const uid = user.uid;
+            navigation.replace('Homescreen');
+            // ...
+        } else {
+            // User is signed out
+            // ...
+        }
+    });
+    return unsubscribe
+}, [])
 
   return (
     <View style={styles.container}>

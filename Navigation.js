@@ -51,8 +51,8 @@ import Payment from './screens/Payment';
 import Order from './screens/Order';
 import Faq from './screens/Faqs';
 import Paymentstripe from './screens/Paymentstripe';
-import StripeApp from './src/StripeApp'
-
+import StripeApp from './src/StripeApp';
+import NewMessage from './screens/NewMessage';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -104,6 +104,7 @@ const StackNavigator = () => {
       <Stack.Screen name='Faq' component={Faq} options={{ headerShown: false }}/>
       <Stack.Screen name='Paymentstripe' component={Paymentstripe} options={{ headerShown: false }}/>
       <Stack.Screen name='Payment Detail' component={StripeApp} options={{ headerShown: true }}/>
+      <Stack.Screen name='NewMessage' component={NewMessage} options={{ headerShown: false }}/>
 
  
     </Stack.Navigator>
@@ -305,4 +306,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-

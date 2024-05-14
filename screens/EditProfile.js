@@ -54,6 +54,14 @@ const UserProfile = ({ navigation }) => {
     navigation.navigate("Settings");
   };
 
+  const user = auth.currentUser;
+  if (user !== null) {
+    // The user object has basic properties such as display name, email, etc.
+    const displayName = user.displayName;
+    const email = user.email;
+    // user.displayName is working but not displayName
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.topview}>
@@ -68,8 +76,8 @@ const UserProfile = ({ navigation }) => {
           <TouchableOpacity style={styles.editicon} activeOpacity={0.9}>
             <Feather name="edit" size={20} color="#404B7C" />
           </TouchableOpacity>
-          <Text style={styles.username}>John Smith</Text>
-          <Text style={styles.email}>@jsmith23</Text>
+          <Text style={styles.username}>{user.displayName}</Text>
+          <Text style={styles.email}>{user.email}</Text>
         </View>
       </View>
 
