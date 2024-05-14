@@ -79,7 +79,7 @@ const StackNavigator = () => {
       <Stack.Screen name='UserDetail' component={UserDetail} options={{ headerShown: false }} />
       <Stack.Screen name='Chat' component={Chat} options={{ headerShown: false }} />
       <Stack.Screen name='Location' component={Location} options={{ headerShown: false }} />
-      <Stack.Screen name='Settings' component={Settings} options={{ headerShown: false }} />
+      {/* <Stack.Screen name='Settings' component={Settings} options={{ headerShown: false }} /> */}
       <Stack.Screen name='Signout' component={Signout} options={{ headerShown: false }} />
       <Stack.Screen name='Wallet' component={Wallet} options={{ headerShown: false }} />
       <Stack.Screen name='SetupWallet' component={SetupWallet} options={{ headerShown: false }} />
@@ -100,7 +100,7 @@ const StackNavigator = () => {
       <Stack.Screen name='Faqs' component={Faqs} options={{ headerShown: false }} />
       <Stack.Screen name='Wishlist' component={Wishlist} options={{ headerShown: false }} />
       <Stack.Screen name='Bottomnav' component={Bottomnav} options={{ headerShown: false }} />
-      <Stack.Screen name='Library' component={Library} options={{ headerShown: false }} />
+      {/* <Stack.Screen name='Library' component={Library} options={{ headerShown: false }} /> */}
       <Stack.Screen name='Bookdetail' component={Bookdetail} options={{ headerShown: false }} />
       <Stack.Screen name='Faq' component={Faq} options={{ headerShown: false }} />
       <Stack.Screen name='Stripepay' component={Stripepay} options={{ headerShown: false }} />
