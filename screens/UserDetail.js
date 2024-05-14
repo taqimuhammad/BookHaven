@@ -4,6 +4,7 @@ import { MultipleSelectList } from 'react-native-dropdown-select-list';
 import { Ionicons, FontAwesome, EvilIcons } from '@expo/vector-icons';
 import { collection, addDoc, setDoc, doc } from "firebase/firestore";
 import { auth, db } from "../firebaseConfig";
+import { updateProfile } from "firebase/auth";
 
 const data = [
     { key: '1', value: 'Fiction' },
@@ -62,9 +63,23 @@ const UserDetail = ({ navigation, route }) => {
                 console.log("Error Adding Document", e);
             })
     }
+    const addDisplayName = async () => {
+        updateProfile(auth.currentUser, {
+            displayName: fullName,
+        }).then(() => {
+            // Profile updated!
+            // ...
+            console.log("Display Name Added");
+        }).catch((error) => {
+            // An error occurred
+            // ...
+            console.log(error);
+        });
+    }
 
     const handlePress = () => {
         saveData();
+        addDisplayName();
         navigation.navigate('Homescreen');
     };
 
