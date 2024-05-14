@@ -7,7 +7,7 @@ const Payment = ({ navigation }) =>
  {
     
       const handlePress = () => {
-        navigation.navigate('Home'); 
+        navigation.navigate('Paymentstripe'); 
       };
 return(
 <View style={styles.container}>
