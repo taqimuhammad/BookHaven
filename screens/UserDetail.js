@@ -30,7 +30,6 @@ const UserDetail = ({ navigation, route }) => {
     const [address, onChangeAddress] = useState(null);
     const [selected, setSelected] = useState('');
     const [userID, setUserID] = useState(null);
-    const [location, setLocation] = useState(null);
     const { email, password, fullName, number, RePassword } = route.params;
 
     //using useffect to set the user id waiting for checking on app/emulator.
@@ -53,7 +52,8 @@ const UserDetail = ({ navigation, route }) => {
             Cnic: cnic,
             Address: address,
             SelectedGenres: selected,
-            Location: location,
+            Location:'',
+            Image:'',
             UserID: userID,
         })
             .then(() => {
