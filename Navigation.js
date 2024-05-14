@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import EntyIcon from 'react-native-vector-icons/Entypo';
 import Iconm from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import pic from './img/ref.jpg';
+import pic from './img/Capture.png';
 
 import Splash from './screens/Splash';
 import Splash2 from './screens/Splash2';
@@ -50,7 +50,8 @@ import Faqs from './screens/Faqs';
 import Payment from './screens/Payment';
 import Order from './screens/Order';
 import Faq from './screens/Faqs';
-import Stripepay from './screens/Stripepay';
+import Paymentstripe from './screens/Paymentstripe';
+import StripeApp from './src/StripeApp'
 
 
 const Stack = createNativeStackNavigator();
@@ -101,7 +102,9 @@ const StackNavigator = () => {
       <Stack.Screen name='Library' component={Library} options={{ headerShown: false }}/>
       <Stack.Screen name='Bookdetail' component={Bookdetail} options={{ headerShown: false }}/>
       <Stack.Screen name='Faq' component={Faq} options={{ headerShown: false }}/>
-      <Stack.Screen name='Stripepay' component={Stripepay} options={{ headerShown: false }}/>
+      <Stack.Screen name='Paymentstripe' component={Paymentstripe} options={{ headerShown: false }}/>
+      <Stack.Screen name='Payment Detail' component={StripeApp} options={{ headerShown: true }}/>
+
  
     </Stack.Navigator>
   );
@@ -140,7 +143,7 @@ const DrawerNavigator = () => {
               marginVertical:8,
               fontWeight:"bold",
               color:"white",
-              }}>Jack</Text>
+              }}>Farasat kareem</Text>
               
             </View>
             <DrawerItemList{...props} />
@@ -160,7 +163,7 @@ const DrawerNavigator = () => {
   headerTitleAlign: 'center',
     }}
     >
-      <Drawer.Screen name='Home' component={TabNavigator} 
+      <Drawer.Screen name='BookHaven' component={TabNavigator} 
       options={{ 
       headerShown: true,
 
@@ -229,7 +232,7 @@ const DrawerNavigator = () => {
 
 
 
-const Home1 = 'Home';
+const Home1 = 'Homescreen';
 const Library1 = 'Library';
 const Notification1 = 'Notification';
 const chat1 = 'Chat';
