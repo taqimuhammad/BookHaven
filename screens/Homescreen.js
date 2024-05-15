@@ -36,10 +36,10 @@ const HomePage = ({ navigation }) => {
     // user.displayName is working but not displayName
   }
 
-  useEffect(() =>{
-    setName(user.displayName);
-    // console.log(name);
-  },[name])
+  // useEffect(() =>{
+  //   setName(user.displayName);
+  //   // console.log(name);
+  // },[name])
 
   return (
     <View >
@@ -60,7 +60,7 @@ const HomePage = ({ navigation }) => {
               title={book.data.BookTitle}
               author={book.data.Author}
               price={book.data.Price}
-              uploadedby={name}
+              uploadedby={book.data.UploadedBy}
               image={book.data.Image}
               type={book.data.Type}
             />

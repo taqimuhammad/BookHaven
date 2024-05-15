@@ -4,8 +4,8 @@ import { View, TouchableOpacity, Text, TextInput, KeyboardAvoidingView, Platform
 import { AntDesign } from '@expo/vector-icons';
 import { SelectList } from "react-native-dropdown-select-list";
 import { Ionicons, FontAwesome, EvilIcons } from '@expo/vector-icons';
-import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
-import { db, storage,auth } from "../firebaseConfig";
+import { collection, addDoc, doc, updateDoc, getDoc } from "firebase/firestore";
+import { db, storage, auth } from "../firebaseConfig";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import * as ImagePicker from 'expo-image-picker';
 
@@ -24,7 +24,7 @@ const data2 = [
 ];
 
 const AddBook = ({ navigation }) => {
-  const [userID,setUserID] = useState();
+  const [userID, setUserID] = useState();
   const [homeID, setHomeID] = useState('');
   const [bookID, setbookID] = useState('');
   const [bookTitle, onChangeBookTitle] = useState('');
@@ -34,13 +34,14 @@ const AddBook = ({ navigation }) => {
   const [selectedType, setSelectedType] = useState('');
   const [picture, setPicture] = useState(null);
   const [image, setImage] = useState(null);
+  const [uploadedBy, setUploadedBy] = useState('');
 
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-      aspect: [4,6],
+      aspect: [4, 6],
       quality: 1,
     });
 
@@ -130,10 +131,20 @@ const AddBook = ({ navigation }) => {
     }
   }, [image]);
 
-  useEffect(()=>{
+  //get fullname data from users collection
+  useEffect(() => {
+    const readData = async () => {
+      const docRef = doc(db, "Users", auth.currentUser.uid);
+      const docSnap = await getDoc(docRef);
 
-  },[]);
-  
+      if (docSnap.exists()) {
+       setUploadedBy(docSnap.data().Fullname);
+      //  console.log(uploadedBy);
+      }
+    }
+    readData();
+  }, [uploadedBy]);
+
   const saveData = async () => {
     try {
       const docRef = await addDoc(collection(db, "Books"), {
@@ -143,7 +154,7 @@ const AddBook = ({ navigation }) => {
         Status: selectedStatus,
         Type: selectedType,
         Image: picture,
-        UserId:userID,
+        UserId: userID,
       });
       console.log("Document written with ID: ", docRef.id);
       setbookID(docRef.id);
@@ -163,7 +174,8 @@ const AddBook = ({ navigation }) => {
         Type: selectedType,
         Image: picture,
         Price: amount,
-        UserId:userID,
+        UserId: userID,
+        UploadedBy:uploadedBy,
       });
       console.log("Home Document written with ID: ", docRef.id);
       setHomeID(docRef.id);
