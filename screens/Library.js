@@ -1,80 +1,26 @@
-import { StyleSheet, Text, View, ScrollView, TextInput, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, View, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import { Card } from '../components/Card';
-import { collection, onSnapshot, getDocs } from 'firebase/firestore';
+import { collection, onSnapshot, getDocs,query, where, } from 'firebase/firestore';
 import { auth, db } from '../firebaseConfig';
 import { useEffect, useState } from 'react';
 
-const image = require('../img/img1.jpg');
-const image2 = require('../img/img2.jpg');
-const image3 = require('../img/img3.png');
-
-const LibraryInfo = [
-  {
-    id: 1,
-    name: "The Cursed Child",
-    author: "By: J.K Rowling",
-    img: image,
-    type: "Exchange",
-    color: "#404b7c",
-    status: "Available",
-    color2: "#3fd48d",
-  },
-  {
-    id: 2,
-    name: "The Great Gatsby",
-    author: "By: F. Scott Fitzgerald",
-    img: image2,
-    type: "For Sale",
-    color: "#404b7c",
-    status: "Unavailable",
-    color2: "#d43f51",
-  },
-  {
-    id: 3,
-    name: "Matilda",
-    author: "By: Roald Dahl",
-    img: image3,
-    type: "Borrow",
-    color: "#404b7c",
-    status: "Available",
-    color2: "#3fd48d",
-  },
-  {
-    id: 4,
-    name: "Matilda",
-    author: "By: Roald Dahl",
-    img: image3,
-    type: "Borrow",
-    color: "#404b7c",
-    status: "Available",
-    color2: "#3fd48d",
-  },
-]
 const Library = ({ navigation }) => {
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const ref = collection(db, "Books");
-  //     onSnapshot(ref, (Books) =>
-  //       setData(Books.docs.map((book) => ({
-  //         id: book.id,
-  //         data: book.data(),
-  //       })))
-  //     )
-  //   }
-  //   getData();
-  // });
   useEffect(() => {
     const getData = async () => {
-      const querySnapshot = await getDocs(collection(db, "Books"));
-      querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
-      });
-    }
+      const q = query(collection(db, "Books"), where("UserId", "==", auth.currentUser.uid));
+      const querySnapshot = await getDocs(q);
+      const updatedData = querySnapshot.docs.map((book) => ({
+        id: book.id,
+        data: book.data(),
+      }));
+      setData(updatedData);
+      setLoading(false);
+    };
     getData();
-  })
+  }, [data]);
 
   const handleaddbook = () => {
     navigation.navigate("AddBook");
@@ -82,30 +28,28 @@ const Library = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      {/* <View style={styles.headingview}>
-        <Text style={styles.heading}>My Library</Text>
-      </View> */}
-      <View style={styles.scrollview}>
-        <ScrollView>
-          {/* add data in place of libraryinfo for getting it from database
-          // look for something to add color part all other are working */}
-          {LibraryInfo.map((book) => (
-            <Card key={book.id}
-              // name={book.data.BookTitle}
-              // author={book.data.Author}
-              // img={book.data.Image}
-              // type={book.data.Type}
-              // status={book.data.Status}
-              name={book.name}
-              author={book.author}
-              img={book.img}
-              type={book.type}
-              status={book.status}
-            />
-          ))}
+      {loading ? ( // Show activity indicator if loading is true
+        <View style={styles.loaderContainer}>
+          <ActivityIndicator size="large" color="#404B7C" />
+        </View>
+      ) : (
 
-        </ScrollView>
-      </View>
+        <View style={styles.scrollview}>
+          <ScrollView>
+            {data.map((book) => (
+              <Card key={book.id}
+                id = {book.id}
+                name={book.data.BookTitle}
+                author={book.data.Author}
+                img={book.data.Image}
+                type={book.data.Type}
+                status={book.data.Status}
+              />
+            ))}
+          </ScrollView>
+        </View>
+      )}
+
       <View style={styles.buttonview}>
         <View style={styles.button}>
           <TouchableOpacity style={styles.buttonc} onPress={handleaddbook} >
@@ -122,6 +66,11 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     backgroundColor: 'white',
+  },
+  loaderContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   scrollview: {
     flex: 3,

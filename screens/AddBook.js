@@ -5,7 +5,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { SelectList } from "react-native-dropdown-select-list";
 import { Ionicons, FontAwesome, EvilIcons } from '@expo/vector-icons';
 import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
-import { db, storage } from "../firebaseConfig";
+import { db, storage,auth } from "../firebaseConfig";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import * as ImagePicker from 'expo-image-picker';
 
@@ -24,10 +24,12 @@ const data2 = [
 ];
 
 const AddBook = ({ navigation }) => {
-
+  const [userID,setUserID] = useState();
+  const [homeID, setHomeID] = useState('');
   const [bookID, setbookID] = useState('');
   const [bookTitle, onChangeBookTitle] = useState('');
   const [authorName, onChangeAuthorName] = useState('');
+  const [amount, onChangeAmount] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('');
   const [selectedType, setSelectedType] = useState('');
   const [picture, setPicture] = useState(null);
@@ -38,7 +40,7 @@ const AddBook = ({ navigation }) => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-      aspect: [4, 8],
+      aspect: [4,6],
       quality: 1,
     });
 
@@ -123,6 +125,7 @@ const AddBook = ({ navigation }) => {
 
     if (image != null) {
       uploadImage();
+      setUserID(auth.currentUser.uid);
       setImage(null);
     }
   }, [image]);
@@ -136,6 +139,7 @@ const AddBook = ({ navigation }) => {
         Status: selectedStatus,
         Type: selectedType,
         Image: picture,
+        UserId:userID,
       });
       console.log("Document written with ID: ", docRef.id);
       setbookID(docRef.id);
@@ -145,9 +149,29 @@ const AddBook = ({ navigation }) => {
     }
   }
 
+  const saveDataHome = async () => {
+    try {
+      const docRef = await addDoc(collection(db, "HomeBooks"), {
+        BookId: homeID,
+        BookTitle: bookTitle,
+        Author: authorName,
+        Status: selectedStatus,
+        Type: selectedType,
+        Image: picture,
+        Price: amount,
+        UserId:userID,
+      });
+      console.log("Home Document written with ID: ", docRef.id);
+      setHomeID(docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  }
+
   useEffect(() => {
     if (picture != null) {
       saveData();
+      saveDataHome();
       setPicture(null);
     }
   }, [picture]);
@@ -159,6 +183,14 @@ const AddBook = ({ navigation }) => {
     })
       .then(() => {
         alert("Book Added to Library");
+      })
+
+    const HomedocRef = doc(db, "HomeBooks", homeID);
+    await updateDoc(HomedocRef, {
+      BookId: homeID,
+    })
+      .then(() => {
+        console.log("Data Added to Home Complete");
       })
   }
 
@@ -193,9 +225,14 @@ const AddBook = ({ navigation }) => {
             placeholderTextColor={'black'}
             keyboardType="email-address"
           />
-          {/* <DropDown />
-              <DropDownTwo /> */}
-
+          <TextInput
+            style={styles.input}
+            value={amount}
+            onChangeText={(text) => { onChangeAmount(text) }}
+            placeholder="Enter Amount"
+            placeholderTextColor={'black'}
+            keyboardType="numeric"
+          />
           <View style={styles.selectlist1}>
             <SelectList
               data={data1}
@@ -295,7 +332,7 @@ const styles = StyleSheet.create({
   },
   box: {
     marginTop: 20,
-    height: 200,
+    height: 170,
     width: 250,
     borderRadius: 10,
     alignContent: 'center',
@@ -310,7 +347,7 @@ const styles = StyleSheet.create({
   plus: {
     color: '#404B7C',
     alignSelf: 'center',
-    marginTop: 50,
+    marginTop: 30,
   },
   selectlist1: {
     width: 300,

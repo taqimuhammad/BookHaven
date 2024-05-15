@@ -1,15 +1,24 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, TouchableHighlight } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { auth,db } from '../firebaseConfig';
+import { doc, deleteDoc } from "firebase/firestore";
 
-const Card = ({ name, author, img, type, status }) => {
+const Card = ({ id,name, author, img, type, status }) => {
+
+    const handledeletedata = async () =>{
+        await deleteDoc(doc(db, "Books", id))
+        .then(()=>{
+            alert("Book Deleted Sucessfully");
+        })
+    }
 
     return (
         <View style={styles.card}>
-            <Image source={img} style={styles.image} />
+            <Image source={{uri:img}} style={styles.image} />
             <View>
                 <Text style={styles.title}>{name}</Text>
                 <TouchableOpacity style={styles.close}>
-                    <Ionicons name="close" size={24} color="red" />
+                    <Ionicons name="close" size={24} color="red" onPress={handledeletedata} />
                 </TouchableOpacity>
                 <Text style={styles.author}>{author}</Text>
 
@@ -54,7 +63,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
     author: {
-        fontSize: 13,
+        fontSize: 14,
         fontWeight: 'bold',
         marginLeft: 12,
     },
