@@ -11,7 +11,7 @@ const HomePage = ({ navigation }) => {
   const [searchPhrase, setSearchPhrase] = useState('');
   const [clicked, setClicked] = useState(false);
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
 
   useEffect(() => {

@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 
 const Library = ({ navigation }) => {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getData = async () => {
