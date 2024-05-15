@@ -38,7 +38,7 @@ const HomePage = ({ navigation }) => {
 
   useEffect(() =>{
     setName(user.displayName);
-    console.log(name);
+    // console.log(name);
   },[name])
 
   return (
