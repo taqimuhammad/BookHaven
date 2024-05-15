@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, ActivityIndicator, TouchableOpacity, ScrollView } from 'react-native';
 import { collection, onSnapshot, getDocs, query, where, } from 'firebase/firestore';
 import { auth, db } from '../firebaseConfig';
-import SearchBar from '../components/Searchbar';
+import SearchBar from '../components/SearchBar';
 import { BookContainer } from '../components/BookContainer';
 
 
