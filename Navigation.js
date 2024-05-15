@@ -283,7 +283,7 @@ const TabNavigator = () => {
       tabBarOptions={{
 
         activeTintColor: '#404B7C',
-        inactiveTintColor: 'black',
+        inactiveTintColor: 'grey',
         labelStyle: { paddingBottom: 7, fontSize: 10 },
         style: { padding: 10, height: 70 },
         tabBarStyle: { backgroundColor: "white" }
