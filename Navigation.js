@@ -53,7 +53,7 @@ import Faq from './screens/Faqs';
 import Paymentstripe from './screens/Paymentstripe';
 import StripeApp from './src/StripeApp';
 import NewMessage from './screens/NewMessage';
-import Searchbar from './components/Searchbar';
+import SearchBar from './components/SearchBar';
 
 import { auth } from './firebaseConfig';
 
@@ -79,7 +79,7 @@ const StackNavigator = () => {
       <Stack.Screen name='Splash2' component={Splash2} options={{ headerShown: false }} />
       <Stack.Screen name='Splash3' component={Splash3} options={{ headerShown: false }} />
       <Stack.Screen name='Homescreen' component={DrawerNavigator} options={{ headerShown: false }} />
-      <Stack.Screen name='Searchbar' component={Searchbar} options={{ headerShown: false }}/>
+      <Stack.Screen name='Searchbar' component={SearchBar} options={{ headerShown: false }}/>
       <Stack.Screen name='Notification' component={Notification} options={{ headerShown: false }} />
       <Stack.Screen name='Payment' component={Payment} options={{ headerShown: false }} />
       <Stack.Screen name='Order' component={Order} options={{ headerShown: false }} />
