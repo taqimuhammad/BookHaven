@@ -28,19 +28,6 @@ const HomePage = ({ navigation }) => {
     getData();
   }, [data]);
 
-  const user = auth.currentUser;
-  if (user !== null) {
-    // The user object has basic properties such as display name, email, etc.
-    const displayName = user.displayName;
-    const email = user.email;
-    // user.displayName is working but not displayName
-  }
-
-  // useEffect(() =>{
-  //   setName(user.displayName);
-  //   // console.log(name);
-  // },[name])
-
   return (
     <View >
 
