@@ -2,7 +2,7 @@ import * as React from "react";
 import { View, ScrollView, Text, TextInput, KeyboardAvoidingView, Platform, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
-import { auth,db } from "../firebaseConfig";
+import { auth, db } from "../firebaseConfig";
 
 const SignUp = ({ navigation }) => {
 
@@ -17,20 +17,20 @@ const SignUp = ({ navigation }) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed up 
-               
+
                 const user = userCredential.user;
                 alert("User Created Sucessfully");
                 console.log(user.email);
-                navigation.navigate('UserDetail',{
+                navigation.navigate('UserDetail', {
                     email,
                     password,
                     fullName,
                     number,
                     RePassword,
-                 });
+                });
                 // saveData();
-                
-                
+
+
                 // ...
             })
             .catch((error) => {
@@ -72,7 +72,7 @@ const SignUp = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         value={fullName}
-                        onChangeText={(text) => {onChangeFullName(text)}}
+                        onChangeText={(text) => { onChangeFullName(text) }}
                         placeholder="Enter your full name"
                         placeholderTextColor={'black'}
                         keyboardType="default"
@@ -80,7 +80,7 @@ const SignUp = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         value={email}
-                        onChangeText={(text) => {onChangeEmail(text)}}
+                        onChangeText={(text) => { onChangeEmail(text) }}
                         placeholder="Enter your email"
                         placeholderTextColor={'black'}
                         keyboardType="email-address"
@@ -88,7 +88,7 @@ const SignUp = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         value={number}
-                        onChangeText={(text) => {onChangeNumber(text)}}
+                        onChangeText={(text) => { onChangeNumber(text) }}
                         placeholder="Enter number"
                         placeholderTextColor={'black'}
                         keyboardType="numeric"
@@ -96,7 +96,7 @@ const SignUp = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         value={password}
-                        onChangeText={(text) => {onChangePassword(text)}}
+                        onChangeText={(text) => { onChangePassword(text) }}
                         placeholder="Enter password"
                         placeholderTextColor={'black'}
                         secureTextEntry={true}
@@ -104,41 +104,41 @@ const SignUp = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         value={RePassword}
-                        onChangeText={(text) => {onChangeReEnterPassword(text)}}
+                        onChangeText={(text) => { onChangeReEnterPassword(text) }}
                         placeholder="Re enter password"
                         placeholderTextColor={'black'}
                         secureTextEntry={true}
                     />
+                    <View style={styles.bottomview}>
+
+                        <View style={styles.button}>
+                            <TouchableOpacity style={styles.buttonc} onPress={handleSignUpPress} >
+                                <Text style={styles.textc}>SIGNUP</Text>
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style={styles.text}>
+                            <TouchableOpacity onPress={handlelogin}>
+                                <Text style={styles.textw}>Already have an account?<Text style={styles.log}>    Log In</Text></Text>
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style={styles.or}>
+                            <Text style={styles.ortext}>{'OR'}</Text>
+                        </View>
+
+                        <View style={styles.img}>
+                            <TouchableOpacity>
+                                <Image source={require('../img/f.png')} style={styles.img1} />
+                            </TouchableOpacity>
+                            <TouchableOpacity>
+                                <Image source={require('../img/gg.png')} style={styles.img2} />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                 </ScrollView>
             </KeyboardAvoidingView>
-            <View style={styles.bottomview}>
-
-                <View style={styles.button}>
-                    <TouchableOpacity style={styles.buttonc} onPress={handleSignUpPress} >
-                        <Text style={styles.textc}>SIGNUP</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.text}>
-                    <TouchableOpacity onPress={handlelogin}>
-                        <Text style={styles.textw}>Already have an account?<Text style={styles.log}>    Log In</Text></Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.or}>
-                    <Text style={styles.ortext}>{'OR'}</Text>
-                </View>
-
-                <View style={styles.img}>
-                    <TouchableOpacity>
-                        <Image source={require('../img/f.png')} style={styles.img1} />
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Image source={require('../img/gg.png')} style={styles.img2} />
-                    </TouchableOpacity>
-                </View>
-
-            </View>
+           
         </View>
     );
 }
@@ -151,9 +151,14 @@ const styles = StyleSheet.create({
     kbview: {
         flex: 2,
         alignSelf: 'center',
+        height:200,
+        width:350,
     },
     bottomview: {
         flex: 1,
+        marginTop:50,
+        width:300,
+        height:200,
         alignSelf: 'center',
     },
     heading: {

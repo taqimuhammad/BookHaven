@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { View, ScrollView, KeyboardAvoidingView, Platform, TextInput, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Image,View, ScrollView, KeyboardAvoidingView, Platform, TextInput, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { signInWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 
@@ -65,10 +65,12 @@ const Login = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+            <View style={styles.logoview}>
+                <Image source={require('../img/MainLogo.jpg')} style={styles.logo}/>
+            </View>
             <KeyboardAvoidingView
-                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                style={styles.sc}>
-                <ScrollView keyboardDismissMode="on-drag">
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+                <View keyboardDismissMode="on-drag" style={styles.sc}>
                     <TextInput
                         style={styles.input}
                         value={email}
@@ -85,7 +87,7 @@ const Login = ({ navigation }) => {
                         placeholderTextColor={'black'}
                         secureTextEntry={true}
                     />
-                </ScrollView>
+                </View>
                 <View style={styles.button}>
                     <TouchableOpacity style={styles.buttonc} onPress={handleloginPress} >
                         <Text style={styles.textc}>Login</Text>
@@ -101,7 +103,6 @@ const Login = ({ navigation }) => {
                         <Text style={styles.textf}>Forgot Password ?</Text>
                     </TouchableOpacity>
                 </View>
-
             </KeyboardAvoidingView>
         </View>
     );
@@ -111,18 +112,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
+        alignItems:'center',
+        padding:10,
     },
     sc: {
-        top: 250,
-        flex: 0.2,
-        alignSelf: 'center',
-        backgroundColor: 'white',
-    },
-    heading: {
-        fontSize: 30,
-        margin: 10,
-        paddingBottom: 5,
-        fontWeight: 'bold',
+        top:150,
+        // paddingTop:10,
+        height:'35%',
+        width:"90%",
+
     },
     input: {
         fontSize: 20,
@@ -130,6 +128,7 @@ const styles = StyleSheet.create({
         width: 300,
         margin: 10,
         borderBottomWidth: 1,
+        borderBottomColor:'black',
     },
     buttonc: {
         alignItems: 'center',
@@ -145,17 +144,15 @@ const styles = StyleSheet.create({
         fontWeight: '500',
     },
     button: {
+        top:180,
         alignSelf: 'center',
-        position: 'absolute',
-        bottom: -100,
     },
     text: {
+        top:180,
         alignSelf: 'center',
         justifyContent: 'center',
-        position: 'absolute',
-        bottom: -140,
-        height: 45,
-        width: 260,
+        height:'10%',
+        width:'100%',
     },
     sign: {
         fontWeight: 'bold',
@@ -168,13 +165,24 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
     textff: {
+        top:160,
         alignSelf: 'center',
         justifyContent: 'center',
-        position: 'absolute',
-        bottom: -160,
-        height: 45,
+        height: 30,
         width: 260,
-    }
+    },
+    logo:{
+        alignSelf:'center',
+        height:200,
+        width:200,
+        resizeMode:'contain',
+    },
+    logoview:{
+        top:130,
+        height:'auto',
+        width:"100%",
+        // backgroundColor:'blue',
+    },
 });
 
 export default Login;

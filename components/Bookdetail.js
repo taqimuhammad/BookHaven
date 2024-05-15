@@ -9,7 +9,7 @@ const Bookdetail = ({ route , navigation}) => {
     navigation.navigate("Homescreen");
   };
   const msgiconbar = () => {
-    navigation.navigate("");
+    navigation.navigate("NewMessage");
   };
   // Destructure the book object passed through the route
   const { book } = route.params;
@@ -28,14 +28,14 @@ const Bookdetail = ({ route , navigation}) => {
           <Icon name="arrow-back" size={34} color="black" />
           </TouchableOpacity>
         </View>
-      <Image source={book.image} style={styles.image} />
+      <Image source={{uri:book.image}} style={styles.image} />
       <View style={styles.infoContainer}>
-      <Text style={styles.type}>For {book.type}</Text>
+      <Text style={styles.type}>{book.type}</Text>
         <Text style={styles.title}>Title: {book.title}</Text>
         <Text style={styles.author}>Author: {book.author}</Text>
         <Text style={styles.price}>Price: {book.price}</Text>
-        <Text style={styles.uploadedBy}>Uploaded by: {book.uploadedBy}</Text>
-        <Text style={styles.chattext}>Message with {book.type}r Now:</Text>
+        <Text style={styles.uploadedBy}>Uploaded by: {book.uploadedby}</Text>
+        <Text style={styles.chattext}>Chat with Owner Now:</Text>
       </View>
     </ScrollView>
   );
