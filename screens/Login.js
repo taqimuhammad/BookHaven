@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         padding:10,
     },
     sc: {
-        top:110,
+        top:90,
         // paddingTop:10,
         height:'35%',
         width:"90%",
@@ -144,11 +144,11 @@ const styles = StyleSheet.create({
         fontWeight: '500',
     },
     button: {
-        top:180,
+        top:130,
         alignSelf: 'center',
     },
     text: {
-        top:180,
+        top:130,
         alignSelf: 'center',
         justifyContent: 'center',
         height:'10%',
@@ -165,11 +165,11 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
     textff: {
-        top:160,
+        top:115,
         alignSelf: 'center',
         justifyContent: 'center',
         height: 30,
-        width: 260,
+        width: 255,
     },
     logo:{
         alignSelf:'center',
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
         resizeMode:'contain',
     },
     logoview:{
-        top:90,
+        top:80,
         height:'auto',
         width:"100%",
         // backgroundColor:'blue',
