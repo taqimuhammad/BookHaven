@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert, ActivityIndicator } from "react-native";
-import { useNavigation } from '@react-navigation/native'; // Import useNavigation hook from React Navigation
+import { useNavigation } from '@react-navigation/native'; 
 
 const StripeApp = () => {
   const [cardNumber, setCardNumber] = useState("");
-  const [expiry, setExpiry] = useState("/"); // Initialize expiry with "MM/YY"
+  const [expiry, setExpiry] = useState("/"); 
   const [cvc, setCvc] = useState("");
   const [nameOnCard, setNameOnCard] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const navigation = useNavigation(); // Initialize navigation
+  const navigation = useNavigation(); 
 
   const handlePayNow = () => {
     if (!validateCardNumber(cardNumber)) {
@@ -24,8 +24,8 @@ const StripeApp = () => {
       setTimeout(() => {
         setIsLoading(false);
         Alert.alert("Payment Success", "Payment processed successfully!");
-        // Navigate to home screen after successful payment
-        navigation.navigate('BookHaven'); // Replace 'Home' with the name of your home screen
+      
+        navigation.navigate('BookHaven'); 
       }, 1000);
     }
   };

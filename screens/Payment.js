@@ -3,9 +3,12 @@ import { View, Text, StyleSheet,Image } from 'react-native';
 import { TouchableOpacity, StatusBar } from 'react-native';
 import img1 from '../img/img4.png'; 
 
-const Payment = ({ navigation }) =>
+const Payment = ({ route, navigation }) =>
  {
-    
+      const { book } = route.params;
+
+      const totalAmount = 200 + Number(book.price);
+
       const handlePress = () => {
         navigation.navigate('Paymentstripe'); 
       };
@@ -14,11 +17,11 @@ return(
    
       
         <View style={styles.card}>
-                <Text style={styles.text}>Invoice # </Text>
+                <Text style={styles.text}>Invoice # 579</Text>
                 <Text style={styles.ttext}> hrs ago</Text> 
                 <Text style={styles.btext}>YOU RECEIVED A PAYMENT INVOICE</Text>
-                <Text style={styles.bbtext}>Amount :</Text>
-                <Text style={styles.ctext}>Order Status : </Text>
+                <Text style={styles.bbtext}>Amount : {totalAmount}</Text>
+                <Text style={styles.ctext}>Order Status : Pending</Text>
                 <Text style={styles.dtext}>Order Details </Text>
 
 
@@ -29,10 +32,10 @@ return(
                  style={{ margin:10, width: 100, height: 150 }} />
                  </View>
                  <View style={styles.bookinfo}>
-                 <Text style={styles.ftext}>Title: </Text>
-                 <Text style={styles.ftext}>Author: </Text>
-                 <Text style={styles.ftext}>Price: </Text>
-                 <Text style={styles.ftext}>For: Sale</Text>
+                 <Text style={styles.ftext}>Title: {book.title} </Text>
+                 <Text style={styles.ftext}>Author: {book.author}</Text>
+                 <Text style={styles.ftext}>Price: {book.price}</Text>
+                 <Text style={styles.ftext}>{book.type}</Text>
                  </View>
                 </View>
                 

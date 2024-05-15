@@ -82,7 +82,7 @@ const StackNavigator = () => {
       <Stack.Screen name='Homescreen' component={DrawerNavigator} options={{ headerShown: false }} />
       <Stack.Screen name='Searchbar' component={SearchBar} options={{ headerShown: false }}/>
       <Stack.Screen name='Notification' component={Notification} options={{ headerShown: false }} />
-      <Stack.Screen name='Payment' component={Payment} options={{ headerShown: false }} />
+      <Stack.Screen name='Payment' component={Payment} options={{ headerShown: true }} />
       <Stack.Screen name='Order' component={Order} options={{ headerShown: true }} />
       <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
       <Stack.Screen name='SignUp' component={SignUp} options={{ headerShown: false }} />
@@ -115,8 +115,8 @@ const StackNavigator = () => {
        {/* <Stack.Screen name='Library' component={Library} options={{ headerShown: false }}/>  */}
       <Stack.Screen name='Bookdetail' component={Bookdetail} options={{ headerShown: true }} />
       <Stack.Screen name='Faq' component={Faq} options={{ headerShown: false }} />
-      <Stack.Screen name='Paymentstripe' component={Paymentstripe} options={{ headerShown: false }} />
-      <Stack.Screen name='Payment Detail' component={StripeApp} options={{ headerShown: true }} />
+      <Stack.Screen name='Paymentstripe' component={Paymentstripe} options={{ headerShown: true }} />
+      <Stack.Screen name='Payment Detail' component={StripeApp} options={{ headerShown: false }} />
       <Stack.Screen name='NewMessage' component={NewMessage} options={{ headerShown: false }} />
 
 
