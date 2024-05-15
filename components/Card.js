@@ -10,6 +10,10 @@ const Card = ({ id,name, author, img, type, status }) => {
         .then(()=>{
             alert("Book Deleted Sucessfully");
         })
+        // await deleteDoc(doc(db, "HomeBooks", auth.currentUser.uid))
+        // .then(()=>{
+        //     alert("Book Deleted from Home Sucessfully");
+        // })
     }
 
     return (
