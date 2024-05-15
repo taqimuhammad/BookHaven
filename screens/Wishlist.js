@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
       alignSelf: 'center', // Center the button horizontally
       backgroundColor: '#404B7C', // The color you provided
       paddingVertical: 12, // Can be adjusted for height
-      borderRadius: 30, // Adjust for rounded corners
+      borderRadius: 30, 
       
     },
     buttonText: {
