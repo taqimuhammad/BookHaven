@@ -22,7 +22,7 @@ const Order = ({ route, navigation }) => {
         "Delivery",
         "200Rs will be charged for Delivery",
         [
-          { text: "OK", onPress: () => navigation.navigate('Payment') }
+          { text: "OK", onPress: () => navigation.navigate('Payment', { book }) }
         ]
       );
     } else {
@@ -36,8 +36,8 @@ const Order = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <Text style={styles.text}>Order #</Text>
-        <Text style={styles.ttext}> hrs ago</Text>
+        <Text style={styles.text}>Order # 2347</Text>
+        
         <Text style={styles.btext}>Your request for the following order has been accepted</Text>
 
         <View style={styles.detailview}>
