@@ -66,7 +66,7 @@ const Login = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.logoview}>
-                <Image source={require('../img/LoginLogo.jpg')} style={styles.logo}/>
+                <Image source={require('../img/MainLogo.jpg')} style={styles.logo}/>
             </View>
             <KeyboardAvoidingView
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
@@ -116,15 +116,15 @@ const styles = StyleSheet.create({
         padding:10,
     },
     sc: {
-        top:180,
+        top:150,
         // paddingTop:10,
-        height:'40%',
-        width:"100%",
+        height:'35%',
+        width:"90%",
     },
     input: {
         fontSize: 20,
         height: 50,
-        width: 350,
+        width: 300,
         margin: 10,
         borderBottomWidth: 1,
         borderBottomColor:'black',
@@ -172,12 +172,12 @@ const styles = StyleSheet.create({
     },
     logo:{
         alignSelf:'center',
-        height:100,
-        width:"100%",
+        height:200,
+        width:200,
+        resizeMode:'contain',
     },
     logoview:{
-        top:150,
-        padding:5,
+        top:130,
         height:'auto',
         width:"100%",
         // backgroundColor:'blue',
