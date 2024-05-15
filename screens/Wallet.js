@@ -1,22 +1,14 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Wallet = ({ navigation }) => {
-  const handleBack = () => {
-    navigation.navigate("Home");
-  };
+ 
   const handlewallet = () => {
     navigation.navigate("SetupWallet");
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>E- Wallet</Text>
-      <View style={styles.backButtonContainer}>
-        <TouchableOpacity onPress={handleBack} >
-          <Icon name="arrow-back" size={34} color="black" />
-        </TouchableOpacity>
-      </View>
+      
       <View>
         <Text style={styles.text}>Your E-wallet will appear here</Text>
         <Image style={styles.image} source={require('../img/wallet.png')} />
@@ -39,18 +31,7 @@ const styles = StyleSheet.create({
     backgroundColor:'white',
   },
 
-  backButtonContainer: {
-    position: 'absolute',
-    left: 20,
-    top: 50,
-  },
-  title: {
-    fontSize: 30,
-    paddingTop: 40,
-    margin: 10,
-    paddingBottom: 5,
-    fontWeight: 'bold',
-  },
+
   buttonc:{
     alignItems:'center',
     justifyContent:'center',
@@ -81,9 +62,8 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-    position: 'absolute',
     alignSelf: 'center',
-    bottom: -110,
+    top: 100,
   }
 });
 

@@ -2,26 +2,15 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { TouchableOpacity, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Bottomnav from '../components/Bottomnav';
 
 const Notification = ({ navigation }) =>
  {
-    const handleBack = () => {
-        navigation.navigate("Homescreen");
-      };
+    
   
 return(
 <View style={styles.container}>
-      <View style={styles.titlec}>
-      <Text style={styles.title}>Notification</Text> 
-      </View>
-      <View style={styles.backButtonContainer}>
-          <TouchableOpacity onPress={handleBack} >
-          <Icon name="arrow-back" size={34} color="black" />
-          </TouchableOpacity>
-        </View>
-        <Bottomnav navigation={navigation} />
-
+      
+        
 </View>
 
 );
