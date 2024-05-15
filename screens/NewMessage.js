@@ -1,37 +1,68 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { useEffect, useState } from 'react';
-import { GiftedChat } from 'react-native-gifted-chat';
+import { useEffect, useState, useCallback } from 'react';
+import { Bubble, GiftedChat } from 'react-native-gifted-chat';
+import { auth, db } from "../firebaseConfig";
+import { collection, addDoc, getDocs ,query,orderBy} from "firebase/firestore";
+
 
 const NewMessage = () => {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
-        setMessages([
-            {
-                _id: 1,
-                text: 'Hello developer',
-                createdAt: new Date(),
-                user: {
-                    _id: 2,
-                    name: 'React Native',
-                    avatar: 'https://placeimg.com/140/140/any',
-                },
-            },
-        ])
-    }, [])
+        const fetchData = async () => {
+            const q = query(collection(db, "Chats"), orderBy('createdAt', 'desc'));
+            const querySnapshot = await getDocs(q);
+            const updatedData = querySnapshot.docs.map((doc) => ({
+                _id: doc.data()._id,
+                createdAt: doc.data().createdAt.toDate(),
+                text: doc.data().text,
+                user: doc.data().user,
+            }));
+            setMessages(updatedData);
+        };
+        fetchData();
+    }, [messages]);
 
-    const onSend = (messageArray) => {
+    const onSend = useCallback((messages = []) => {
         setMessages(previousMessages =>
-            GiftedChat.append(previousMessages, messageArray),
-        )
-    };
+            GiftedChat.append(previousMessages, messages))
+        const {
+            _id,
+            createdAt,
+            text,
+            user,
+        } = messages[0]
+        const saveData = async () => {
+            const docRef = await addDoc(collection(db, "Chats"), {
+                _id,
+                createdAt,
+                text,
+                user,
+            });
+        };
+        
+        saveData();
+    }, [])
     return (
         <View style={styles.container}>
             <GiftedChat
                 messages={messages}
                 onSend={messages => onSend(messages)}
                 user={{
-                    _id: 1,
+                    _id: auth.currentUser.uid,
+                    name: auth.currentUser.displayName,
+                }}
+                renderBubble={props => {
+                    return <Bubble {...props}
+                        wrapperStyle={{
+                            right: {
+                                backgroundColor: '#3F95D4',
+                            },
+                            left: {
+                                backgroundColor: '#3FD48D',
+
+                            }
+                        }} />
                 }}
             />
         </View>
@@ -41,8 +72,9 @@ const NewMessage = () => {
 export default NewMessage;
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
     },
 
 })
