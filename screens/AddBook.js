@@ -130,6 +130,10 @@ const AddBook = ({ navigation }) => {
     }
   }, [image]);
 
+  useEffect(()=>{
+
+  },[]);
+  
   const saveData = async () => {
     try {
       const docRef = await addDoc(collection(db, "Books"), {

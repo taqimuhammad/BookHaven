@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ActivityIndicator, TouchableOpacity, ScrollView
 import { collection, onSnapshot, getDocs, query, where, } from 'firebase/firestore';
 import { auth, db } from '../firebaseConfig';
 import SearchBar from '../components/searchbar';
-import { BookContainer, Bookinfo } from '../components/BookContainer';
+import { BookContainer } from '../components/BookContainer';
 
 
 const HomePage = ({ navigation }) => {
