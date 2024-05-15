@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         padding:10,
     },
     sc: {
-        top:150,
+        top:110,
         // paddingTop:10,
         height:'35%',
         width:"90%",
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
         resizeMode:'contain',
     },
     logoview:{
-        top:130,
+        top:90,
         height:'auto',
         width:"100%",
         // backgroundColor:'blue',
