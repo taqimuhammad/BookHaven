@@ -9,7 +9,7 @@ const Bookdetail = ({ route , navigation}) => {
     navigation.navigate("Homescreen");
   };
   const msgiconbar = () => {
-    navigation.navigate("");
+    navigation.navigate("NewMessage");
   };
   // Destructure the book object passed through the route
   const { book } = route.params;
