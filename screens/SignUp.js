@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
         flex: 2,
         alignSelf: 'center',
         height:200,
-        width:350,
+        width:320,
     },
     bottomview: {
         flex: 1,
