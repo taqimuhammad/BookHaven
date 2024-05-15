@@ -5,7 +5,7 @@ import React from 'react';
 const WalletCard = ({ navigation }) => {
 
     const handleBack = () => {
-        navigation.navigate("Home");
+        navigation.navigate("Homescreen");
     };
 
     return (

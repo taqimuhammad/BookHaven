@@ -64,6 +64,14 @@ const StackNavigator = () => {
     <Stack.Navigator 
     screenOptions={{
       statusBarColor :"black",
+      headerStyle:{
+        backgroundColor:"#404B7C",
+      },
+      headerTintColor: '#FFFFFF', // Text color of the header
+      headerTitleStyle: {
+      fontWeight: 'bold', // Font weight of the header title
+       },
+       headerTitleAlign: 'center',
     }}>
       <Stack.Screen name='Splash' component={Splash} options={{ headerShown: false }} />
       <Stack.Screen name='Splash2' component={Splash2} options={{ headerShown: false }} />
@@ -83,7 +91,7 @@ const StackNavigator = () => {
       <Stack.Screen name='Settings' component={Settings} options={{ headerShown: false }}/>
       <Stack.Screen name='Signout' component={Signout} options={{ headerShown: false }}/>
       <Stack.Screen name='Wallet' component={Wallet} options={{ headerShown: false }}/>
-      <Stack.Screen name='SetupWallet' component={SetupWallet} options={{ headerShown: false }}/>
+      <Stack.Screen name='SetupWallet' component={SetupWallet} options={{ headerShown: true }}/>
       <Stack.Screen name='WalletCard' component={WalletCard} options={{ headerShown: false }}/>
       <Stack.Screen name='Tracking' component={Tracking} options={{ headerShown: false }}/>
       <Stack.Screen name='Tracking2' component={Tracking2} options={{ headerShown: false }}/>
@@ -101,7 +109,7 @@ const StackNavigator = () => {
       <Stack.Screen name='Faqs' component={Faqs} options={{ headerShown: false }}/>
       <Stack.Screen name='Wishlist' component={Wishlist} options={{ headerShown: false }}/>
       <Stack.Screen name='Bottomnav' component={Bottomnav} options={{ headerShown: false }}/>
-      <Stack.Screen name='Library' component={Library} options={{ headerShown: false }}/>
+       <Stack.Screen name='Library' component={Library} options={{ headerShown: false }}/> 
       <Stack.Screen name='Bookdetail' component={Bookdetail} options={{ headerShown: false }}/>
       <Stack.Screen name='Faq' component={Faq} options={{ headerShown: false }}/>
       <Stack.Screen name='Paymentstripe' component={Paymentstripe} options={{ headerShown: false }}/>
@@ -283,7 +291,7 @@ const chat1 = 'Chat';
         <Tab.Screen name={Home1} component={Homescreen} 
         options={{headerShown: false }} />
         <Tab.Screen name={Library1} component={Library}
-         options={{ headerShown: false }}  />
+         options={{ headerShown:false}}  />
         <Tab.Screen name={Notification1} component={Notification} 
         options={{headerShown: false }} />
         <Tab.Screen name={chat1} component={Chat} 

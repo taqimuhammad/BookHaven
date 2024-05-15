@@ -8,24 +8,16 @@ const Order = ({ navigation }) => {
   const [selfPickup, setSelfPickup] = useState();
   const [delivery, setDelivery] = useState();
 
-  const handleBack = () => {
-    navigation.navigate("Home");
-  };
+
 
   const handlePress = () => {
-    navigation.navigate('Home');
+    navigation.navigate('Payment');
   };
 
   return (
     <View style={styles.container}>
-      <View style={styles.titlec}>
-        <Text style={styles.title}>Order</Text>
-      </View>
-      <View style={styles.backButtonContainer}>
-        <TouchableOpacity onPress={handleBack} >
-          <Icon name="arrow-back" size={34} color="black" />
-        </TouchableOpacity>
-      </View>
+      
+      
       <View style={styles.card}>
         <Text style={styles.text}>Order #</Text>
         <Text style={styles.ttext}> hrs ago</Text>
@@ -81,7 +73,7 @@ const styles = StyleSheet.create({
   },
   card: {
     position: "absolute",
-    marginTop: 100,
+    marginTop: 50,
     left: 10,
     width: 340,
     borderRadius: 10,
@@ -131,11 +123,7 @@ const styles = StyleSheet.create({
     left: 10,
     fontSize: 15,
   },
-  backButtonContainer: {
-    position: 'absolute',
-    top: 40,
-    left: 20,
-  },
+
   buttontext: {
     fontSize: 22,
     color: 'white',
@@ -146,16 +134,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#404B7C',
     height: 48,
-    width: 248,
+    width: 268,
     left: 38,
-    top: 80,
+    top: 100,
     borderRadius: 25,
   },
-  titlec: {
-    position: "absolute",
-    top: 35,
-    left: 120,
-  },
+  
   title: {
     fontSize: 34,
     color: 'black',
