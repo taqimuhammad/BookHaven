@@ -20,11 +20,9 @@ const Wishlist = ({ navigation }) =>
       {key:'5', value:'Rent'},
       ]
 
-    const handleBack = () => {
-        navigation.navigate("Home");
-      };
+    
     const handleSubmit = () => {
-       
+      navigation.navigate("Homescreen");
       //  console.log(bookTitle, authorName, bookType, data);
       };
       
@@ -35,13 +33,9 @@ return(
 
       
       
-      <Text style={styles.title}>Wishlist</Text> 
+      
 
-      <View style={styles.backButtonContainer}>
-     <TouchableOpacity onPress={handleBack} >
-          <Icon name="arrow-back" size={34}  />
-      </TouchableOpacity>
-      </View>
+      
 
         <TextInput
         style={styles.input}
@@ -98,30 +92,19 @@ return(
 };
 const styles = StyleSheet.create({
     container: {
+      flex:1,
       position:"absolute",
+      alignSelf: 'center',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingTop:199,
+      paddingTop:149,
       
     },
   
-    backButtonContainer: {
-        position: 'absolute',
-        top: 34,
-        left: 15,
-    },
-
-    title: {
-      fontSize: 34,
-      color: 'black',
-      fontWeight: 'bold',
-      position: 'absolute',
-      top: 34,
-      left:120,
-    },
+   
     input: {
 
-      bottom:20,
+      bottom:30,
       fontSize:20,
       height:40,
       width:300,
@@ -136,8 +119,8 @@ const styles = StyleSheet.create({
     
     buttonContainer: {
       position: 'absolute',
-      width: '64%',
-      top: 60,
+      width: '100%',
+      top: 100,
       alignSelf: 'center', // Center the button horizontally
       backgroundColor: '#404B7C', // The color you provided
       paddingVertical: 12, // Can be adjusted for height

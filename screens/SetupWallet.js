@@ -8,22 +8,14 @@ const SetupWallet = ({ navigation }) => {
     const [number, onChangeNumber] = React.useState('');
     const [cvcNumber, onChangeCvcNumber] = React.useState('');
     const [expiryDate, onChangeExpiryDate] = React.useState('');
-    const handleBack = () => {
-        navigation.navigate("Home");
-    };
+    
     const handlewalletsetup = () => {
-        navigation.navigate("WalletCard");
+        navigation.navigate("BookHaven");
     };
 
     return (
         <View style={styles.container}>
-            <Text style={styles.heading}>Set up E-Wallet</Text>
-            <View style={styles.backButtonContainer}>
-                <TouchableOpacity onPress={handleBack} >
-                    <Icon name="arrow-back" size={34} color="black" />
-                </TouchableOpacity>
-                <Text style={styles.text}>Enter Card Details Below !</Text>
-            </View>
+           
             <View style={styles.body}>
                 <KeyboardAvoidingView
                     behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -60,13 +52,17 @@ const SetupWallet = ({ navigation }) => {
                         placeholderTextColor={'black'}
                         keyboardType="default"
                     />
-                </KeyboardAvoidingView>
-            </View>
+
             <View style={styles.button}>
             <TouchableOpacity style={styles.buttonc} onPress={handlewalletsetup} >
                    <Text style={styles.textc}>Setup E-Wallet</Text>
                     </TouchableOpacity>
             </View>
+
+                </KeyboardAvoidingView>
+            
+            </View>
+            
         </View>
     )
 }
@@ -75,22 +71,12 @@ export default SetupWallet;
 
 const styles = StyleSheet.create({
     container: {
+       
         flex: 1,
         alignItems: 'center',
         backgroundColor:'white',
     },
-    heading: {
-        fontSize: 30,
-        paddingTop: 40,
-        margin: 10,
-        paddingBottom: 5,
-        fontWeight: 'bold',
-    },
-    backButtonContainer: {
-        position: 'absolute',
-        left: 20,
-        top: 50,
-    },
+    
     text: {
         alignSelf: 'center',
         fontSize: 22,
@@ -118,13 +104,16 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
     },
     body: {
-        marginTop: 80,
+        paddingTop: 150,
+       
     },
     button: {
         flex: 1,
         position: 'absolute',
         alignSelf: 'center',
-        bottom:50,
+        top:380,
+        
+
       }
 
 });
