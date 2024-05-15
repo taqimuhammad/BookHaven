@@ -19,7 +19,8 @@ const Signout = ({ navigation }) => {
     catch((error) =>{
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert(errorMessage);
+      console.log(errorMessage);
+      // alert(errorMessage);
     });
   };
 

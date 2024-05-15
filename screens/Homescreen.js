@@ -10,9 +10,8 @@ const HomePage = ({ navigation }) => {
 
   const [searchPhrase, setSearchPhrase] = useState('');
   const [clicked, setClicked] = useState(false);
-  const [name, setName] = useState('');
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
 
   useEffect(() => {
@@ -27,19 +26,6 @@ const HomePage = ({ navigation }) => {
     };
     getData();
   }, [data]);
-
-  const user = auth.currentUser;
-  if (user !== null) {
-    // The user object has basic properties such as display name, email, etc.
-    const displayName = user.displayName;
-    const email = user.email;
-    // user.displayName is working but not displayName
-  }
-
-  useEffect(() =>{
-    setName(user.displayName);
-    // console.log(name);
-  },[name])
 
   return (
     <View >
@@ -60,7 +46,7 @@ const HomePage = ({ navigation }) => {
               title={book.data.BookTitle}
               author={book.data.Author}
               price={book.data.Price}
-              uploadedby={name}
+              uploadedby={book.data.UploadedBy}
               image={book.data.Image}
               type={book.data.Type}
             />
