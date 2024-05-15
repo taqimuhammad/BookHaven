@@ -8,8 +8,9 @@ import 'react-native-gesture-handler';
 import { SafeAreaView, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import EntyIcon from 'react-native-vector-icons/Entypo';
-import Iconm from 'react-native-vector-icons/MaterialIcons';
+import Ionics from 'react-native-vector-icons/Octicons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionic from 'react-native-vector-icons/FontAwesome';
 import pic from './img/Capture.png';
 
 import Splash from './screens/Splash';
@@ -82,7 +83,7 @@ const StackNavigator = () => {
       <Stack.Screen name='Searchbar' component={SearchBar} options={{ headerShown: false }}/>
       <Stack.Screen name='Notification' component={Notification} options={{ headerShown: false }} />
       <Stack.Screen name='Payment' component={Payment} options={{ headerShown: false }} />
-      <Stack.Screen name='Order' component={Order} options={{ headerShown: false }} />
+      <Stack.Screen name='Order' component={Order} options={{ headerShown: true }} />
       <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
       <Stack.Screen name='SignUp' component={SignUp} options={{ headerShown: false }} />
       <Stack.Screen name='loginpagebutton' component={Button} options={{ headerShown: false }} />
@@ -112,7 +113,7 @@ const StackNavigator = () => {
       <Stack.Screen name='Wishlist' component={Wishlist} options={{ headerShown: false }} />
       <Stack.Screen name='Bottomnav' component={Bottomnav} options={{ headerShown: false }} />
        {/* <Stack.Screen name='Library' component={Library} options={{ headerShown: false }}/>  */}
-      <Stack.Screen name='Bookdetail' component={Bookdetail} options={{ headerShown: false }} />
+      <Stack.Screen name='Bookdetail' component={Bookdetail} options={{ headerShown: true }} />
       <Stack.Screen name='Faq' component={Faq} options={{ headerShown: false }} />
       <Stack.Screen name='Paymentstripe' component={Paymentstripe} options={{ headerShown: false }} />
       <Stack.Screen name='Payment Detail' component={StripeApp} options={{ headerShown: true }} />
@@ -225,18 +226,18 @@ const DrawerNavigator = () => {
             <EntyIcon name="location" color={color} size={size} />
           ),
         }} />
-      <Drawer.Screen name='Order' component={Order}
+      <Drawer.Screen name='UserProfile' component={EditProfile}
         options={{
           headerShown: true,
           drawerIcon: ({ color, size }) => (
-            <Iconm name="delivery-dining" color={color} size={size} />
+            <Ionic name="user-circle-o" color={color} size={size} />
           ),
         }} />
-      <Drawer.Screen name='Payment' component={Payment}
+      <Drawer.Screen name='Signout' component={Signout}
         options={{
           headerShown: true,
           drawerIcon: ({ color, size }) => (
-            <Iconm name="payment" color={color} size={size} />
+            <Ionics name="sign-out" color={color} size={size} />
           ),
         }} />
 

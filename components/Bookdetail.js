@@ -1,41 +1,37 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, ScrollView,TouchableOpacity} from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+const Bookdetail = ({ route, navigation }) => {
+  const { book } = route.params;
 
-const Bookdetail = ({ route , navigation}) => {
-
-  const handleBack = () => {
-    navigation.navigate("Homescreen");
-  };
   const msgiconbar = () => {
     navigation.navigate("NewMessage");
   };
-  // Destructure the book object passed through the route
-  const { book } = route.params;
+
+  const handleSubmit = () => {
+    navigation.navigate("Order", { book });
+  };
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.heading}>Book Details</Text>
       <View style={styles.msgContainer}>
-          <TouchableOpacity onPress={msgiconbar} >            
-          <Icon name="message" left={10} top={6} size={34} color="rgba(64, 75, 124, 1)" />
+        <TouchableOpacity onPress={msgiconbar}>
+          <Icon name="message" size={34} color="rgba(64, 75, 124, 1)" />
           <Text>Message</Text>
-          </TouchableOpacity>
-        </View>
-      <View style={styles.backButtonContainer}>
-          <TouchableOpacity onPress={handleBack} >
-          <Icon name="arrow-back" size={34} color="black" />
-          </TouchableOpacity>
-        </View>
-      <Image source={{uri:book.image}} style={styles.image} />
+        </TouchableOpacity>
+      </View>
+      <Image source={{ uri: book.image }} style={styles.image} />
       <View style={styles.infoContainer}>
-      <Text style={styles.type}>{book.type}</Text>
+        <Text style={styles.type}>For {book.type} :</Text>
         <Text style={styles.title}>Title: {book.title}</Text>
         <Text style={styles.author}>Author: {book.author}</Text>
         <Text style={styles.price}>Price: {book.price}</Text>
         <Text style={styles.uploadedBy}>Uploaded by: {book.uploadedby}</Text>
-        <Text style={styles.chattext}>Chat with Owner Now:</Text>
+        <Text style={styles.chattext}>Chat with Owner:</Text>
+        <TouchableOpacity onPress={handleSubmit} style={styles.buttonContainer}>
+          <Text style={styles.Ordertext}>Order Now</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -43,76 +39,75 @@ const Bookdetail = ({ route , navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FFFFFF'
+    flex: 1,
+    backgroundColor: '#FFFFFF',
   },
   image: {
-    marginTop:120,
+    marginTop: 50,
     width: '100%',
     height: 250,
     resizeMode: "contain",
   },
   infoContainer: {
     alignItems: "baseline",
-    padding: 0,
   },
-  heading: {
-    position: "absolute",
-    top:33,
-    left:88,
-    fontSize: 34,
-    fontWeight: "bold",
+  buttonContainer: {
+    width: '50%',
+    alignSelf: 'center',
+    backgroundColor: '#404B7C',
+    paddingVertical: 12,
+    borderRadius: 30,
+    marginTop: 15,
   },
-  backButtonContainer: {
-
+  msgContainer: {
     position: "absolute",
-    top: 40,
-    left: 8,
-},
-msgContainer:{
-  position: "absolute",
-  bottom: 34,
-  right: 40,
-},
+    top: 520,
+    right: 100,
+  },
   title: {
-    left:35,
+    left: 35,
     fontSize: 20,
     fontWeight: "normal",
-    paddingBottom:8,
+    paddingBottom: 8,
   },
   author: {
-    left:35,
+    left: 35,
     fontSize: 20,
     fontWeight: "normal",
-    paddingBottom:8,
+    paddingBottom: 8,
   },
   price: {
-    left:35,
+    left: 35,
     fontSize: 20,
     fontWeight: "normal",
-    paddingBottom:8,
-  },
-  chattext:{
-    right:20,
-    fontSize: 20,
-    fontWeight: "normal",
-    padding:55,
-  
-
+    paddingBottom: 8,
   },
   uploadedBy: {
-    left:35,
+    left: 35,
     fontSize: 20,
     fontWeight: "normal",
-    paddingBottom:8,
+    paddingBottom: 8,
+  },
+  chattext: {
+    left: 22,
+    fontSize: 20,
+    fontWeight: "normal",
+    padding: 12,
+  },
+  Ordertext: {
+    color: 'white',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 20,
   },
   type: {
-    left:80,
+    alignSelf: "center",
     fontSize: 24,
     fontWeight: 'bold',
     color: '#404B7C',
     margin: 20,
     textTransform: 'uppercase',
-    padding:6,
+    padding: 6,
   },
 });
 
