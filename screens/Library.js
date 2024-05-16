@@ -8,19 +8,35 @@ const Library = ({ navigation }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // const getData = async () => {
+  //   const q = query(collection(db, "Books"), where("UserId", "==", auth.currentUser.uid));
+  //   const querySnapshot = await getDocs(q);
+  //   const updatedData = querySnapshot.docs.map((book) => ({
+  //     id: book.id,
+  //     data: book.data(),
+  //   }));
+  //   setData(updatedData);
+  //   setLoading(false);
+  // };
+
   useEffect(() => {
-    const getData = async () => {
-      const q = query(collection(db, "Books"), where("UserId", "==", auth.currentUser.uid));
-      const querySnapshot = await getDocs(q);
+    const q = query(collection(db, "Books"), where("UserId", "==", auth.currentUser.uid));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const updatedData = querySnapshot.docs.map((book) => ({
         id: book.id,
         data: book.data(),
       }));
       setData(updatedData);
       setLoading(false);
-    };
-    getData();
+  });
+  return () => unsubscribe();
+  
+  }, []);
+
+  useEffect(() => {
+    console.log("Data of Library:", data); // Log data whenever it changes
   }, [data]);
+
 
   const handleaddbook = () => {
     navigation.navigate("AddBook");
