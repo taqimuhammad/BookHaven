@@ -13,18 +13,29 @@ const HomePage = ({ navigation }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
+  // const getData = async () => {
+  //   const querySnapshot = await getDocs(collection(db, "HomeBooks"));
+  //   const updatedData = querySnapshot.docs.map((book) => ({
+  //     id: book.id,
+  //     data: book.data(),
+  //   }));
+  //   setData(updatedData);
+  //   setLoading(false);
+  // };
   useEffect(() => {
-    const getData = async () => {
-      const querySnapshot = await getDocs(collection(db, "HomeBooks"));
+      const unsubscribe = onSnapshot(collection(db, "HomeBooks"), (querySnapshot) => {
       const updatedData = querySnapshot.docs.map((book) => ({
         id: book.id,
         data: book.data(),
       }));
       setData(updatedData);
       setLoading(false);
-    };
-    getData();
+    });
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    console.log("Data of Homescreen:", data); // Log data whenever it changes
   }, [data]);
 
   return (
