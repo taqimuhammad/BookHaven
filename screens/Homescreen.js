@@ -1,29 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, ActivityIndicator, TouchableOpacity, ScrollView } from 'react-native';
-import { collection, onSnapshot, getDocs, query, where, } from 'firebase/firestore';
-import { auth, db } from '../firebaseConfig';
+import { collection, onSnapshot } from 'firebase/firestore';
+import { db } from '../firebaseConfig';
 import SearchBar from '../components/SearchBar';
 import { BookContainer } from '../components/BookContainer';
 
-
 const HomePage = ({ navigation }) => {
-
   const [searchPhrase, setSearchPhrase] = useState('');
   const [clicked, setClicked] = useState(false);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // const getData = async () => {
-  //   const querySnapshot = await getDocs(collection(db, "HomeBooks"));
-  //   const updatedData = querySnapshot.docs.map((book) => ({
-  //     id: book.id,
-  //     data: book.data(),
-  //   }));
-  //   setData(updatedData);
-  //   setLoading(false);
-  // };
   useEffect(() => {
-      const unsubscribe = onSnapshot(collection(db, "HomeBooks"), (querySnapshot) => {
+    const unsubscribe = onSnapshot(collection(db, "HomeBooks"), (querySnapshot) => {
       const updatedData = querySnapshot.docs.map((book) => ({
         id: book.id,
         data: book.data(),
@@ -35,12 +24,16 @@ const HomePage = ({ navigation }) => {
   }, []);
 
   useEffect(() => {
-    console.log("Data of Homescreen:", data); // Log data whenever it changes
+    console.log("Data of Homescreen:", data);
   }, [data]);
 
-  return (
-    <View >
+  // Filtered data based on the search phrase
+  const filteredData = data.filter(book => 
+    book.data.BookTitle.toLowerCase().includes(searchPhrase.toLowerCase())
+  );
 
+  return (
+    <View style={styles.container}>
       <SearchBar
         clicked={clicked}
         searchPhrase={searchPhrase}
@@ -52,7 +45,7 @@ const HomePage = ({ navigation }) => {
         </View>
       ) : (
         <ScrollView style={styles.bookList}>
-          {data.map((book) => (
+          {filteredData.map((book) => (
             <BookContainer key={book.id}
               title={book.data.BookTitle}
               author={book.data.Author}
@@ -74,12 +67,15 @@ const styles = StyleSheet.create({
     position: "relative",
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white', // Set the background color for the home page
+    backgroundColor: 'white',
   },
   loaderContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  bookList: {
+    width: '100%',
   },
 });
 

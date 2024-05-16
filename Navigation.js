@@ -81,7 +81,7 @@ const StackNavigator = () => {
       <Stack.Screen name='Splash3' component={Splash3} options={{ headerShown: false }} />
       <Stack.Screen name='Homescreen' component={DrawerNavigator} options={{ headerShown: false }} />
       <Stack.Screen name='Searchbar' component={SearchBar} options={{ headerShown: false }}/>
-      <Stack.Screen name='Notification' component={Notification} options={{ headerShown: false }} />
+      <Stack.Screen name='Notification' component={Notification} options={{ headerShown: true }} />
       <Stack.Screen name='Payment' component={Payment} options={{ headerShown: true }} />
       <Stack.Screen name='Order' component={Order} options={{ headerShown: true }} />
       <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
@@ -101,20 +101,20 @@ const StackNavigator = () => {
       <Stack.Screen name='Tracking3' component={Tracking3} options={{ headerShown: false }} />
       <Stack.Screen name='Tracking4' component={Tracking4} options={{ headerShown: false }} />
       <Stack.Screen name='UserProfile' component={UserProfile} options={{ headerShown: false }} />
-      <Stack.Screen name='EditProfile' component={EditProfile} options={{ headerShown: false }} />
+      <Stack.Screen name='EditProfile' component={EditProfile} options={{ headerShown: true }} />
       <Stack.Screen name='SetupLocation' component={SetupLocation} options={{ headerShown: false }} />
       <Stack.Screen name='DeleteAccount' component={DeleteAccount} options={{ headerShown: false }} />
       <Stack.Screen name='DeleteConfirmation' component={DeleteConfirmation} options={{ headerShown: false }} />
       <Stack.Screen name='AddBook' component={AddBook} options={{ headerShown: false }} />
-      <Stack.Screen name='TermsPolicies' component={TermsPolicies} options={{ headerShown: false }} />
-      <Stack.Screen name='HelpSupport' component={HelpSupport} options={{ headerShown: false }} />
-      <Stack.Screen name='ReportProblem' component={ReportProblem} options={{ headerShown: false }} />
+      <Stack.Screen name='TermsPolicies' component={TermsPolicies} options={{ headerShown: true }} />
+      <Stack.Screen name='HelpSupport' component={HelpSupport} options={{ headerShown: true }} />
+      <Stack.Screen name='ReportProblem' component={ReportProblem} options={{ headerShown: true }} />
       <Stack.Screen name='Faqs' component={Faqs} options={{ headerShown: false }} />
       <Stack.Screen name='Wishlist' component={Wishlist} options={{ headerShown: false }} />
       <Stack.Screen name='Bottomnav' component={Bottomnav} options={{ headerShown: false }} />
        {/* <Stack.Screen name='Library' component={Library} options={{ headerShown: false }}/>  */}
       <Stack.Screen name='Bookdetail' component={Bookdetail} options={{ headerShown: true }} />
-      <Stack.Screen name='Faq' component={Faq} options={{ headerShown: false }} />
+      <Stack.Screen name='Faq' component={Faq} options={{ headerShown: true }} />
       <Stack.Screen name='Paymentstripe' component={Paymentstripe} options={{ headerShown: true }} />
       <Stack.Screen name='Payment Detail' component={StripeApp} options={{ headerShown: false }} />
       <Stack.Screen name='NewMessage' component={NewMessage} options={{ headerShown: false }} />
@@ -226,7 +226,7 @@ const DrawerNavigator = () => {
             <EntyIcon name="location" color={color} size={size} />
           ),
         }} />
-      <Drawer.Screen name='UserProfile' component={EditProfile}
+      <Drawer.Screen name='UserProfile' component={UserProfile}
         options={{
           headerShown: true,
           drawerIcon: ({ color, size }) => (

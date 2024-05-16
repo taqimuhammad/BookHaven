@@ -4,18 +4,10 @@ import React from 'react';
 
 const HelpSupport = ({ navigation }) => {
 
-    const handleBack = () => {
-        navigation.navigate("Settings");
-    };
-
+  
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Help & Support</Text>
-            <View style={styles.backButtonContainer}>
-                <TouchableOpacity onPress={handleBack} >
-                    <Icon name="arrow-back" size={34} color="black" />
-                </TouchableOpacity>
-            </View>
+           
 
             <ScrollView style={styles.card}>
                 <Text style={styles.texthead}>FAQs</Text>
@@ -77,18 +69,7 @@ const styles = StyleSheet.create({
         backgroundColor:'white',
     },
 
-    backButtonContainer: {
-        position: 'absolute',
-        left: 20,
-        top: 50,
-    },
-    title: {
-        fontSize: 30,
-        paddingTop: 40,
-        margin: 10,
-        paddingBottom: 5,
-        fontWeight: 'bold',
-    },
+   
     card: {
         flex: 1,
         marginTop: 20,

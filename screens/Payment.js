@@ -28,7 +28,7 @@ return(
                 <View style={styles.detailview}>                
                 <View>
                 <Image
-                 source={img1} // defaultSource={require('./path/to/placeholder-image.jpg')} Corrected source
+                 source={{uri: book.image}} // defaultSource={require('./path/to/placeholder-image.jpg')} Corrected source
                  style={{ margin:10, width: 100, height: 150 }} />
                  </View>
                  <View style={styles.bookinfo}>

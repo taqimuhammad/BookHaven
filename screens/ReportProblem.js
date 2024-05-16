@@ -8,9 +8,7 @@ const ReportProblem = ({ navigation }) => {
     const [title, onChangeTitle] = React.useState('');
     const [description, onChangeDescription] = React.useState('');
 
-    const handleBack = () => {
-        navigation.navigate("Settings");
-    };
+ 
 
     const handlereport = () => {
         navigation.navigate("Homescreen");
@@ -18,12 +16,7 @@ const ReportProblem = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Report Problem</Text>
-            <View style={styles.backButtonContainer}>
-                <TouchableOpacity onPress={handleBack} >
-                    <Icon name="arrow-back" size={34} color="black" />
-                </TouchableOpacity>
-            </View>
+            
             <Text style={styles.text}>Title</Text>
             <TextInput
                         style={styles.input}
@@ -63,18 +56,6 @@ const styles = StyleSheet.create({
         backgroundColor:'white',
     },
 
-    backButtonContainer: {
-        position: 'absolute',
-        left: 20,
-        top: 50,
-    },
-    title: {
-        fontSize: 30,
-        paddingTop: 40,
-        margin: 10,
-        paddingBottom: 5,
-        fontWeight: 'bold',
-    },
     card:{
         marginTop:20,
         height:200,
@@ -119,7 +100,7 @@ const styles = StyleSheet.create({
     text:{
         fontSize:25,
         fontWeight:'500',
-        marginTop:20,
+        marginTop:50,
         marginLeft:40,
         alignSelf:'flex-start',
     },
