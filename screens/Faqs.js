@@ -11,12 +11,7 @@ const Faqs = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>FAQs</Text>
-            <View style={styles.backButtonContainer}>
-                <TouchableOpacity onPress={handleBack} >
-                    <Icon name="arrow-back" size={34} color="black" />
-                </TouchableOpacity>
-            </View>
+
             <View style={styles.sc}>
                 <ScrollView contentContainerStyle={styles.mainContainer}>
                     <Accordion

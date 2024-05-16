@@ -13,31 +13,7 @@ const UserProfile = ({ navigation }) => {
   const [password, onChangePassword] = useState(null);
   const [RePassword, onChangeReEnterPassword] = useState(null);
 
-  const handleBack = () => {
-    navigation.navigate("Settings");
-  };
-  
-  // const handleupdateemail = async () => {
-  //   updateEmail(auth.currentUser,email)
-  //   .then(() => {
-  //     onChangeEmail(auth.currentUser.email);
-  //     console.log("Email updated");
-  //   }).catch((error) => {
-  //     alert(error);
-  //   });
-  // };
 
-  // const handleupdatepassword = async () => {
-  //   const newPassword = getASecureRandomPassword();
-  //   updatePassword(auth.currentUser, newPassword)
-  //   .then(() => {
-  //     password = newPassword;
-  //     RePassword = newPassword;
-  //     console.log("Password Updated");
-  //   }).catch((error) => {
-  //     alert(error);
-  //   });
-  // };
 
   const handleupdateprofile = async () => {
     const docRef = doc(db, "Users" , auth.currentUser.uid);
@@ -65,12 +41,7 @@ const UserProfile = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.topview}>
-        <Text style={styles.heading}>Edit Profile</Text>
-        <View style={styles.backButtonContainer}>
-          <TouchableOpacity onPress={handleBack} >
-            <Icon name="arrow-back" size={34} color="white" />
-          </TouchableOpacity>
-        </View>
+        
         <View>
           <Image source={require('../img/profile.jpg')} style={styles.image} />
           <TouchableOpacity style={styles.editicon} activeOpacity={0.9}>
@@ -151,7 +122,7 @@ const styles = StyleSheet.create({
   button: {
     position: 'absolute',
     alignSelf: 'center',
-    bottom: -120,
+    bottom: -80,
 
   },
   input: {
@@ -161,19 +132,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderBottomWidth: 1,
   },
-  heading: {
-    color: 'white',
-    fontSize: 24,
-    paddingTop: 20,
-    margin: 10,
-    paddingBottom: 5,
-    alignSelf: 'center',
-  },
-  backButtonContainer: {
-    position: 'absolute',
-    left: 20,
-    top: 30,
-  },
+ 
   buttonc: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -208,7 +167,7 @@ const styles = StyleSheet.create({
   },
   username: {
     fontSize: 25,
-    top: 20,
+    top: 25,
     alignSelf: 'center',
   },
   email: {
@@ -221,7 +180,7 @@ const styles = StyleSheet.create({
     flex: 2,
   },
   insidebody: {
-    marginTop: 110,
+    marginTop: 50,
     alignSelf: 'center',
   },
   icon1: {

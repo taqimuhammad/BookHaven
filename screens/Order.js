@@ -43,7 +43,7 @@ const Order = ({ route, navigation }) => {
         <View style={styles.detailview}>
           <View>
             <Image
-              source={img1}
+              source={{uri: book.image}}
               style={{ margin: 10, width: 100, height: 150 }}
             />
           </View>

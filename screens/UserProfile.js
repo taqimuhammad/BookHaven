@@ -8,9 +8,7 @@ import { auth } from "../firebaseConfig";
 
 const UserProfile = ({ navigation }) => {
 
-  const handleBack = () => {
-    navigation.navigate("Homescreen");
-  };
+ 
 
   const GoToEditProfile = () => {
     navigation.navigate("EditProfile");
@@ -51,12 +49,7 @@ const UserProfile = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.topview}>
-        <Text style={styles.heading}>Profile</Text>
-        <View style={styles.backButtonContainer}>
-          <TouchableOpacity onPress={handleBack} >
-            <Icon name="arrow-back" size={34} color="white" />
-          </TouchableOpacity>
-        </View>
+       
         
         <View style={styles.imageview}>
           <Image source={require('../img/profile.jpg')} style={styles.image} />
@@ -125,19 +118,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  heading: {
-    color: 'white',
-    fontSize: 34,
-    paddingTop: 20,
-    margin: 10,
-    paddingBottom: 5,
-    alignSelf: 'center',
-  },
-  backButtonContainer: {
-    position: 'absolute',
-    left: 20,
-    top: 35,
-  },
+ 
   topview: {
     flex: 0.60,
     backgroundColor: '#C1BADC',
@@ -157,15 +138,15 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: 'white',
     position: 'absolute',
-    right: 30,
-    top: 45,
+    right: 5,
+    top: 110,
   },
   email: {
     fontSize: 20,
     color: '#C1BADC',
     position: 'absolute',
     right: 30,
-    top: 85,
+    top: 155,
     fontWeight: 'bold',
   },
   body: {
